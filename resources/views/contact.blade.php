@@ -1,0 +1,83 @@
+@extends('layouts.app')
+
+@section('title', 'Contact Us - Agunfon LMS')
+
+@push('styles')
+<style>
+    .font-serif-italic {
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+    }
+    .shadow-soft {
+        box-shadow: 0 10px 40px -10px rgba(15, 61, 122, 0.08);
+    }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+@endpush
+
+@section('content')
+<!-- Hero / Contact Section -->
+<main class="flex-grow bg-gradient-to-b from-[#F3F7FC] via-white to-white py-20">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <!-- Left Side Copy -->
+        <div class="lg:pt-12">
+            <span class="inline-block px-4 py-1.5 rounded-full border border-gray-200 text-brand-700 text-xs font-bold tracking-widest mb-6 bg-white/50 uppercase">
+                Contact Sales
+            </span>
+            <h1 class="text-5xl lg:text-6xl font-bold text-brand-700 leading-[1.1] mb-8">
+                We're here to help. <br>
+                Let's know <span class="font-serif-italic text-brand-500 font-medium italic">How!</span>
+            </h1>
+            <p class="text-lg text-gray-600 leading-relaxed max-w-lg">
+                Reach out for sales inquiries, support requests, or partnership opportunities. Get in touch and discover how Agunfon can support your learning and organizational goals.
+            </p>
+        </div>
+
+        <!-- Right Side Form Card -->
+        <div class="bg-white rounded-[32px] p-8 lg:p-10 shadow-soft border border-white/60">
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-brand-700 mb-2">Contact form</h2>
+                <p class="text-sm text-gray-500">Tell us a bit about your organization and we'll be in touch!</p>
+            </div>
+
+            <form class="space-y-6" action="#" method="POST">
+                @csrf
+                <div class="space-y-2">
+                    <label class="text-sm font-bold text-gray-900">Name<span class="text-red-500">*</span></label>
+                    <input type="text" name="name" placeholder="Enter your full name" class="w-full px-5 py-4 rounded-xl border border-gray-100 bg-[#F9FAFB] focus:outline-none focus:ring-2 focus:ring-brand-400/20 focus:border-brand-400 transition-all" required>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-sm font-bold text-gray-900">Company<span class="text-red-500">*</span></label>
+                    <input type="text" name="company" placeholder="Your organization or institution" class="w-full px-5 py-4 rounded-xl border border-gray-100 bg-[#F9FAFB] focus:outline-none focus:ring-2 focus:ring-brand-400/20 focus:border-brand-400 transition-all" required>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-sm font-bold text-gray-900">Email<span class="text-red-500">*</span></label>
+                    <input type="email" name="email" placeholder="We'll send your confirmation here" class="w-full px-5 py-4 rounded-xl border border-gray-100 bg-[#F9FAFB] focus:outline-none focus:ring-2 focus:ring-brand-400/20 focus:border-brand-400 transition-all" required>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-sm font-bold text-gray-900">Phone</label>
+                    <div class="flex gap-3">
+                        <div class="flex items-center gap-2 px-4 py-4 rounded-xl border border-gray-100 bg-[#F9FAFB] cursor-pointer">
+                            <iconify-icon icon="twemoji:flag-nigeria" class="text-xl"></iconify-icon>
+                            <iconify-icon icon="lucide:chevron-down" class="text-xs text-gray-400"></iconify-icon>
+                        </div>
+                        <input type="tel" name="phone" placeholder="Optional" class="flex-grow px-5 py-4 rounded-xl border border-gray-100 bg-[#F9FAFB] focus:outline-none focus:ring-2 focus:ring-brand-400/20 focus:border-brand-400 transition-all">
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-sm font-bold text-gray-900">Inquiry Type<span class="text-red-500">*</span></label>
+                    <textarea rows="4" name="message" placeholder="Tell us what you're looking to achieve with Agunfon" class="w-full px-5 py-4 rounded-xl border border-gray-100 bg-[#F9FAFB] focus:outline-none focus:ring-2 focus:ring-brand-400/20 focus:border-brand-400 transition-all resize-none" required></textarea>
+                </div>
+
+                <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-gray-900 text-white font-bold rounded-xl hover:bg-black transition-all shadow-lg hover:shadow-xl">
+                    Book a Demo
+                </button>
+            </form>
+        </div>
+    </div>
+</main>
+@endsection
