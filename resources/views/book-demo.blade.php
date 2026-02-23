@@ -31,7 +31,11 @@
         background-color: #fff;
         box-shadow: 0 0 0 4px rgba(75, 139, 232, 0.1);
     }
+    .form-input.is-invalid {
+        border-color: #EF4444;
+    }
 </style>
+<script src="https://www.google.com/recaptcha/enterprise.js?render={{ config('services.recaptcha.site_key') }}"></script>
 @endpush
 
 @section('content')
@@ -55,22 +59,31 @@
             <h2 class="text-2xl font-bold text-brand-700 mb-2">Demo Booking Form</h2>
             <p class="text-sm text-gray-400 mb-10">Tell us a bit about your organization, and we'll tailor the demo to your needs.</p>
 
-            <form class="space-y-6" action="#" method="POST">
+            @if(session('error'))
+            <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm">
+                {{ session('error') }}
+            </div>
+            @endif
+
+            <form id="demo-form" class="space-y-6" action="{{ route('demo.store') }}" method="POST">
                 @csrf
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-bold text-brand-700 mb-2">Name<span class="text-red-500">*</span></label>
-                        <input type="text" name="name" placeholder="Elebute Usman" class="form-input" required>
+                        <input type="text" name="name" value="{{ old('name') }}" placeholder="Elebute Usman" class="form-input @error('name') is-invalid @enderror" required>
+                        @error('name')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-brand-700 mb-2">Company<span class="text-red-500">*</span></label>
-                        <input type="text" name="company" placeholder="Hype360" class="form-input" required>
+                        <input type="text" name="company" value="{{ old('company') }}" placeholder="Hype360" class="form-input @error('company') is-invalid @enderror" required>
+                        @error('company')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-sm font-bold text-brand-700 mb-2">Email<span class="text-red-500">*</span></label>
-                    <input type="email" name="email" placeholder="elebuteusman@gmail.com" class="form-input" required>
+                    <input type="email" name="email" value="{{ old('email') }}" placeholder="elebuteusman@gmail.com" class="form-input @error('email') is-invalid @enderror" required>
+                    @error('email')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
                 </div>
 
                 <div>
@@ -80,58 +93,67 @@
                             <iconify-icon icon="emojione:flag-for-nigeria" class="text-xl"></iconify-icon>
                             <iconify-icon icon="lucide:chevron-down" class="text-xs text-gray-400"></iconify-icon>
                         </div>
-                        <input type="tel" name="phone" placeholder="09079682537" class="flex-grow form-input">
+                        <input type="tel" name="phone" value="{{ old('phone') }}" placeholder="09079682537" class="flex-grow form-input">
                     </div>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-bold text-brand-700 mb-2">Industry / Use Case<span class="text-red-500">*</span></label>
-                        <select name="industry" class="form-input appearance-none" required>
+                        <select name="industry" class="form-input appearance-none @error('industry') is-invalid @enderror" required>
                             <option value="">Select Industry</option>
-                            <option value="Human Resources">Human Resources</option>
-                            <option value="Customer Support">Customer Support</option>
-                            <option value="Information Technology">Information Technology</option>
-                            <option value="Finance">Finance</option>
-                            <option value="Healthcare">Healthcare</option>
-                            <option value="Education">Education</option>
-                            <option value="Retail">Retail</option>
-                            <option value="Other">Other</option>
+                            <option value="Human Resources" {{ old('industry') == 'Human Resources' ? 'selected' : '' }}>Human Resources</option>
+                            <option value="Customer Support" {{ old('industry') == 'Customer Support' ? 'selected' : '' }}>Customer Support</option>
+                            <option value="Information Technology" {{ old('industry') == 'Information Technology' ? 'selected' : '' }}>Information Technology</option>
+                            <option value="Finance" {{ old('industry') == 'Finance' ? 'selected' : '' }}>Finance</option>
+                            <option value="Healthcare" {{ old('industry') == 'Healthcare' ? 'selected' : '' }}>Healthcare</option>
+                            <option value="Education" {{ old('industry') == 'Education' ? 'selected' : '' }}>Education</option>
+                            <option value="Retail" {{ old('industry') == 'Retail' ? 'selected' : '' }}>Retail</option>
+                            <option value="Other" {{ old('industry') == 'Other' ? 'selected' : '' }}>Other</option>
                         </select>
+                        @error('industry')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-brand-700 mb-2">Team Size<span class="text-red-500">*</span></label>
-                        <select name="team_size" class="form-input appearance-none" required>
+                        <select name="team_size" class="form-input appearance-none @error('team_size') is-invalid @enderror" required>
                             <option value="">Select Size</option>
-                            <option value="1-20">1-20</option>
-                            <option value="20-50">20-50</option>
-                            <option value="50-200">50-200</option>
-                            <option value="200-500">200-500</option>
-                            <option value="500+">500+</option>
+                            <option value="1-20" {{ old('team_size') == '1-20' ? 'selected' : '' }}>1-20</option>
+                            <option value="20-50" {{ old('team_size') == '20-50' ? 'selected' : '' }}>20-50</option>
+                            <option value="50-200" {{ old('team_size') == '50-200' ? 'selected' : '' }}>50-200</option>
+                            <option value="200-500" {{ old('team_size') == '200-500' ? 'selected' : '' }}>200-500</option>
+                            <option value="500+" {{ old('team_size') == '500+' ? 'selected' : '' }}>500+</option>
                         </select>
+                        @error('team_size')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-sm font-bold text-brand-700 mb-2">Project Summary</label>
-                    <textarea name="summary" placeholder="To train customer about our product" rows="4" class="form-input resize-none"></textarea>
+                    <textarea name="summary" placeholder="To train customer about our product" rows="4" class="form-input resize-none">{{ old('summary') }}</textarea>
                 </div>
 
                 <div>
                     <label class="block text-sm font-bold text-brand-700 mb-2">Preferred Date & Time<span class="text-red-500">*</span></label>
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="relative">
-                            <input type="date" name="preferred_date" class="form-input pr-10" required>
+                            <input type="date" name="preferred_date" value="{{ old('preferred_date') }}" class="form-input pr-10 @error('preferred_date') is-invalid @enderror" required>
                             <iconify-icon icon="lucide:calendar" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></iconify-icon>
+                            @error('preferred_date')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
                         </div>
                         <div class="relative">
-                            <input type="time" name="preferred_time" class="form-input pr-10" required>
+                            <input type="time" name="preferred_time" value="{{ old('preferred_time') }}" class="form-input pr-10 @error('preferred_time') is-invalid @enderror" required>
                             <iconify-icon icon="lucide:clock" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></iconify-icon>
+                            @error('preferred_time')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
                         </div>
                     </div>
                 </div>
 
-                <button type="submit" class="px-8 py-3.5 bg-gray-900 text-white font-bold rounded-xl hover:bg-black transition-all w-full md:w-auto">
+                <!-- reCAPTCHA Token (hidden) -->
+                <input type="hidden" name="g-recaptcha-response" id="recaptcha-token">
+                @error('g-recaptcha-response')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
+                @error('captcha')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
+
+                <button type="submit" id="submit-btn" class="px-8 py-3.5 bg-gray-900 text-white font-bold rounded-xl hover:bg-black transition-all w-full md:w-auto">
                     Book a Demo
                 </button>
             </form>
@@ -303,4 +325,29 @@
         </main>
     </div>
 </section>
+
+@push('scripts')
+<script>
+document.getElementById('demo-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = this;
+    const btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+    
+    grecaptcha.enterprise.ready(async () => {
+        try {
+            const token = await grecaptcha.enterprise.execute('{{ config('services.recaptcha.site_key') }}', {action: 'demo_submit'});
+            document.getElementById('recaptcha-token').value = token;
+            form.submit();
+        } catch (error) {
+            console.error('reCAPTCHA error:', error);
+            btn.disabled = false;
+            btn.textContent = 'Book a Demo';
+            alert('reCAPTCHA verification failed. Please try again.');
+        }
+    });
+});
+</script>
+@endpush
 @endsection
