@@ -29,7 +29,7 @@
                                         <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=300" alt="Learning Suites" class="w-full h-full object-cover group-hover/item:scale-110 transition-transform duration-500">
                                     </div>
                                     <div class="flex flex-col">
-                                        <h3 class="text-lg font-bold text-brand-700 mb-2">Agunfon Learning Suits</h3>
+                                        <h3 class="text-lg font-bold text-brand-700 mb-2">Agunfon Learning Suite</h3>
                                         <p class="text-xs text-gray-500 leading-relaxed mb-4">Instant access to expertly crafted, off-the-shelf courses across multiple industries, delivered within a modern, flexible learning environment.</p>
                                         <div class="flex items-center gap-1 text-xs font-bold text-brand-700 group-hover/item:text-brand-500 transition-colors">Learn more <iconify-icon icon="lucide:chevron-right"></iconify-icon></div>
                                     </div>
@@ -319,9 +319,79 @@
             </div>
 
             <!-- Mobile Menu Button -->
-            <button class="lg:hidden text-gray-600 p-2">
-                <iconify-icon icon="lucide:menu" class="text-2xl"></iconify-icon>
+            <button class="lg:hidden text-gray-600 p-2" id="mobile-menu-btn">
+                <iconify-icon icon="lucide:menu" class="text-2xl" id="mobile-menu-icon"></iconify-icon>
             </button>
         </div>
     </div>
 </header>
+
+<!-- Mobile Menu Panel -->
+<div id="mobile-menu-panel" class="fixed inset-0 z-[1000] bg-white transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden">
+    <div class="flex flex-col h-full overflow-y-auto pt-20 pb-8 px-6">
+        <nav class="flex flex-col gap-1">
+            <a href="/" class="text-base font-semibold text-gray-900 py-3 border-b border-gray-100">Home</a>
+            
+            <!-- Mobile Products Accordion -->
+            <div class="border-b border-gray-100">
+                <button class="mobile-accordion-trigger flex items-center justify-between w-full text-base font-semibold text-gray-900 py-3">
+                    Products
+                    <iconify-icon icon="lucide:chevron-down" class="text-sm text-gray-400 transition-transform duration-200"></iconify-icon>
+                </button>
+                <div class="mobile-accordion-content hidden pb-3 pl-4 space-y-2">
+                    <a href="/learning-suite" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Agunfon Learning Suite</a>
+                    <a href="/adaptive-lms" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Agunfon Adaptive LMS</a>
+                </div>
+            </div>
+
+            <a href="/about" class="text-base font-semibold text-gray-900 py-3 border-b border-gray-100">About Agunfon</a>
+            
+            <!-- Mobile Solutions Accordion -->
+            <div class="border-b border-gray-100">
+                <button class="mobile-accordion-trigger flex items-center justify-between w-full text-base font-semibold text-gray-900 py-3">
+                    Solutions
+                    <iconify-icon icon="lucide:chevron-down" class="text-sm text-gray-400 transition-transform duration-200"></iconify-icon>
+                </button>
+                <div class="mobile-accordion-content hidden pb-3 pl-4 space-y-2">
+                    <p class="text-xs font-bold text-gray-400 uppercase tracking-wider pt-1 pb-1">By Use Case</p>
+                    <a href="/employee-onboarding" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Employee Onboarding</a>
+                    <a href="/compliance-training" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Compliance Training</a>
+                    <a href="/leadership-development" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Leadership Development</a>
+                    <a href="/personal-development" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Personal Development</a>
+                    <a href="/customer-service" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Customer Service & Support</a>
+                    <a href="/sales-marketing" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Sales & Marketing</a>
+                    <a href="/health-wellness" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Health & Wellness</a>
+                    <a href="/diversity-inclusion" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Diversity & Inclusion</a>
+                    <p class="text-xs font-bold text-gray-400 uppercase tracking-wider pt-3 pb-1">By Industry</p>
+                    <a href="/finance" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Finance</a>
+                    <a href="/healthcare" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Healthcare</a>
+                    <a href="/education" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Education</a>
+                    <a href="/nonprofit" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Non-Profit</a>
+                    <a href="/retail" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Retail</a>
+                </div>
+            </div>
+
+            <!-- Mobile Resources Accordion -->
+            <div class="border-b border-gray-100">
+                <button class="mobile-accordion-trigger flex items-center justify-between w-full text-base font-semibold text-gray-900 py-3">
+                    Resources
+                    <iconify-icon icon="lucide:chevron-down" class="text-sm text-gray-400 transition-transform duration-200"></iconify-icon>
+                </button>
+                <div class="mobile-accordion-content hidden pb-3 pl-4 space-y-2">
+                    <a href="/contact" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Blog (Coming soon)</a>
+                    <a href="/contact" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Guides (Coming soon)</a>
+                    <a href="/contact" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Webinars (Coming soon)</a>
+                    <a href="/contact" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Case Studies (Coming soon)</a>
+                </div>
+            </div>
+
+            <a href="/services" class="text-base font-semibold text-gray-900 py-3 border-b border-gray-100">Our Services</a>
+            <a href="/pricing" class="text-base font-semibold text-gray-900 py-3 border-b border-gray-100">Pricing</a>
+        </nav>
+
+        <div class="mt-8 flex flex-col gap-3">
+            <a href="/contact" class="px-6 py-3 rounded-lg border border-gray-200 text-sm font-bold text-brand-700 hover:bg-gray-50 transition-colors text-center">Contact Sales</a>
+            <a href="/book-demo" class="px-6 py-3 rounded-lg bg-gray-900 text-white text-sm font-bold hover:bg-black transition-colors text-center">Book a Demo</a>
+        </div>
+    </div>
+</div>

@@ -257,6 +257,44 @@
                 }
             });
 
+            // ============================================
+            // MOBILE MENU LOGIC
+            // ============================================
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenuPanel = document.getElementById('mobile-menu-panel');
+            const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+            let mobileMenuOpen = false;
+
+            if (mobileMenuBtn && mobileMenuPanel) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenuOpen = !mobileMenuOpen;
+                    if (mobileMenuOpen) {
+                        mobileMenuPanel.classList.remove('translate-x-full');
+                        mobileMenuPanel.classList.add('translate-x-0');
+                        if (mobileMenuIcon) mobileMenuIcon.setAttribute('icon', 'lucide:x');
+                    } else {
+                        mobileMenuPanel.classList.remove('translate-x-0');
+                        mobileMenuPanel.classList.add('translate-x-full');
+                        if (mobileMenuIcon) mobileMenuIcon.setAttribute('icon', 'lucide:menu');
+                    }
+                });
+            }
+
+            // Mobile accordion sub-menus
+            document.querySelectorAll('.mobile-accordion-trigger').forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const content = trigger.nextElementSibling;
+                    const chevron = trigger.querySelector('iconify-icon');
+                    if (content.classList.contains('hidden')) {
+                        content.classList.remove('hidden');
+                        if (chevron) chevron.style.transform = 'rotate(180deg)';
+                    } else {
+                        content.classList.add('hidden');
+                        if (chevron) chevron.style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+
             // Tab Switching Logic for Solutions
             const tabBtns = document.querySelectorAll('.sol-tab-btn');
             const gridUsecase = document.getElementById('grid-usecase');

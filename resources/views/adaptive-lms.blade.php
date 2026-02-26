@@ -36,7 +36,7 @@
                 A flexible, enterprise-grade learning platform built for complex structures, automated workflows, and personalized learning at scale. Whether managing multiple departments, branches, or subsidiaries, the Agunfon Adaptive LMS brings clarity, governance, and efficiency to the entire organization
             </p>
             <div class="flex flex-wrap gap-4">
-                <a href="/contact" class="px-8 py-3.5 bg-gray-900 text-white font-bold rounded-xl hover:bg-black transition-all shadow-md">Book a Demo</a>
+                <a href="/book-demo" class="px-8 py-3.5 bg-gray-900 text-white font-bold rounded-xl hover:bg-black transition-all shadow-md">Book a Demo</a>
             </div>
         </div>
         <div class="relative">
@@ -321,7 +321,7 @@
                 See how the Agunfon Adaptive LMS enhances efficiency, automates training, and scales learning across your entire organization
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="/contact" class="w-full sm:w-auto px-10 py-4 bg-brand-500 text-white font-bold rounded-xl hover:shadow-lg transition-all">Book a Demo</a>
+                <a href="/book-demo" class="w-full sm:w-auto px-10 py-4 bg-brand-500 text-white font-bold rounded-xl hover:shadow-lg transition-all">Book a Demo</a>
                 <a href="/contact" class="w-full sm:w-auto px-10 py-4 bg-white text-brand-700 font-bold rounded-xl hover:shadow-lg transition-all">Contact Agunfon</a>
             </div>
         </div>

@@ -28,7 +28,7 @@
         </div>
         <div class="relative">
             <div class="aspect-[4/3] rounded-[32px] overflow-hidden border-[12px] border-blue-50 shadow-2xl">
-                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=1200" alt="Team Onboarding" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=1200" alt="Team Onboarding" class="w-full h-full object-cover object-top">
             </div>
         </div>
     </div>

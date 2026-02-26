@@ -32,7 +32,7 @@
                 <div class="absolute inset-0 bg-gradient-to-t from-brand-900/95 via-brand-900/70 to-brand-900/40 z-10"></div>
                 <div class="absolute bottom-0 left-0 p-5 z-20 w-full">
                     <h3 class="text-lg font-bold text-white mb-1">Analytics & Reporting</h3>
-                    <p class="text-gray-200 text-xs leading-relaxed">Streamline operations with intelligent automation that reduces manual tasks and accelerates delivery.</p>
+                    <p class="text-gray-200 text-xs leading-relaxed">Track learner progress, measure engagement, and generate actionable insights with powerful built-in analytics and reporting tools.</p>
                 </div>
             </div>
 

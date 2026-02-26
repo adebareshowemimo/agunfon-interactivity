@@ -70,10 +70,23 @@
                 <div class="space-y-2">
                     <label class="text-sm font-bold text-gray-900">Phone</label>
                     <div class="flex gap-3">
-                        <div class="flex items-center gap-2 px-4 py-4 rounded-xl border border-gray-100 bg-[#F9FAFB] cursor-pointer">
-                            <iconify-icon icon="twemoji:flag-nigeria" class="text-xl"></iconify-icon>
-                            <iconify-icon icon="lucide:chevron-down" class="text-xs text-gray-400"></iconify-icon>
-                        </div>
+                        <select name="country_code" class="w-28 px-3 py-4 rounded-xl border border-gray-100 bg-[#F9FAFB] text-sm appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-400/20 focus:border-brand-400">
+                            <option value="+234" {{ old('country_code', '+234') == '+234' ? 'selected' : '' }}>🇳🇬 +234</option>
+                            <option value="+1" {{ old('country_code') == '+1' ? 'selected' : '' }}>🇺🇸 +1</option>
+                            <option value="+44" {{ old('country_code') == '+44' ? 'selected' : '' }}>🇬🇧 +44</option>
+                            <option value="+233" {{ old('country_code') == '+233' ? 'selected' : '' }}>🇬🇭 +233</option>
+                            <option value="+254" {{ old('country_code') == '+254' ? 'selected' : '' }}>🇰🇪 +254</option>
+                            <option value="+27" {{ old('country_code') == '+27' ? 'selected' : '' }}>🇿🇦 +27</option>
+                            <option value="+91" {{ old('country_code') == '+91' ? 'selected' : '' }}>🇮🇳 +91</option>
+                            <option value="+971" {{ old('country_code') == '+971' ? 'selected' : '' }}>🇦🇪 +971</option>
+                            <option value="+49" {{ old('country_code') == '+49' ? 'selected' : '' }}>🇩🇪 +49</option>
+                            <option value="+33" {{ old('country_code') == '+33' ? 'selected' : '' }}>🇫🇷 +33</option>
+                            <option value="+86" {{ old('country_code') == '+86' ? 'selected' : '' }}>🇨🇳 +86</option>
+                            <option value="+81" {{ old('country_code') == '+81' ? 'selected' : '' }}>🇯🇵 +81</option>
+                            <option value="+55" {{ old('country_code') == '+55' ? 'selected' : '' }}>🇧🇷 +55</option>
+                            <option value="+61" {{ old('country_code') == '+61' ? 'selected' : '' }}>🇦🇺 +61</option>
+                            <option value="+1" {{ old('country_code') == '+1-CA' ? 'selected' : '' }}>🇨🇦 +1</option>
+                        </select>
                         <input type="tel" name="phone" value="{{ old('phone') }}" placeholder="Optional" class="flex-grow px-5 py-4 rounded-xl border border-gray-100 bg-[#F9FAFB] focus:outline-none focus:ring-2 focus:ring-brand-400/20 focus:border-brand-400 transition-all">
                     </div>
                 </div>

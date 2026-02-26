@@ -53,6 +53,13 @@ Route::get('/book-demo/success', function () {
     return view('demo-success');
 })->name('demo.success');
 
+// Newsletter Subscription
+Route::post('/newsletter/subscribe', function (\Illuminate\Http\Request $request) {
+    $request->validate(['email' => 'required|email']);
+    // TODO: Store subscriber email or integrate with mailing service
+    return back()->with('newsletter_success', 'Thank you for subscribing!');
+})->name('newsletter.subscribe');
+
 Route::get('/employee-onboarding', function () {
     return view('employee-onboarding');
 });

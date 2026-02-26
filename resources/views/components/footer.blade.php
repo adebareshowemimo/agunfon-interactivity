@@ -12,7 +12,7 @@
                         <p class="text-gray-300 text-sm leading-relaxed mb-10 max-w-sm">
                             Be the first to access new articles, case studies, webinars, and tools that support smarter workforce
                         </p>
-                        <form action="#" method="POST">
+                        <form action="{{ url('/newsletter/subscribe') }}" method="POST">
                             @csrf
                             <div class="flex bg-white rounded-xl p-1 shadow-lg h-[60px]">
                                 <input type="email" name="email" placeholder="Email Address" class="flex-1 bg-transparent px-5 py-2 outline-none text-brand-950 placeholder-gray-500 font-medium" required>
@@ -20,6 +20,12 @@
                                     Subscribe
                                 </button>
                             </div>
+                            @if(session('newsletter_success'))
+                                <p class="text-green-400 text-sm mt-3">{{ session('newsletter_success') }}</p>
+                            @endif
+                            @if(session('newsletter_error'))
+                                <p class="text-red-400 text-sm mt-3">{{ session('newsletter_error') }}</p>
+                            @endif
                         </form>
                     </div>
                     
@@ -56,7 +62,7 @@
                                 <li><a href="/information-technology" class="hover:text-white transition-colors">Information Technology</a></li>
                                 <li><a href="/human-resources" class="hover:text-white transition-colors">Human Resources</a></li>
                                 <li><a href="/health-wellness" class="hover:text-white transition-colors">Health & Wellness</a></li>
-                                <li><a href="/contact" class="hover:text-white transition-colors">Motivation & Insights</a></li>
+                                <li><a href="/sales-marketing" class="hover:text-white transition-colors">Motivation & Insights</a></li>
                                 <li><a href="/diversity-inclusion" class="hover:text-white transition-colors">Diversity & Inclusion</a></li>
                             </ul>
                         </div>

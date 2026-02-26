@@ -13,7 +13,7 @@
                 Book a Demo
             </a>
             <a href="/services" class="w-full sm:w-auto px-6 py-2.5 bg-white text-gray-900 text-sm font-medium rounded-lg border border-gray-200 hover:bg-gray-50 transition-all">
-                Explore solution
+                Explore Solutions
             </a>
         </div>
     </div>

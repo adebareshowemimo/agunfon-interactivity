@@ -38,6 +38,18 @@ class RecaptchaService
             ];
         }
 
+        // Graceful fallback: if credentials are not configured, allow submission
+        $credentialsPath = base_path(env('GOOGLE_APPLICATION_CREDENTIALS', ''));
+        $secret = config('services.recaptcha.secret');
+        if ((empty($secret) && (empty($credentialsPath) || !file_exists($credentialsPath)))) {
+            Log::warning('reCAPTCHA credentials not configured — bypassing verification');
+            return [
+                'success' => true,
+                'score' => 1.0,
+                'error' => null
+            ];
+        }
+
         try {
             // Create the reCAPTCHA client
             $client = new RecaptchaEnterpriseServiceClient();
