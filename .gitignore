@@ -24,3 +24,9 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+# Large files & documentation (not versioned)
+*.pdf
+*.xlsx
+*.xls
+Agunfon_Website_Content_QA_Audit.*
+Agunfon Brand.pdf

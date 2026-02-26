@@ -7,10 +7,7 @@
         <div class="flex justify-between items-center h-20">
             <!-- Logo -->
             <a href="/" class="flex items-center gap-2 group">
-                <div class="w-8 h-8 bg-brand-700 rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:scale-105 transition-transform">
-                    A
-                </div>
-                <span class="text-2xl font-bold text-brand-700 tracking-tight">Agunfon</span>
+                <img src="/images/logos/logo.svg" alt="Agunfon" class="h-10 w-auto group-hover:scale-105 transition-transform">
             </a>
 
             <!-- Desktop Nav -->

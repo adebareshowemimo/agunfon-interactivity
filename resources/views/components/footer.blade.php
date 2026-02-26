@@ -26,8 +26,7 @@
                     <!-- Brand Description -->
                     <div class="space-y-6">
                         <a href="/" class="flex items-center gap-3">
-                            <iconify-icon icon="lucide:layers" class="text-3xl text-white"></iconify-icon>
-                            <span class="text-3xl font-bold text-white">Agunfon</span>
+                            <img src="/images/logos/logo_white.svg" alt="Agunfon" class="h-10 w-auto hover:scale-105 transition-transform">
                         </a>
                         <p class="text-gray-400 text-sm leading-relaxed max-w-[480px]">
                             Agunfon delivers modern, adaptive learning solutions that help organizations build capability with clarity and confidence. From enterprise-grade LMS platforms to expert-built learning content and implementation services, we empower teams to grow, perform, and transform through smarter learning system
