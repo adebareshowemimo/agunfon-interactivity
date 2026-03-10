@@ -221,9 +221,9 @@
                     For questions about these Terms of Service, please contact us:
                 </p>
                 <ul>
-                    <li>Email: <a href="mailto:legal@agunfon.com">legal@agunfon.com</a></li>
-                    <li>Phone: +234 9079 682 537</li>
-                    <li>Address: Agunfon Learning Technologies</li>
+                    <li>Email: <a href="mailto:info@agunfoninteractivity.com">info@agunfoninteractivity.com</a></li>
+                    <li>Phone: 678-687-7958</li>
+                    <li>Address: 8735 Dunwoody Place, Atlanta, GA 30350</li>
                 </ul>
 
             </div>

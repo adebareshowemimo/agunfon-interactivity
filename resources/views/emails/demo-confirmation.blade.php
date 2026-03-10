@@ -69,7 +69,7 @@
             
             <div class="footer">
                 <p>© {{ date('Y') }} Agunfon. All rights reserved.</p>
-                <p>Need to reschedule? Reply to this email or contact us at <a href="mailto:contact@agunfon.com">contact@agunfon.com</a></p>
+                <p>Need to reschedule? Reply to this email or contact us at <a href="mailto:info@agunfoninteractivity.com">info@agunfoninteractivity.com</a></p>
             </div>
         </div>
     </div>

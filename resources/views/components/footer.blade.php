@@ -115,8 +115,9 @@
                         <div class="space-y-5">
                             <h4 class="font-bold text-lg text-white">Contact us</h4>
                             <ul class="space-y-3 text-sm text-gray-300 border-l-2 border-brand-500/50 pl-4">
-                                <li><a href="mailto:contact@agunfon.com" class="hover:text-white transition-colors">contact@agunfon.com</a></li>
-                                <li><a href="tel:+2349079682537" class="hover:text-white transition-colors">+234 9079 682 537</a></li>
+                                <li><a href="mailto:info@agunfoninteractivity.com" class="hover:text-white transition-colors">info@agunfoninteractivity.com</a></li>
+                                <li><a href="tel:+16786877958" class="hover:text-white transition-colors">678-687-7958</a></li>
+                                <li class="text-gray-300">8735 Dunwoody Place, Atlanta, GA 30350</li>
                             </ul>
                             <div class="flex gap-3 pt-2 pl-4">
                                 <a href="https://instagram.com/agunfon" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-blue-700 flex items-center justify-center text-white hover:bg-blue-600 transition-colors shadow-lg shadow-blue-900/40">

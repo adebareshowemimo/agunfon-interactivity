@@ -156,7 +156,7 @@
                     <li><strong>Opt-Out:</strong> Unsubscribe from marketing communications at any time</li>
                 </ul>
                 <p>
-                    To exercise these rights, please contact us at <a href="mailto:privacy@agunfon.com">privacy@agunfon.com</a>.
+                    To exercise these rights, please contact us at <a href="mailto:info@agunfoninteractivity.com">info@agunfoninteractivity.com</a>.
                 </p>
 
                 <h2>8. International Data Transfers</h2>
@@ -179,9 +179,9 @@
                     If you have questions or concerns about this Privacy Policy or our data practices, please contact us:
                 </p>
                 <ul>
-                    <li>Email: <a href="mailto:privacy@agunfon.com">privacy@agunfon.com</a></li>
-                    <li>Phone: +234 9079 682 537</li>
-                    <li>Address: Agunfon Learning Technologies</li>
+                    <li>Email: <a href="mailto:info@agunfoninteractivity.com">info@agunfoninteractivity.com</a></li>
+                    <li>Phone: 678-687-7958</li>
+                    <li>Address: 8735 Dunwoody Place, Atlanta, GA 30350</li>
                 </ul>
 
             </div>
