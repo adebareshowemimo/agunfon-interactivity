@@ -180,7 +180,7 @@
                 </p>
                 <ul>
                     <li>Email: <a href="mailto:info@agunfoninteractivity.com">info@agunfoninteractivity.com</a></li>
-                    <li>Phone: 678-687-7958</li>
+                    <li>Phone: +1 478-306-2250</li>
                     <li>Address: 8735 Dunwoody Place #11785, Atlanta, GA 30350</li>
                 </ul>
 

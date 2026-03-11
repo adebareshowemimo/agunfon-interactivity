@@ -116,7 +116,7 @@
                             <h4 class="font-bold text-lg text-white">Contact us</h4>
                             <ul class="space-y-3 text-sm text-gray-300 border-l-2 border-brand-500/50 pl-4">
                                 <li><a href="mailto:info@agunfoninteractivity.com" class="hover:text-white transition-colors">info@agunfoninteractivity.com</a></li>
-                                <li><a href="tel:+16786877958" class="hover:text-white transition-colors">678-687-7958</a></li>
+                                <li><a href="tel:+14783062250" class="hover:text-white transition-colors">+1 478-306-2250</a></li>
                                 <li class="text-gray-300">8735 Dunwoody Place #11785, Atlanta, GA 30350</li>
                             </ul>
                             <div class="flex gap-3 pt-2 pl-4">
