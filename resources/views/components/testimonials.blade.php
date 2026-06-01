@@ -1,90 +1,140 @@
 <!-- Testimonials Section -->
+@php
+    $testimonials = [
+        [
+            'quote' => 'Exceptional to work with. He took real ownership of the project — fast turnaround without ever sacrificing precision, and clear, reliable communication throughout. I would absolutely recommend him.',
+            'project' => 'PowerPoint Add-In (VBA / RibbonX)',
+            'rating' => '5.0',
+        ],
+        [
+            'quote' => 'A massive project — SCORM/HTML5 for ~1,850 slides with branching, animations and knowledge checks. Available on request, fast on changes, great rapport. Strongly recommended.',
+            'project' => 'eLearning Content — Adobe Captivate',
+            'rating' => '5.0',
+        ],
+        [
+            'quote' => 'Incredibly helpful — went above and beyond to solve issues that were outside the original scope. His dedication and expertise were invaluable. Highly recommend.',
+            'project' => 'Instructional Design — Captivate',
+            'rating' => '5.0',
+        ],
+        [
+            'quote' => 'I needed a SCORM training file and he did it within hours, perfectly. He even provided a sample at no cost to test. Highly recommend.',
+            'project' => 'SCORM Training File',
+            'rating' => '5.0',
+        ],
+        [
+            'quote' => 'A pleasure to work with. His communication and technical skills were exemplary. I will not hesitate to hire him again.',
+            'project' => 'Moodle eLearning Site',
+            'rating' => '5.0',
+        ],
+        [
+            'quote' => 'An excellent DevOps engineer, highly experienced in Moodle deployment and management. He communicates well and keeps clients updated. Would definitely hire again.',
+            'project' => 'Moodle DevOps & Deployment',
+            'rating' => '4.9',
+        ],
+        [
+            'quote' => 'Responsive, committed, and reliable — a hard worker who genuinely wants to produce good work.',
+            'project' => 'Talent LMS & Articulate Rise 360',
+            'rating' => '5.0',
+        ],
+        [
+            'quote' => "Fantastic to work with. We'd definitely recommend his skills and talents for your JavaScript needs.",
+            'project' => 'JavaScript in Articulate Storyline',
+            'rating' => '5.0',
+        ],
+        [
+            'quote' => 'Highly skilled — speed, efficiency, and professionalism. Working with him was a pleasure.',
+            'project' => 'Moodle LMS Setup',
+            'rating' => '5.0',
+        ],
+        [
+            'quote' => 'Adebare did an amazing job, as usual. He really knows what he\'s doing!',
+            'project' => 'Moodle LMS Setup (Repeat Client)',
+            'rating' => '5.0',
+        ],
+    ];
+@endphp
+
+<style>
+    #testimonials-carousel .testi-track::-webkit-scrollbar { display: none; }
+    #testimonials-carousel .testi-track { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+
 <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
-        <!-- overlapping avatars decor -->
-        <div class="flex justify-center -space-x-2 mb-4">
-            <img class="w-8 h-8 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&q=80" alt="">
-            <img class="w-10 h-10 rounded-full border-2 border-white object-cover z-10" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=80&q=80" alt="">
-            <img class="w-8 h-8 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&q=80" alt="">
-        </div>
+        <span class="inline-flex items-center gap-2 text-xs font-semibold text-brand-600 bg-brand-50 px-3 py-1 rounded-full mb-4">
+            <iconify-icon icon="fa-solid:star" class="text-amber-400"></iconify-icon>
+            Rated 5.0 by clients on Upwork
+        </span>
         <h2 class="text-2xl md:text-3xl font-bold text-gray-900">
-            What our <span class="font-serif italic text-brand-500 font-medium">partners</span> are saying
+            What our <span class="font-serif italic text-brand-500 font-medium">clients</span> are saying
         </h2>
         <p class="mt-3 text-sm text-gray-500 max-w-lg mx-auto">
-            Insights from clients who rely on Agunfon to power their learning, compliance, and workforce development
+            Verified reviews from clients who rely on us to power their learning, compliance, and workforce development
         </p>
     </div>
 
-    <!-- 4-Column Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-        <!-- Card 1 -->
-        <div class="bg-white rounded-[20px] p-6 shadow-sm border border-gray-100 flex flex-col justify-between">
-            <div>
-                <iconify-icon icon="fa-solid:quote-left" class="text-2xl text-brand-200 mb-4"></iconify-icon>
-                <p class="text-gray-700 text-sm leading-relaxed mb-6">
-                    "Agunfon transformed the way we deliver training. Courses became easier to manage, engagement increased, and compliance improved across the board."
-                </p>
-            </div>
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold text-sm">
-                    OZ
-                </div>
+    <div class="relative" id="testimonials-carousel">
+        <!-- Track -->
+        <div class="testi-track flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 -mx-1 px-1">
+            @foreach($testimonials as $t)
+            <div class="testi-card snap-start shrink-0 basis-full sm:basis-1/2 lg:basis-[calc((100%-3.75rem)/4)] bg-white rounded-[20px] p-6 shadow-sm border border-gray-100 flex flex-col justify-between">
                 <div>
-                    <h4 class="font-bold text-gray-900 text-sm">Olateju Zainab</h4>
-                    <p class="text-[10px] text-gray-500">HR Manager, InnovaTech</p>
+                    <div class="flex items-center gap-1 text-amber-400 mb-4">
+                        @for($i = 0; $i < 5; $i++)
+                        <iconify-icon icon="fa-solid:star" class="text-sm"></iconify-icon>
+                        @endfor
+                    </div>
+                    <p class="text-gray-700 text-sm leading-relaxed mb-6">"{{ $t['quote'] }}"</p>
+                </div>
+                <div class="flex items-center gap-3 pt-4 border-t border-gray-50">
+                    <div class="w-10 h-10 rounded-full bg-brand-500 text-white flex items-center justify-center shrink-0">
+                        <iconify-icon icon="lucide:badge-check" class="text-lg"></iconify-icon>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 text-sm leading-tight">{{ $t['project'] }}</h4>
+                        <p class="text-[10px] text-gray-500">Verified Upwork Client · ★ {{ $t['rating'] }}</p>
+                    </div>
                 </div>
             </div>
+            @endforeach
         </div>
 
-        <!-- Card 2 -->
-        <div class="bg-white rounded-[20px] p-6 shadow-sm border border-gray-100 flex flex-col justify-between">
-            <div>
-                <iconify-icon icon="fa-solid:quote-left" class="text-2xl text-brand-200 mb-4"></iconify-icon>
-                <p class="text-gray-700 text-sm leading-relaxed mb-6">
-                    "With Agunfon, onboarding finally became structured and predictable. New hires now hit productivity faster, and our HR team spends less time chasing manual tasks"
-                </p>
-            </div>
-            <div class="flex items-center gap-3">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&q=80" alt="Alice" class="w-10 h-10 rounded-full object-cover">
-                <div>
-                    <h4 class="font-bold text-gray-900 text-sm">Alice Windows</h4>
-                    <p class="text-[10px] text-gray-500">Talent Development Lead, KPMG</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="bg-white rounded-[20px] p-6 shadow-sm border border-gray-100 flex flex-col justify-between">
-            <div>
-                <iconify-icon icon="fa-solid:quote-left" class="text-2xl text-brand-200 mb-4"></iconify-icon>
-                <p class="text-gray-700 text-sm leading-relaxed mb-6">
-                    "Agunfon helped us unify learning across multiple branches. Reporting is clearer, managers are more engaged, and our overall learning culture has visibly improve"
-                </p>
-            </div>
-            <div class="flex items-center gap-3">
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=80&q=80" alt="Taiye" class="w-10 h-10 rounded-full object-cover">
-                <div>
-                    <h4 class="font-bold text-gray-900 text-sm">Taiye Arovjehun</h4>
-                    <p class="text-[10px] text-gray-500">Logistic lead & Executive, Zenith</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="bg-white rounded-[20px] p-6 shadow-sm border border-gray-100 flex flex-col justify-between">
-            <div>
-                <iconify-icon icon="fa-solid:quote-left" class="text-2xl text-brand-200 mb-4"></iconify-icon>
-                <p class="text-gray-700 text-sm leading-relaxed mb-6">
-                    "The automation features have been a game changer. No longer worry about certifications expiring—compliance gaps are flagged early and the system runs smoothly"
-                </p>
-            </div>
-            <div class="flex items-center gap-3">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&q=80" alt="Chinenye" class="w-10 h-10 rounded-full object-cover">
-                <div>
-                    <h4 class="font-bold text-gray-900 text-sm">Chinenye</h4>
-                    <p class="text-[10px] text-gray-500">Compliance Officer, Diamond</p>
-                </div>
-            </div>
-        </div>
+        <!-- Controls -->
+        <button type="button" class="testi-prev absolute -left-3 lg:-left-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-gray-600 hover:text-brand-600 hover:shadow-lg transition-all z-10" aria-label="Previous testimonials">
+            <iconify-icon icon="lucide:chevron-left" class="text-xl"></iconify-icon>
+        </button>
+        <button type="button" class="testi-next absolute -right-3 lg:-right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-gray-600 hover:text-brand-600 hover:shadow-lg transition-all z-10" aria-label="Next testimonials">
+            <iconify-icon icon="lucide:chevron-right" class="text-xl"></iconify-icon>
+        </button>
     </div>
 </section>
+
+@push('scripts')
+<script>
+    (function () {
+        var root = document.getElementById('testimonials-carousel');
+        if (!root) return;
+        var track = root.querySelector('.testi-track');
+        var prev = root.querySelector('.testi-prev');
+        var next = root.querySelector('.testi-next');
+
+        function page(dir) {
+            track.scrollBy({ left: dir * Math.round(track.clientWidth * 0.9), behavior: 'smooth' });
+        }
+        prev.addEventListener('click', function () { page(-1); });
+        next.addEventListener('click', function () { page(1); });
+
+        function updateButtons() {
+            var atStart = track.scrollLeft <= 2;
+            var atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+            prev.style.opacity = atStart ? '0.4' : '1';
+            prev.style.pointerEvents = atStart ? 'none' : 'auto';
+            next.style.opacity = atEnd ? '0.4' : '1';
+            next.style.pointerEvents = atEnd ? 'none' : 'auto';
+        }
+        track.addEventListener('scroll', updateButtons, { passive: true });
+        window.addEventListener('resize', updateButtons);
+        updateButtons();
+    })();
+</script>
+@endpush
