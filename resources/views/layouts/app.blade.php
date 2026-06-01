@@ -143,6 +143,12 @@
                     chevron: document.getElementById('products-chevron')
                 },
                 {
+                    id: 'plugins',
+                    trigger: document.getElementById('plugins-trigger'),
+                    dropdown: document.getElementById('plugins-dropdown'),
+                    chevron: document.getElementById('plugins-chevron')
+                },
+                {
                     id: 'solutions',
                     trigger: document.getElementById('solutions-trigger'),
                     dropdown: document.getElementById('solutions-dropdown'),

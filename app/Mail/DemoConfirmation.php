@@ -5,12 +5,11 @@ namespace App\Mail;
 use App\Models\DemoRequest;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class DemoConfirmation extends Mailable
+class DemoConfirmation extends SendGridMailable
 {
     use Queueable, SerializesModels;
 

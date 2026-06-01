@@ -26,7 +26,7 @@
                             <div class="space-y-8">
                                 <a href="/learning-suite" class="flex gap-6 group/item">
                                     <div class="w-32 h-32 shrink-0 rounded-[20px] overflow-hidden bg-gray-100">
-                                        <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=300" alt="Learning Suites" class="w-full h-full object-cover group-hover/item:scale-110 transition-transform duration-500">
+                                        <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=300" alt="Learning Suite" class="w-full h-full object-cover group-hover/item:scale-110 transition-transform duration-500">
                                     </div>
                                     <div class="flex flex-col">
                                         <h3 class="text-lg font-bold text-brand-700 mb-2">Agunfon Learning Suite</h3>
@@ -50,8 +50,66 @@
                     </div>
                 </div>
 
-                <a href="/about" class="text-sm font-semibold {{ request()->is('about') ? 'text-brand-700' : 'text-gray-700' }} hover:text-brand-700 transition-colors">About Agunfon</a>
-                
+                <!-- Moodle Plugins Toggle -->
+                <div id="plugins-trigger" class="relative flex items-center gap-1 text-sm font-semibold {{ request()->is('plugins*') ? 'text-brand-700' : 'text-gray-700' }} cursor-pointer select-none py-4 hover:text-brand-700 transition-colors">
+                    Moodle Plugins
+                    <iconify-icon id="plugins-chevron" icon="lucide:chevron-down" class="text-xs opacity-50 transition-transform duration-300"></iconify-icon>
+
+                    <!-- Moodle Plugins Mega Menu -->
+                    <div id="plugins-dropdown" class="fixed top-20 left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible pointer-events-none transition-all duration-300 transform translate-y-2 scale-95 origin-top">
+                        <div class="w-[1000px] bg-white rounded-[32px] overflow-hidden shadow-float border border-gray-100 flex flex-col">
+
+                            <!-- Top Highlight Section -->
+                            <div class="bg-brand-50 p-8 flex items-center gap-12 border-b border-blue-50">
+                                <div class="relative shrink-0">
+                                    <div class="absolute -top-4 -left-4 px-3 py-1.5 rounded-full border border-blue-100 text-[10px] font-bold text-brand-500 bg-white tracking-widest uppercase z-10 shadow-sm">
+                                        Moodle Plugins
+                                    </div>
+                                    <div class="w-[360px] h-[210px] rounded-2xl overflow-hidden shadow-xl">
+                                        <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800" alt="Modern Moodle plugins by Agunfon" class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                                <div class="flex-1">
+                                    <h2 class="text-3xl font-bold text-brand-700 leading-tight mb-4">
+                                        Premium plugins that make <br>
+                                        <span class="font-serif italic text-brand-500">Moodle</span> work harder
+                                    </h2>
+                                    <p class="text-sm text-gray-600 leading-relaxed max-w-lg">
+                                        A growing suite of premium Moodle plugins by Agunfon — automating learner communication, enriching course content, and giving learners a better experience. Every plugin is GPL-licensed, privacy-ready, and built for Moodle 4.5–5.2.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Plugins Grid -->
+                            <div class="p-10 bg-white">
+                                <div class="grid grid-cols-3 gap-x-8 gap-y-7">
+                                    @php
+                                    $plugins = [
+                                        ['/plugins/modern-course-reminder', 'bell-ring', 'Modern Course Reminder', 'Automated, rule-based completion reminders with manager escalation.'],
+                                        ['/plugins/modern-enrolment-notifier', 'send', 'Modern Enrolment Notifier', 'Multi-channel enrolment, expiry & completion notifications.'],
+                                        ['/plugins/modern-engagement-hub', 'activity', 'Modern Engagement Hub', 'Multi-step engagement campaigns, journeys & interventions.'],
+                                        ['/plugins/modern-learner-dashboard', 'layout-dashboard', 'Modern Learner Dashboard', 'A personalized learner home: progress, grades & badges.'],
+                                        ['/plugins/modern-video-player', 'play-circle', 'Modern Video Player', 'Tracked, protected video with engagement heatmaps.'],
+                                        ['/plugins/modern-flipbook', 'book-open', 'Modern Flipbook', 'Turn PDFs into trackable, mobile-friendly reading.'],
+                                    ];
+                                    @endphp
+                                    @foreach ($plugins as [$url, $icon, $name, $desc])
+                                    <a href="{{ $url }}" class="flex gap-4 group/item">
+                                        <div class="w-11 h-11 shrink-0 rounded-full bg-brand-50 flex items-center justify-center text-brand-500 group-hover/item:bg-brand-500 group-hover/item:text-white transition-all">
+                                            <iconify-icon icon="lucide:{{ $icon }}" class="text-lg"></iconify-icon>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-sm font-bold text-brand-700 mb-0.5 group-hover/item:text-brand-500 transition-colors">{{ $name }}</h4>
+                                            <p class="text-xs text-gray-500 leading-relaxed">{{ $desc }}</p>
+                                        </div>
+                                    </a>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Solutions Toggle -->
                 <div id="solutions-trigger" class="flex items-center gap-1 text-sm font-semibold text-gray-700 cursor-pointer select-none py-4 hover:text-brand-700 transition-colors">
                     Solutions 
@@ -344,8 +402,22 @@
                 </div>
             </div>
 
-            <a href="/about" class="text-base font-semibold text-gray-900 py-3 border-b border-gray-100">About Agunfon</a>
-            
+            <!-- Mobile Moodle Plugins Accordion -->
+            <div class="border-b border-gray-100">
+                <button class="mobile-accordion-trigger flex items-center justify-between w-full text-base font-semibold text-gray-900 py-3">
+                    Moodle Plugins
+                    <iconify-icon icon="lucide:chevron-down" class="text-sm text-gray-400 transition-transform duration-200"></iconify-icon>
+                </button>
+                <div class="mobile-accordion-content hidden pb-3 pl-4 space-y-2">
+                    <a href="/plugins/modern-course-reminder" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Modern Course Reminder</a>
+                    <a href="/plugins/modern-enrolment-notifier" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Modern Enrolment Notifier</a>
+                    <a href="/plugins/modern-engagement-hub" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Modern Engagement Hub</a>
+                    <a href="/plugins/modern-learner-dashboard" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Modern Learner Dashboard</a>
+                    <a href="/plugins/modern-video-player" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Modern Video Player</a>
+                    <a href="/plugins/modern-flipbook" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Modern Flipbook</a>
+                </div>
+            </div>
+
             <!-- Mobile Solutions Accordion -->
             <div class="border-b border-gray-100">
                 <button class="mobile-accordion-trigger flex items-center justify-between w-full text-base font-semibold text-gray-900 py-3">

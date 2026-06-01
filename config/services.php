@@ -41,4 +41,9 @@ return [
         'project_id' => env('RECAPTCHA_PROJECT_ID'),
     ],
 
+    'sendgrid' => [
+        'api_key' => env('SENDGRID_API_KEY'),
+        'data_residency' => env('SENDGRID_DATA_RESIDENCY'),
+    ],
+
 ];

@@ -43,6 +43,33 @@ Route::get('/adaptive-lms', function () {
     return view('adaptive-lms');
 });
 
+// ============================================
+// PLUGIN LANDING PAGES (Moodle plugins)
+// ============================================
+Route::get('/plugins/modern-course-reminder', function () {
+    return view('plugins.modern-course-reminder');
+})->name('plugins.moderncoursereminder');
+
+Route::get('/plugins/modern-enrolment-notifier', function () {
+    return view('plugins.modern-enrolment-notifier');
+})->name('plugins.modernenrolnotifier');
+
+Route::get('/plugins/modern-engagement-hub', function () {
+    return view('plugins.modern-engagement-hub');
+})->name('plugins.modernengagementhub');
+
+Route::get('/plugins/modern-learner-dashboard', function () {
+    return view('plugins.modern-learner-dashboard');
+})->name('plugins.modernlearnerdashboard');
+
+Route::get('/plugins/modern-video-player', function () {
+    return view('plugins.modern-video-player');
+})->name('plugins.modernvideoplayer');
+
+Route::get('/plugins/modern-flipbook', function () {
+    return view('plugins.modern-flipbook');
+})->name('plugins.modernflipbook');
+
 Route::get('/book-demo', function () {
     return view('book-demo');
 })->name('book-demo');
