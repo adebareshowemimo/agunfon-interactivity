@@ -18,13 +18,13 @@ class DemoRequest extends Model
         'team_size',
         'summary',
         'preferred_date',
-        'preferred_time',
+        'preferred_date_end',
         'status',
     ];
 
     protected $casts = [
         'preferred_date' => 'date',
-        'preferred_time' => 'datetime',
+        'preferred_date_end' => 'date',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];

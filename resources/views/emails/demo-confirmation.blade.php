@@ -39,8 +39,7 @@
             <p>Thank you for booking a demo with Agunfon! We're excited to show you how our enterprise learning platform can transform {{ $demoRequest->company }}'s training and development.</p>
             
             <div class="date-card">
-                <div class="date">{{ $demoRequest->preferred_date->format('F j, Y') }}</div>
-                <div class="time">{{ \Carbon\Carbon::parse($demoRequest->preferred_time)->format('g:i A') }}</div>
+                <div class="date">{{ $demoRequest->preferred_date->format('F j, Y') }}@if($demoRequest->preferred_date_end) &ndash; {{ $demoRequest->preferred_date_end->format('F j, Y') }}@endif</div>
             </div>
             
             <div class="info-box">

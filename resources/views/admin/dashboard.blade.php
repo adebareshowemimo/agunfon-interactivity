@@ -114,8 +114,8 @@
                             <span class="font-semibold text-gray-900">{{ $demo->company }}</span>
                             <p class="text-sm text-gray-500">{{ $demo->name }}</p>
                             <div class="flex items-center gap-2 mt-1">
-                                <iconify-icon icon="lucide:clock" class="text-gray-400"></iconify-icon>
-                                <span class="text-xs text-gray-400">{{ \Carbon\Carbon::parse($demo->preferred_time)->format('g:i A') }}</span>
+                                <iconify-icon icon="lucide:calendar" class="text-gray-400"></iconify-icon>
+                                <span class="text-xs text-gray-400">{{ $demo->preferred_date->format('M j') }}@if($demo->preferred_date_end) &ndash; {{ $demo->preferred_date_end->format('M j') }}@endif</span>
                                 <span class="px-2 py-0.5 text-xs rounded-full {{ $demo->status === 'confirmed' ? 'bg-green-100 text-green-700' : 'bg-orange-100 text-orange-700' }}">
                                     {{ ucfirst($demo->status) }}
                                 </span>

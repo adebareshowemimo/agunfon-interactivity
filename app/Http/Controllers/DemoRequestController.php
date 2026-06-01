@@ -24,7 +24,7 @@ class DemoRequestController extends Controller
             'team_size' => 'required|string|max:50',
             'summary' => 'nullable|string|max:5000',
             'preferred_date' => 'required|date|after_or_equal:today',
-            'preferred_time' => 'required',
+            'preferred_date_end' => 'required|date|after_or_equal:preferred_date',
             'g-recaptcha-response' => 'required',
         ]);
 
@@ -48,7 +48,7 @@ class DemoRequestController extends Controller
             'team_size' => $validated['team_size'],
             'summary' => $validated['summary'] ?? null,
             'preferred_date' => $validated['preferred_date'],
-            'preferred_time' => $validated['preferred_time'],
+            'preferred_date_end' => $validated['preferred_date_end'],
         ]);
 
         // Send confirmation email to user

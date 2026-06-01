@@ -146,17 +146,19 @@
                 </div>
 
                 <div>
-                    <label class="block text-sm font-bold text-brand-700 mb-2">Preferred Date & Time<span class="text-red-500">*</span></label>
+                    <label class="block text-sm font-bold text-brand-700 mb-2">Preferred Date Range<span class="text-red-500">*</span></label>
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="relative">
-                            <input type="date" name="preferred_date" value="{{ old('preferred_date') }}" class="form-input pr-10 @error('preferred_date') is-invalid @enderror" required>
-                            <iconify-icon icon="lucide:calendar" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></iconify-icon>
+                            <label class="block text-xs font-semibold text-gray-500 mb-1">From</label>
+                            <input type="date" name="preferred_date" value="{{ old('preferred_date') }}" min="{{ now()->toDateString() }}" class="form-input pr-10 @error('preferred_date') is-invalid @enderror" required oninput="const t=this.form.preferred_date_end; t.min=this.value; if(t.value && t.value < this.value) t.value=this.value;">
+                            <iconify-icon icon="lucide:calendar" class="absolute right-4 bottom-3.5 text-gray-400 pointer-events-none"></iconify-icon>
                             @error('preferred_date')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
                         </div>
                         <div class="relative">
-                            <input type="time" name="preferred_time" value="{{ old('preferred_time') }}" class="form-input pr-10 @error('preferred_time') is-invalid @enderror" required>
-                            <iconify-icon icon="lucide:clock" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></iconify-icon>
-                            @error('preferred_time')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
+                            <label class="block text-xs font-semibold text-gray-500 mb-1">To</label>
+                            <input type="date" name="preferred_date_end" value="{{ old('preferred_date_end') }}" min="{{ old('preferred_date', now()->toDateString()) }}" class="form-input pr-10 @error('preferred_date_end') is-invalid @enderror" required>
+                            <iconify-icon icon="lucide:calendar" class="absolute right-4 bottom-3.5 text-gray-400 pointer-events-none"></iconify-icon>
+                            @error('preferred_date_end')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
                         </div>
                     </div>
                 </div>

@@ -33,8 +33,7 @@
                 <span class="badge">NEW DEMO REQUEST</span>
                 <h1>{{ $demoRequest->company }}</h1>
                 <div class="date-highlight">
-                    <div class="date">{{ $demoRequest->preferred_date->format('F j, Y') }}</div>
-                    <div class="time">{{ \Carbon\Carbon::parse($demoRequest->preferred_time)->format('g:i A') }}</div>
+                    <div class="date">{{ $demoRequest->preferred_date->format('F j, Y') }}@if($demoRequest->preferred_date_end) &ndash; {{ $demoRequest->preferred_date_end->format('F j, Y') }}@endif</div>
                 </div>
             </div>
             

@@ -89,7 +89,9 @@
                         <td class="px-6 py-4 text-gray-600">{{ $demo->team_size }}</td>
                         <td class="px-6 py-4">
                             <p class="font-semibold text-gray-900">{{ \Carbon\Carbon::parse($demo->preferred_date)->format('M j, Y') }}</p>
-                            <p class="text-sm text-gray-500">{{ $demo->preferred_time }}</p>
+                            @if($demo->preferred_date_end)
+                            <p class="text-sm text-gray-500">to {{ \Carbon\Carbon::parse($demo->preferred_date_end)->format('M j, Y') }}</p>
+                            @endif
                         </td>
                         <td class="px-6 py-4">
                             <span class="px-3 py-1 text-xs font-semibold rounded-full

@@ -37,7 +37,7 @@ class DashboardController extends Controller
         // Upcoming demos
         $upcomingDemos = DemoRequest::upcoming()
             ->orderBy('preferred_date')
-            ->orderBy('preferred_time')
+            ->orderBy('preferred_date_end')
             ->take(5)
             ->get();
 

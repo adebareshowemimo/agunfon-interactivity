@@ -39,10 +39,10 @@
         <div class="p-4 bg-brand-50 border-b border-brand-100 flex items-center gap-4">
             <iconify-icon icon="lucide:calendar" class="text-2xl text-brand-600"></iconify-icon>
             <div>
-                <p class="text-sm text-brand-600 font-medium">Preferred Demo Date</p>
+                <p class="text-sm text-brand-600 font-medium">Preferred Demo Date Range</p>
                 <p class="text-lg font-bold text-brand-900">
-                    {{ \Carbon\Carbon::parse($demoRequest->preferred_date)->format('l, F j, Y') }} 
-                    at {{ $demoRequest->preferred_time }}
+                    {{ \Carbon\Carbon::parse($demoRequest->preferred_date)->format('l, F j, Y') }}@if($demoRequest->preferred_date_end)
+                    &ndash; {{ \Carbon\Carbon::parse($demoRequest->preferred_date_end)->format('l, F j, Y') }}@endif
                 </p>
             </div>
         </div>
