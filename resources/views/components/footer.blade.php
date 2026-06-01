@@ -12,21 +12,65 @@
                         <p class="text-gray-300 text-sm leading-relaxed mb-10 max-w-sm">
                             Be the first to access new articles, case studies, webinars, and tools that support smarter workforce
                         </p>
-                        <form action="{{ url('/newsletter/subscribe') }}" method="POST">
+                        <form id="newsletter-form" action="{{ url('/newsletter/subscribe') }}" method="POST">
                             @csrf
                             <div class="flex bg-white rounded-xl p-1 shadow-lg h-[60px]">
                                 <input type="email" name="email" placeholder="Email Address" class="flex-1 bg-transparent px-5 py-2 outline-none text-brand-950 placeholder-gray-500 font-medium" required>
-                                <button type="submit" class="bg-brand-500 text-white px-8 py-2 rounded-lg text-sm font-semibold hover:bg-brand-600 transition-all">
-                                    Subscribe
+                                <button type="submit" id="newsletter-btn" class="bg-brand-500 text-white px-8 py-2 rounded-lg text-sm font-semibold hover:bg-brand-600 transition-all disabled:opacity-70 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2 min-w-[130px]">
+                                    <svg class="newsletter-spinner hidden animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+                                    </svg>
+                                    <span class="newsletter-btn-label">Subscribe</span>
                                 </button>
                             </div>
-                            @if(session('newsletter_success'))
-                                <p class="text-green-400 text-sm mt-3">{{ session('newsletter_success') }}</p>
-                            @endif
-                            @if(session('newsletter_error'))
-                                <p class="text-red-400 text-sm mt-3">{{ session('newsletter_error') }}</p>
-                            @endif
+                            <p id="newsletter-message" class="text-sm mt-3 {{ session('newsletter_success') ? 'text-green-400' : 'text-red-400' }}" aria-live="polite">{{ session('newsletter_success') ?: session('newsletter_error') }}</p>
                         </form>
+                        @push('scripts')
+                        <script>
+                            (function () {
+                                var form = document.getElementById('newsletter-form');
+                                if (!form) return;
+                                var btn = document.getElementById('newsletter-btn');
+                                var label = form.querySelector('.newsletter-btn-label');
+                                var spinner = form.querySelector('.newsletter-spinner');
+                                var msg = document.getElementById('newsletter-message');
+
+                                form.addEventListener('submit', function (e) {
+                                    e.preventDefault();
+                                    btn.disabled = true;
+                                    label.textContent = 'Subscribing...';
+                                    spinner.classList.remove('hidden');
+                                    msg.textContent = '';
+
+                                    fetch(form.action, {
+                                        method: 'POST',
+                                        headers: {
+                                            'X-CSRF-TOKEN': form.querySelector('input[name=_token]').value,
+                                            'X-Requested-With': 'XMLHttpRequest',
+                                            'Accept': 'application/json'
+                                        },
+                                        body: new URLSearchParams(new FormData(form))
+                                    })
+                                    .then(function (res) { return res.json().catch(function () { return { success: false, message: 'Something went wrong. Please try again.' }; }); })
+                                    .then(function (data) {
+                                        msg.textContent = data.message || (data.success ? 'Subscribed!' : 'Something went wrong.');
+                                        msg.className = 'text-sm mt-3 ' + (data.success ? 'text-green-400' : 'text-red-400');
+                                        if (data.success) form.reset();
+                                    })
+                                    .catch(function () {
+                                        msg.textContent = 'Network error. Please try again.';
+                                        msg.className = 'text-sm mt-3 text-red-400';
+                                    })
+                                    .finally(function () {
+                                        btn.disabled = false;
+                                        label.textContent = 'Subscribe';
+                                        spinner.classList.add('hidden');
+                                    });
+                                });
+                            })();
+                        </script>
+                        @endpush
                     </div>
                     
                     <!-- Brand Description -->
