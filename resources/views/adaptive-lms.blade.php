@@ -235,78 +235,7 @@
 </section>
 
 <!-- Client Success Stories -->
-<section class="py-24 px-6 lg:px-12 bg-white">
-    <div class="max-w-[1440px] mx-auto">
-        <div class="text-center mb-16">
-            <div class="flex justify-center -space-x-2 mb-6">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop" alt="Avatar" class="w-10 h-10 rounded-full border-2 border-white object-cover">
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop" alt="Avatar" class="w-10 h-10 rounded-full border-2 border-white object-cover">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop" alt="Avatar" class="w-10 h-10 rounded-full border-2 border-white object-cover">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" alt="Avatar" class="w-10 h-10 rounded-full border-2 border-white object-cover">
-            </div>
-            <h2 class="text-4xl font-bold text-brand-700 mb-4">Client Success Story</h2>
-            <p class="text-gray-500">Insights from clients who rely on Agunfon to power their learning, compliance, and<br>workforce development</p>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="p-8 bg-white border border-gray-100 rounded-[32px] shadow-soft flex flex-col">
-                <iconify-icon icon="fa:quote-left" class="text-2xl text-blue-200 mb-6"></iconify-icon>
-                <p class="text-sm text-gray-600 mb-8 leading-relaxed">
-                    Agunfon transformed the way we deliver training. Courses became easier to manage, engagement increased, and compliance improved across the board.
-                </p>
-                <div class="mt-auto flex items-center gap-3">
-                    <div class="w-10 h-10 bg-brand-500 rounded-full flex items-center justify-center text-white font-bold text-xs">OZ</div>
-                    <div>
-                        <p class="text-sm font-bold">Olateju Zainab</p>
-                        <p class="text-[10px] text-gray-500 uppercase">HR Manager, Promasidor</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="p-8 bg-white border border-gray-100 rounded-[32px] shadow-soft flex flex-col">
-                <iconify-icon icon="fa:quote-left" class="text-2xl text-blue-200 mb-6"></iconify-icon>
-                <p class="text-sm text-gray-600 mb-8 leading-relaxed">
-                    With Agunfon, onboarding finally became structured and predictable. New hires now hit productivity faster, and our HR team spends less time chasing manual tasks.
-                </p>
-                <div class="mt-auto flex items-center gap-3">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop" alt="User" class="w-10 h-10 rounded-full object-cover">
-                    <div>
-                        <p class="text-sm font-bold">Alice Windows</p>
-                        <p class="text-[10px] text-gray-500 uppercase">Talent Development, KPMG</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="p-8 bg-white border border-gray-100 rounded-[32px] shadow-soft flex flex-col">
-                <iconify-icon icon="fa:quote-left" class="text-2xl text-blue-200 mb-6"></iconify-icon>
-                <p class="text-sm text-gray-600 mb-8 leading-relaxed">
-                    Agunfon helped us unify learning across multiple branches. Reporting is clearer, managers are more engaged, and our overall learning culture has visibly improved.
-                </p>
-                <div class="mt-auto flex items-center gap-3">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop" alt="User" class="w-10 h-10 rounded-full object-cover">
-                    <div>
-                        <p class="text-sm font-bold">Taiye Arovjehun</p>
-                        <p class="text-[10px] text-gray-500 uppercase">Logic Lead, Lafarge</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="p-8 bg-white border border-gray-100 rounded-[32px] shadow-soft flex flex-col opacity-50">
-                <iconify-icon icon="fa:quote-left" class="text-2xl text-blue-200 mb-6"></iconify-icon>
-                <p class="text-sm text-gray-600 mb-8 leading-relaxed">
-                    The automated tracking means I no longer worry about renewal dates for certifications. Everything runs smoothly and the UI is intuitive for all our employees.
-                </p>
-                <div class="mt-auto flex items-center gap-3">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" alt="User" class="w-10 h-10 rounded-full object-cover">
-                    <div>
-                        <p class="text-sm font-bold">Chinenye N.</p>
-                        <p class="text-[10px] text-gray-500 uppercase">Compliance, Diamond</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+@include('components.testimonials')
 
 <!-- CTA Section -->
 <section class="py-24 px-6 lg:px-12">
