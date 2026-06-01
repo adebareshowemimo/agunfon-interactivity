@@ -2,7 +2,7 @@
 @php
     $testimonials = [
         [
-            'quote' => 'Exceptional to work with. He took real ownership of the project — fast turnaround without ever sacrificing precision, and clear, reliable communication throughout. I would absolutely recommend him.',
+            'quote' => 'Exceptional to work with. The team took real ownership of the project — fast turnaround without ever sacrificing precision, and clear, reliable communication throughout. I would absolutely recommend them.',
             'project' => 'PowerPoint Add-In (VBA / RibbonX)',
             'rating' => '5.0',
         ],
@@ -12,42 +12,42 @@
             'rating' => '5.0',
         ],
         [
-            'quote' => 'Incredibly helpful — went above and beyond to solve issues that were outside the original scope. His dedication and expertise were invaluable. Highly recommend.',
+            'quote' => 'Incredibly helpful — went above and beyond to solve issues that were outside the original scope. Their dedication and expertise were invaluable. Highly recommend.',
             'project' => 'Instructional Design — Captivate',
             'rating' => '5.0',
         ],
         [
-            'quote' => 'I needed a SCORM training file and he did it within hours, perfectly. He even provided a sample at no cost to test. Highly recommend.',
+            'quote' => 'I needed a SCORM training file and the team delivered it within hours, perfectly. They even provided a sample at no cost to test. Highly recommend.',
             'project' => 'SCORM Training File',
             'rating' => '5.0',
         ],
         [
-            'quote' => 'A pleasure to work with. His communication and technical skills were exemplary. I will not hesitate to hire him again.',
+            'quote' => 'A pleasure to work with. Their communication and technical skills were exemplary. We will not hesitate to work with them again.',
             'project' => 'Moodle eLearning Site',
             'rating' => '5.0',
         ],
         [
-            'quote' => 'An excellent DevOps engineer, highly experienced in Moodle deployment and management. He communicates well and keeps clients updated. Would definitely hire again.',
+            'quote' => 'An excellent DevOps team, highly experienced in Moodle deployment and management. They communicate well and keep clients updated. Would definitely work with them again.',
             'project' => 'Moodle DevOps & Deployment',
             'rating' => '4.9',
         ],
         [
-            'quote' => 'Responsive, committed, and reliable — a hard worker who genuinely wants to produce good work.',
+            'quote' => 'Responsive, committed, and reliable — a team that genuinely wants to produce good work.',
             'project' => 'Talent LMS & Articulate Rise 360',
             'rating' => '5.0',
         ],
         [
-            'quote' => "Fantastic to work with. We'd definitely recommend his skills and talents for your JavaScript needs.",
+            'quote' => "Fantastic to work with. We'd definitely recommend their skills and talents for your JavaScript needs.",
             'project' => 'JavaScript in Articulate Storyline',
             'rating' => '5.0',
         ],
         [
-            'quote' => 'Highly skilled — speed, efficiency, and professionalism. Working with him was a pleasure.',
+            'quote' => 'Highly skilled — speed, efficiency, and professionalism. Working with the team was a pleasure.',
             'project' => 'Moodle LMS Setup',
             'rating' => '5.0',
         ],
         [
-            'quote' => 'Adebare did an amazing job, as usual. He really knows what he\'s doing!',
+            'quote' => 'An amazing job, as usual. The team really knows what they\'re doing!',
             'project' => 'Moodle LMS Setup (Repeat Client)',
             'rating' => '5.0',
         ],
@@ -63,7 +63,7 @@
     <div class="text-center mb-12">
         <span class="inline-flex items-center gap-2 text-xs font-semibold text-brand-600 bg-brand-50 px-3 py-1 rounded-full mb-4">
             <iconify-icon icon="fa-solid:star" class="text-amber-400"></iconify-icon>
-            Rated 5.0 by clients on Upwork
+            Rated 5.0 by our clients
         </span>
         <h2 class="text-2xl md:text-3xl font-bold text-gray-900">
             What our <span class="font-serif italic text-brand-500 font-medium">clients</span> are saying
@@ -92,7 +92,7 @@
                     </div>
                     <div>
                         <h4 class="font-bold text-gray-900 text-sm leading-tight">{{ $t['project'] }}</h4>
-                        <p class="text-[10px] text-gray-500">Verified Upwork Client · ★ {{ $t['rating'] }}</p>
+                        <p class="text-[10px] text-gray-500">Verified Client · ★ {{ $t['rating'] }}</p>
                     </div>
                 </div>
             </div>
