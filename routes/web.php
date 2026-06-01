@@ -168,6 +168,10 @@ Route::get('/resources', function () {
     return view('services');
 })->name('resources');
 
+// Default "login" route: Laravel's auth middleware redirects unauthenticated
+// users to route('login'). Admin auth lives under admin.login, so alias it here.
+Route::get('/login', fn () => redirect()->route('admin.login'))->name('login');
+
 // ============================================
 // ADMIN ROUTES
 // ============================================
