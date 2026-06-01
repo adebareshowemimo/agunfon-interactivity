@@ -76,7 +76,15 @@
                     <span class="ml-auto bg-orange-500 text-white text-xs px-2 py-0.5 rounded-full">{{ App\Models\DemoRequest::pending()->count() }}</span>
                     @endif
                 </a>
-                
+
+                <a href="{{ route('admin.newsletter.index') }}" class="sidebar-link {{ request()->routeIs('admin.newsletter.*') ? 'active' : '' }}">
+                    <iconify-icon icon="lucide:mail-plus" class="text-xl"></iconify-icon>
+                    Newsletter
+                    @if(App\Models\NewsletterSubscriber::count() > 0)
+                    <span class="ml-auto bg-brand-600 text-white text-xs px-2 py-0.5 rounded-full">{{ App\Models\NewsletterSubscriber::count() }}</span>
+                    @endif
+                </a>
+
                 <div class="pt-6 pb-2">
                     <span class="px-4 text-xs font-semibold text-brand-200 uppercase tracking-wider">Settings</span>
                 </div>

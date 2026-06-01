@@ -47,4 +47,9 @@ class AdminEmail extends Model
     {
         return self::forDemos()->pluck('email')->toArray();
     }
+
+    public static function getActiveRecipients()
+    {
+        return self::active()->pluck('email')->toArray();
+    }
 }

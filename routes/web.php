@@ -3,11 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DemoRequestController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\Admin\DemoRequestController as AdminDemoRequestController;
 use App\Http\Controllers\Admin\AdminEmailController;
+use App\Http\Controllers\Admin\NewsletterController as AdminNewsletterController;
 
 Route::get('/', function () {
     return view('landing');
@@ -81,11 +83,7 @@ Route::get('/book-demo/success', function () {
 })->name('demo.success');
 
 // Newsletter Subscription
-Route::post('/newsletter/subscribe', function (\Illuminate\Http\Request $request) {
-    $request->validate(['email' => 'required|email']);
-    // TODO: Store subscriber email or integrate with mailing service
-    return back()->with('newsletter_success', 'Thank you for subscribing!');
-})->name('newsletter.subscribe');
+Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
 Route::get('/employee-onboarding', function () {
     return view('employee-onboarding');
@@ -198,6 +196,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/demos/{demoRequest}', [AdminDemoRequestController::class, 'show'])->name('demos.show');
         Route::patch('/demos/{demoRequest}/status', [AdminDemoRequestController::class, 'updateStatus'])->name('demos.status');
         Route::delete('/demos/{demoRequest}', [AdminDemoRequestController::class, 'destroy'])->name('demos.destroy');
+
+        // Newsletter Subscribers
+        Route::get('/newsletter', [AdminNewsletterController::class, 'index'])->name('newsletter.index');
+        Route::get('/newsletter/export', [AdminNewsletterController::class, 'export'])->name('newsletter.export');
+        Route::delete('/newsletter/{subscriber}', [AdminNewsletterController::class, 'destroy'])->name('newsletter.destroy');
 
         // Admin Emails Management
         Route::get('/emails', [AdminEmailController::class, 'index'])->name('emails.index');
