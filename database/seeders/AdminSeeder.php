@@ -16,16 +16,16 @@ class AdminSeeder extends Seeder
     {
         // Create default admin user
         User::updateOrCreate(
-            ['email' => 'admin@agunfon.com'],
+            ['email' => env('ADMIN_EMAIL', 'support@iwelabi.com.ng')],
             [
-                'name' => 'Admin User',
-                'password' => Hash::make('admin123'),
+                'name' => env('ADMIN_NAME', 'Admin User'),
+                'password' => Hash::make(env('ADMIN_PASSWORD', 'changeme')),
             ]
         );
 
         // Create default admin email for notifications
         AdminEmail::updateOrCreate(
-            ['email' => 'admin@agunfon.com'],
+            ['email' => env('ADMIN_EMAIL', 'support@iwelabi.com.ng')],
             [
                 'name' => 'Admin',
                 'receive_contacts' => true,
