@@ -32,8 +32,8 @@
     <!-- Iconify -->
     <script src="https://code.iconify.design/iconify-icon/2.0.0/iconify-icon.min.js"></script>
     
-    <style>
-        .sidebar-link { @apply flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-brand-700/50 hover:text-white rounded-lg transition-all; }
+    <style type="text/tailwindcss">
+        .sidebar-link { @apply flex items-center gap-3 px-4 py-3 text-gray-100 hover:bg-brand-700/50 hover:text-white rounded-lg transition-all; }
         .sidebar-link.active { @apply bg-brand-600 text-white; }
     </style>
 </head>
