@@ -250,26 +250,26 @@
         <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto items-center">
             <div class="bg-white rounded-[28px] border border-gray-100 shadow-soft p-8">
                 <h3 class="text-lg font-bold text-brand-700">Starter</h3>
-                <div class="text-4xl font-extrabold text-brand-700 my-4">$XX<span class="text-base font-normal text-gray-400">/yr</span></div>
+                <div class="text-4xl font-extrabold text-brand-700 my-4">$99<span class="text-base font-normal text-gray-400">/yr</span></div>
                 <ul class="space-y-3 text-gray-500 text-sm mb-8">
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> 1 site</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> All Premium features</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> 1 year updates</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Email support</li>
                 </ul>
-                <a href="/contact" class="block text-center px-6 py-3 rounded-xl border border-gray-200 font-bold text-brand-700 hover:bg-gray-50 transition-colors">Buy Starter</a>
+                <a href="https://marketplace.moodle.com/plugins/69" target="_blank" rel="noopener" class="block text-center px-6 py-3 rounded-xl border border-gray-200 font-bold text-brand-700 hover:bg-gray-50 transition-colors">Buy Starter</a>
             </div>
             <div class="bg-white rounded-[28px] border-2 border-brand-500 shadow-float p-8 relative md:scale-105">
                 <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-500 text-white text-xs font-bold px-4 py-1 rounded-full">Most Popular</span>
                 <h3 class="text-lg font-bold text-brand-700">Pro</h3>
-                <div class="text-4xl font-extrabold text-brand-500 my-4">$XXX<span class="text-base font-normal text-gray-400">/yr</span></div>
+                <div class="text-4xl font-extrabold text-brand-500 my-4">$299<span class="text-base font-normal text-gray-400">/yr</span></div>
                 <ul class="space-y-3 text-gray-500 text-sm mb-8">
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Up to 5 sites</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> All Premium features</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> 1 year updates</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Priority support</li>
                 </ul>
-                <a href="/contact" class="block text-center px-6 py-3 rounded-xl bg-brand-500 text-white font-bold hover:bg-brand-600 transition-all hover:-translate-y-0.5">Buy Pro</a>
+                <a href="https://marketplace.moodle.com/plugins/69" target="_blank" rel="noopener" class="block text-center px-6 py-3 rounded-xl bg-brand-500 text-white font-bold hover:bg-brand-600 transition-all hover:-translate-y-0.5">Buy Pro</a>
             </div>
             <div class="bg-white rounded-[28px] border border-gray-100 shadow-soft p-8">
                 <h3 class="text-lg font-bold text-brand-700">Enterprise</h3>
