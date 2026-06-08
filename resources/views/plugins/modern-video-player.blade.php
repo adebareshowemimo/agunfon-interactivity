@@ -17,8 +17,13 @@
                 Modern Video Player Premium is a controlled, Moodle-native video activity with server-validated tracking — plus engagement heatmaps, signed-URL protection, cloud sources, branded skins, and audit-ready exports. The commercial superset of the free Community edition, upgradeable in place.
             </p>
             <div class="flex flex-wrap gap-4 mb-8">
-                <a href="#pricing" class="inline-flex items-center px-9 py-4 bg-brand-500 text-white font-bold rounded-xl hover:bg-brand-600 transition-all hover:shadow-lg hover:-translate-y-1 active:translate-y-0">Buy now</a>
-                <a href="/book-demo" class="inline-flex items-center px-9 py-4 border border-gray-200 text-brand-700 font-bold rounded-xl hover:bg-gray-50 transition-all">Book a demo</a>
+                <a href="#pricing" class="inline-flex items-center px-9 py-4 bg-brand-500 text-white font-bold rounded-xl hover:bg-brand-600 transition-all hover:shadow-lg hover:-translate-y-1 active:translate-y-0">Purchase Now</a>
+                <a href="https://demo.agunfoninteractivity.com/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-9 py-4 border border-gray-200 text-brand-700 font-bold rounded-xl hover:bg-gray-50 transition-all">
+                    <iconify-icon icon="lucide:play-circle" class="text-brand-500"></iconify-icon> Try it live
+                </a>
+                <a href="/docs/1.0/modern-video-player/overview" class="inline-flex items-center gap-2 px-9 py-4 border border-gray-200 text-brand-700 font-bold rounded-xl hover:bg-gray-50 transition-all">
+                    <iconify-icon icon="lucide:book-open" class="text-brand-500"></iconify-icon> Documentation
+                </a>
             </div>
             <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-500 font-medium">
                 <span class="inline-flex items-center gap-1.5"><iconify-icon icon="lucide:flame" class="text-brand-500"></iconify-icon> Engagement heatmaps</span>
@@ -85,6 +90,41 @@
             <p class="text-lg text-gray-600 leading-relaxed">
                 A YouTube embed or an uploaded file can't tell you who watched, how far they got, or whether the content was copied. Modern Video Player Premium is a controlled Moodle activity with server-validated watched segments, completion, and integrity tracking — and on top of that free foundation it adds engagement heatmaps and retention analytics, time-limited signed URLs with dynamic watermarking, cloud and provider sources, branded skins, audit-ready exports, and xAPI to your LRS. It shares the component name with the free Community edition, so you can upgrade in place — every activity, file, progress record, and report is preserved.
             </p>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 12 REASONS (slide gallery) ============ -->
+<section class="py-12 md:py-20 bg-brand-50/40 border-y border-blue-50">
+    <div class="max-w-[1100px] mx-auto px-6 lg:px-12">
+        <div class="text-center mb-12">
+            <span class="inline-block px-4 py-1.5 rounded-full border border-blue-100 text-[11px] font-bold text-blue-600 bg-blue-50 tracking-widest uppercase mb-5">Why choose it</span>
+            <h2 class="text-4xl md:text-5xl font-bold text-brand-700">12 reasons to choose <span class="font-serif italic text-brand-500">Modern Video Player</span></h2>
+            <p class="text-gray-500 mt-4">Click any image to view it full size.</p>
+        </div>
+        @php
+        $reasonSlides = [
+            ['02-server-validated-playback', 'Server-validated playback'],
+            ['03-built-for-learners', 'Built for learners'],
+            ['04-tamper-proof-completion-and-grading', 'Tamper-proof completion & grading'],
+            ['05-engagement-heatmap', 'Engagement heatmap'],
+            ['06-compliance-audit-and-scheduled-reports', 'Compliance audit & scheduled reports'],
+            ['07-built-in-content-protection', 'Built-in content protection'],
+            ['08-seven-player-styles', 'Seven player styles'],
+            ['09-flexible-video-sources', 'Flexible video sources'],
+            ['10-distraction-free-focus-mode', 'Distraction-free focus mode'],
+            ['11-standards-and-integration', 'Standards & integration'],
+            ['12-cohort-analytics-dashboard', 'Cohort analytics dashboard'],
+            ['13-trusted-and-compliant', 'Trusted & compliant'],
+        ];
+        $slidesBase = '/images/plugins/modern-video-player/ten-reasons/slides';
+        @endphp
+        <div class="space-y-6 md:space-y-8">
+            @foreach ($reasonSlides as [$file, $alt])
+            <a href="{{ $slidesBase }}/{{ $file }}.png" target="_blank" rel="noopener" class="block group">
+                <img src="{{ $slidesBase }}/{{ $file }}.png" alt="{{ $alt }}" loading="lazy" class="w-full h-auto rounded-[24px] shadow-soft border border-gray-100 group-hover:shadow-float transition-shadow" />
+            </a>
+            @endforeach
         </div>
     </div>
 </section>
@@ -197,12 +237,6 @@
             </div>
             @endforeach
         </div>
-        <div class="max-w-3xl mx-auto bg-brand-50 rounded-[32px] p-10 text-center border border-blue-50">
-            <div class="text-brand-500 text-xl mb-4">★★★★★</div>
-            <p class="text-xl md:text-2xl font-semibold text-brand-700 leading-relaxed mb-4">“[TESTIMONIAL — an L&amp;D or compliance lead, their institution, and a concrete result, e.g. audit readiness or completion lift.]”</p>
-            <p class="text-gray-500 text-sm">— [Name, Role, Institution]</p>
-        </div>
-        <p class="text-center text-xs text-gray-400 mt-5">Scenario-based examples — replace with named customer results before publishing.</p>
     </div>
 </section>
 
@@ -238,15 +272,15 @@
                 <a href="/contact" class="block text-center px-6 py-3 rounded-xl bg-brand-500 text-white font-bold hover:bg-brand-600 transition-all hover:-translate-y-0.5">Buy Pro</a>
             </div>
             <div class="bg-white rounded-[28px] border border-gray-100 shadow-soft p-8">
-                <h3 class="text-lg font-bold text-brand-700">Institution</h3>
+                <h3 class="text-lg font-bold text-brand-700">Enterprise</h3>
                 <div class="text-4xl font-extrabold text-brand-700 my-4">Custom</div>
                 <ul class="space-y-3 text-gray-500 text-sm mb-8">
-                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Unlimited sites</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> All Premium features</li>
-                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Onboarding + SLA</li>
-                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> LRS integration support</li>
+                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Tailored pricing for your Moodle setup</li>
+                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Personalized implementation plan</li>
+                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Custom admin onboarding &amp; training</li>
                 </ul>
-                <a href="/book-demo" class="block text-center px-6 py-3 rounded-xl border border-gray-200 font-bold text-brand-700 hover:bg-gray-50 transition-colors">Talk to sales</a>
+                <a href="/contact" class="block text-center px-6 py-3 rounded-xl border border-gray-200 font-bold text-brand-700 hover:bg-gray-50 transition-colors">Talk to sales</a>
             </div>
         </div>
         <p class="text-center text-sm text-gray-400 mt-8">✓ 30-day money-back guarantee &nbsp;·&nbsp; ✓ GPL v3 — modify freely &nbsp;·&nbsp; ✓ Upgrade the free edition in place</p>
