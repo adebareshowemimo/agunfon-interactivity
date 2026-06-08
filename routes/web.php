@@ -153,6 +153,10 @@ Route::get('/terms-of-service', function () {
     return view('terms-of-service');
 });
 
+Route::get('/terms-of-sale', function () {
+    return view('terms-of-sale');
+})->name('terms-of-sale');
+
 Route::get('/cookies-policy', function () {
     return view('cookies-policy');
 });
