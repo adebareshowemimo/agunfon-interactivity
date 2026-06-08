@@ -16,8 +16,7 @@ https://agunfoninteractivity.com/images/plugins/modern-video-player/ten-reasons/
 https://agunfoninteractivity.com/images/plugins/modern-video-player/ten-reasons/slides/11-standards-and-integration.png
 https://agunfoninteractivity.com/images/plugins/modern-video-player/ten-reasons/slides/12-cohort-analytics-dashboard.png
 https://agunfoninteractivity.com/images/plugins/modern-video-player/ten-reasons/slides/13-trusted-and-compliant.png
-https://agunfoninteractivity.com/images/plugins/modern-video-player/ten-reasons/slides/14-trusted-and-compliant.png
-https://agunfoninteractivity.com/images/plugins/modern-video-player/ten-reasons/slides/15-convinced.png
+https://agunfoninteractivity.com/images/plugins/modern-video-player/ten-reasons/slides/14-convinced.png
 
 ## Markdown (paste into a Markdown-format description)
 ![01-12-reasons-to-choose-modern-video-player](https://agunfoninteractivity.com/images/plugins/modern-video-player/ten-reasons/slides/01-12-reasons-to-choose-modern-video-player.png)
@@ -33,8 +32,7 @@ https://agunfoninteractivity.com/images/plugins/modern-video-player/ten-reasons/
 ![11-standards-and-integration](https://agunfoninteractivity.com/images/plugins/modern-video-player/ten-reasons/slides/11-standards-and-integration.png)
 ![12-cohort-analytics-dashboard](https://agunfoninteractivity.com/images/plugins/modern-video-player/ten-reasons/slides/12-cohort-analytics-dashboard.png)
 ![13-trusted-and-compliant](https://agunfoninteractivity.com/images/plugins/modern-video-player/ten-reasons/slides/13-trusted-and-compliant.png)
-![14-trusted-and-compliant](https://agunfoninteractivity.com/images/plugins/modern-video-player/ten-reasons/slides/14-trusted-and-compliant.png)
-![15-convinced](https://agunfoninteractivity.com/images/plugins/modern-video-player/ten-reasons/slides/15-convinced.png)
+![14-convinced](https://agunfoninteractivity.com/images/plugins/modern-video-player/ten-reasons/slides/14-convinced.png)
 
 ## HTML (paste into an HTML-format description)
 <img src="https://agunfoninteractivity.com/images/plugins/modern-video-player/ten-reasons/slides/01-12-reasons-to-choose-modern-video-player.png" alt="01-12-reasons-to-choose-modern-video-player" />
@@ -50,5 +48,4 @@ https://agunfoninteractivity.com/images/plugins/modern-video-player/ten-reasons/
 <img src="https://agunfoninteractivity.com/images/plugins/modern-video-player/ten-reasons/slides/11-standards-and-integration.png" alt="11-standards-and-integration" />
 <img src="https://agunfoninteractivity.com/images/plugins/modern-video-player/ten-reasons/slides/12-cohort-analytics-dashboard.png" alt="12-cohort-analytics-dashboard" />
 <img src="https://agunfoninteractivity.com/images/plugins/modern-video-player/ten-reasons/slides/13-trusted-and-compliant.png" alt="13-trusted-and-compliant" />
-<img src="https://agunfoninteractivity.com/images/plugins/modern-video-player/ten-reasons/slides/14-trusted-and-compliant.png" alt="14-trusted-and-compliant" />
-<img src="https://agunfoninteractivity.com/images/plugins/modern-video-player/ten-reasons/slides/15-convinced.png" alt="15-convinced" />
+<img src="https://agunfoninteractivity.com/images/plugins/modern-video-player/ten-reasons/slides/14-convinced.png" alt="14-convinced" />
