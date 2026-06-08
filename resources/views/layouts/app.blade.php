@@ -8,6 +8,10 @@
     <title>{{ $title ?? 'Agunfon - Enterprise LMS' }}</title>
     <meta name="description" content="Empower your teams with an adaptive LMS built for clarity, growth, and measurable impact.">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/Agunfon_Icon.png">
+    <link rel="apple-touch-icon" href="/images/Agunfon_Icon.png">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
