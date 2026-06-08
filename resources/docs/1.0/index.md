@@ -1,0 +1,15 @@
+- ## Documentation
+    - [Welcome](/{{route}}/{{version}}/overview)
+
+- ## Modern Video Player
+    - [Overview](/{{route}}/{{version}}/modern-video-player/overview)
+    - [Requirements](/{{route}}/{{version}}/modern-video-player/requirements)
+    - [Installation & Upgrade](/{{route}}/{{version}}/modern-video-player/installation)
+    - [Quick Start (Teachers)](/{{route}}/{{version}}/modern-video-player/quick-start)
+    - [Video Sources](/{{route}}/{{version}}/modern-video-player/video-sources)
+    - [Content Protection](/{{route}}/{{version}}/modern-video-player/content-protection)
+    - [Analytics & Reporting](/{{route}}/{{version}}/modern-video-player/analytics)
+    - [Player Skins](/{{route}}/{{version}}/modern-video-player/player-skins)
+    - [Exports & Integrations](/{{route}}/{{version}}/modern-video-player/exports-and-integrations)
+    - [Admin Settings Reference](/{{route}}/{{version}}/modern-video-player/admin-settings)
+    - [FAQ](/{{route}}/{{version}}/modern-video-player/faq)
