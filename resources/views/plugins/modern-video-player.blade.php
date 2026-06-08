@@ -287,6 +287,28 @@
     </div>
 </section>
 
+<!-- ============ GUARANTEE BANNER ============ -->
+<section class="py-8 md:py-12">
+    <div class="max-w-[1100px] mx-auto px-6 lg:px-12">
+        <div class="relative overflow-hidden bg-brand-700 rounded-[32px] px-8 md:px-14 py-10 shadow-2xl flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
+            <div class="absolute -top-16 -right-10 w-72 h-72 rounded-full bg-brand-500/15"></div>
+            <div class="absolute -bottom-24 right-44 w-44 h-44 rounded-full bg-brand-500/10"></div>
+            <div class="absolute top-0 left-0 w-48 h-full opacity-20" style="background:repeating-linear-gradient(-45deg,transparent 0 14px,#4B8BE8 14px 16px);-webkit-mask-image:linear-gradient(135deg,#000,transparent 70%);mask-image:linear-gradient(135deg,#000,transparent 70%);"></div>
+            <div class="relative z-10 shrink-0 w-32 h-32 md:w-36 md:h-36 bg-white rounded-[28px] shadow-float flex items-center justify-center">
+                <svg viewBox="0 0 100 110" class="w-16 h-[72px]" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 4 L90 19 V54 C90 80 72 99 50 106 C28 99 10 80 10 54 V19 Z" fill="none" stroke="#4B8BE8" stroke-width="5" stroke-linejoin="round"/>
+                    <text x="50" y="53" text-anchor="middle" font-family="Inter,sans-serif" font-size="33" font-weight="900" fill="#0F3D7A">30</text>
+                    <text x="50" y="75" text-anchor="middle" font-family="Inter,sans-serif" font-size="15" font-weight="700" letter-spacing="2.5" fill="#4B8BE8">DAYS</text>
+                </svg>
+            </div>
+            <div class="relative z-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">30-day money-back guarantee</h2>
+                <p class="text-blue-100/80 text-base md:text-lg mt-3 max-w-2xl">Try Modern Video Player for 30 days. If it doesn't work as described and our support can't resolve it, we'll refund 100% of your purchase.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ============ FAQ ============ -->
 <section class="py-20 md:py-28">
     <div class="max-w-3xl mx-auto px-6 lg:px-12">
