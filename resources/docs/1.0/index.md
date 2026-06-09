@@ -13,3 +13,16 @@
     - [Exports & Integrations](/{{route}}/{{version}}/modern-video-player/exports-and-integrations)
     - [Admin Settings Reference](/{{route}}/{{version}}/modern-video-player/admin-settings)
     - [FAQ](/{{route}}/{{version}}/modern-video-player/faq)
+
+- ## Modern Course Reminder
+    - [Overview](/{{route}}/{{version}}/modern-course-reminder/overview)
+    - [Requirements](/{{route}}/{{version}}/modern-course-reminder/requirements)
+    - [Installation & Migration](/{{route}}/{{version}}/modern-course-reminder/installation)
+    - [Quick Start](/{{route}}/{{version}}/modern-course-reminder/quick-start)
+    - [Reminder Rules](/{{route}}/{{version}}/modern-course-reminder/rules)
+    - [Templates & Content](/{{route}}/{{version}}/modern-course-reminder/templates)
+    - [Manager Escalation](/{{route}}/{{version}}/modern-course-reminder/manager-escalation)
+    - [Delivery, Queue & Campaigns](/{{route}}/{{version}}/modern-course-reminder/delivery-and-queue)
+    - [Reports, Analytics & Health](/{{route}}/{{version}}/modern-course-reminder/reports-and-analytics)
+    - [Admin Settings Reference](/{{route}}/{{version}}/modern-course-reminder/admin-settings)
+    - [FAQ](/{{route}}/{{version}}/modern-course-reminder/faq)
