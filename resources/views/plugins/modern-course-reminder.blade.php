@@ -78,20 +78,6 @@
     </div>
 </section>
 
-<!-- ============ TRUST / STATS BAND ============ -->
-<section class="py-12 md:py-16 bg-brand-50/60 border-y border-blue-50">
-    <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
-        <p class="text-center text-xs font-bold tracking-widest uppercase text-gray-400 mb-10">Trusted by Moodle teams in education &amp; enterprise</p>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div><div class="text-4xl font-extrabold text-brand-700">[XX]%</div><div class="text-sm text-gray-500 mt-1">higher completion after reminders</div></div>
-            <div><div class="text-4xl font-extrabold text-brand-700">[XX] hrs</div><div class="text-sm text-gray-500 mt-1">saved per cohort, monthly</div></div>
-            <div><div class="text-4xl font-extrabold text-brand-700">5 min</div><div class="text-sm text-gray-500 mt-1">send cadence on cron</div></div>
-            <div><div class="text-4xl font-extrabold text-brand-700">100%</div><div class="text-sm text-gray-500 mt-1">auditable delivery log</div></div>
-        </div>
-        <p class="text-center text-xs text-gray-400 mt-6">Figures are illustrative placeholders — replace with verified deployment data before publishing.</p>
-    </div>
-</section>
-
 <!-- ============ SOLUTION OVERVIEW ============ -->
 <section class="py-20 md:py-28">
     <div class="max-w-[1440px] mx-auto px-6 lg:px-12 text-center">
@@ -100,6 +86,42 @@
             <p class="text-lg text-gray-600 leading-relaxed">
                 You already know who's falling behind — you just don't have the hours to chase every one of them. Core Moodle can send a message, but it can't watch enrolments, apply rules, follow up on a schedule, or escalate when someone keeps ignoring the nudge. Modern Course Reminder turns that manual work into a continuous, auditable process: set your rules once and it re-engages inactive and overdue learners, escalates to managers automatically, and proves exactly what was sent — every cron run.
             </p>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 13 REASONS (slide gallery) ============ -->
+<section class="py-12 md:py-20 bg-brand-50/40 border-y border-blue-50">
+    <div class="max-w-[1100px] mx-auto px-6 lg:px-12">
+        <div class="text-center mb-12">
+            <span class="inline-block px-4 py-1.5 rounded-full border border-blue-100 text-[11px] font-bold text-blue-600 bg-blue-50 tracking-widest uppercase mb-5">Why choose it</span>
+            <h2 class="text-4xl md:text-5xl font-bold text-brand-700">13 reasons to choose <span class="font-serif italic text-brand-500">Modern Course Reminder</span></h2>
+            <p class="text-gray-500 mt-4">Click any image to view it full size.</p>
+        </div>
+        @php
+        $reasonSlides = [
+            ['02-reminders-on-autopilot', 'Reminders on autopilot'],
+            ['03-guided-setup-no-broken-rules', 'Guided setup, no broken rules'],
+            ['04-rescue-inactive-learners', 'Rescue inactive learners'],
+            ['05-escalate-to-managers', 'Escalate to managers'],
+            ['06-branded-ai-drafted-templates', 'Branded, AI-drafted templates'],
+            ['07-every-channel-batched-digests', 'Every channel, batched digests'],
+            ['08-send-a-reminder-now', 'Send a reminder now'],
+            ['09-scheduling-and-campaigns', 'Scheduling & campaigns'],
+            ['10-runs-entirely-on-cron', 'Runs entirely on cron'],
+            ['11-prove-it-lifts-completion', 'Prove it lifts completion'],
+            ['12-audit-ready-by-design', 'Audit-ready by design'],
+            ['13-safe-respectful-sending', 'Safe, respectful sending'],
+            ['14-moodle-native-future-proof', 'Moodle-native, future-proof'],
+        ];
+        $slidesBase = '/images/plugins/modern-course-reminder/ten-reasons/slides';
+        @endphp
+        <div class="space-y-6 md:space-y-8">
+            @foreach ($reasonSlides as [$file, $alt])
+            <a href="{{ $slidesBase }}/{{ $file }}.png" target="_blank" rel="noopener" class="block group">
+                <img src="{{ $slidesBase }}/{{ $file }}.png" alt="{{ $alt }}" loading="lazy" class="w-full h-auto rounded-[24px] shadow-soft border border-gray-100 group-hover:shadow-float transition-shadow" />
+            </a>
+            @endforeach
         </div>
     </div>
 </section>
@@ -220,12 +242,6 @@
             </div>
             @endforeach
         </div>
-        <div class="max-w-3xl mx-auto bg-brand-50 rounded-[32px] p-10 text-center border border-blue-50">
-            <div class="text-brand-500 text-xl mb-4">★★★★★</div>
-            <p class="text-xl md:text-2xl font-semibold text-brand-700 leading-relaxed mb-4">“[TESTIMONIAL — a named L&amp;D manager, their institution, and a concrete completion-rate or time-saved result.]”</p>
-            <p class="text-gray-500 text-sm">— [Name, Role, Institution]</p>
-        </div>
-        <p class="text-center text-xs text-gray-400 mt-5">Scenarios from our L&amp;D case-study library — replace with named customer results before publishing.</p>
     </div>
 </section>
 
@@ -240,39 +256,40 @@
             <!-- Starter -->
             <div class="bg-white rounded-[28px] border border-gray-100 shadow-soft p-8">
                 <h3 class="text-lg font-bold text-brand-700">Starter</h3>
-                <div class="text-4xl font-extrabold text-brand-700 my-4">$XX<span class="text-base font-normal text-gray-400">/yr</span></div>
+                <div class="text-4xl font-extrabold text-brand-700 my-4">$99<span class="text-base font-normal text-gray-400">/yr</span></div>
                 <ul class="space-y-3 text-gray-500 text-sm mb-8">
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> 1 site</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> All features</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> 1 year updates</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Email support</li>
                 </ul>
-                <a href="/contact" class="block text-center px-6 py-3 rounded-xl border border-gray-200 font-bold text-brand-700 hover:bg-gray-50 transition-colors">Buy Starter</a>
+                <a href="https://marketplace.moodle.com/plugins/68" target="_blank" rel="noopener" class="block text-center px-6 py-3 rounded-xl border border-gray-200 font-bold text-brand-700 hover:bg-gray-50 transition-colors">Buy Starter</a>
             </div>
             <!-- Pro (highlighted) -->
             <div class="bg-white rounded-[28px] border-2 border-brand-500 shadow-float p-8 relative md:scale-105">
                 <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-500 text-white text-xs font-bold px-4 py-1 rounded-full">Most Popular</span>
                 <h3 class="text-lg font-bold text-brand-700">Pro</h3>
-                <div class="text-4xl font-extrabold text-brand-500 my-4">$XXX<span class="text-base font-normal text-gray-400">/yr</span></div>
+                <div class="text-4xl font-extrabold text-brand-500 my-4">$299<span class="text-base font-normal text-gray-400">/yr</span></div>
                 <ul class="space-y-3 text-gray-500 text-sm mb-8">
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Up to 5 sites</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> All features</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> 1 year updates</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Priority support</li>
                 </ul>
-                <a href="/contact" class="block text-center px-6 py-3 rounded-xl bg-brand-500 text-white font-bold hover:bg-brand-600 transition-all hover:-translate-y-0.5">Buy Pro</a>
+                <a href="https://marketplace.moodle.com/plugins/68" target="_blank" rel="noopener" class="block text-center px-6 py-3 rounded-xl bg-brand-500 text-white font-bold hover:bg-brand-600 transition-all hover:-translate-y-0.5">Buy Pro</a>
             </div>
             <!-- Institution -->
             <div class="bg-white rounded-[28px] border border-gray-100 shadow-soft p-8">
-                <h3 class="text-lg font-bold text-brand-700">Institution</h3>
+                <h3 class="text-lg font-bold text-brand-700">Enterprise</h3>
                 <div class="text-4xl font-extrabold text-brand-700 my-4">Custom</div>
                 <ul class="space-y-3 text-gray-500 text-sm mb-8">
-                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Unlimited sites</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> All features</li>
-                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Onboarding + SLA</li>
+                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Tailored pricing for your Moodle setup</li>
+                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Personalized implementation plan</li>
+                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Custom admin onboarding &amp; training</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Invoicing</li>
                 </ul>
-                <a href="/book-demo" class="block text-center px-6 py-3 rounded-xl border border-gray-200 font-bold text-brand-700 hover:bg-gray-50 transition-colors">Talk to sales</a>
+                <a href="/contact" class="block text-center px-6 py-3 rounded-xl border border-gray-200 font-bold text-brand-700 hover:bg-gray-50 transition-colors">Talk to sales</a>
             </div>
         </div>
         <p class="text-center text-sm text-gray-400 mt-8">✓ 30-day money-back guarantee &nbsp;·&nbsp; ✓ GPL v3 — modify freely &nbsp;·&nbsp; ✓ Cancel anytime</p>
