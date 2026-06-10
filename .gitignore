@@ -31,3 +31,15 @@ Thumbs.db
 *.csv
 Agunfon_Website_Content_QA_Audit.*
 Agunfon Brand.pdf
+
+# Plugin marketing — internal working files (decks, generator sources/exports; not shipped)
+# NOTE: shipped assets are kept tracked — slide PNGs, icon.png, guarantee.png,
+# plugins-directory.html, and the LaRecipe docs under resources/docs/.
+*.pptx
+~$*.pptx
+public/images/plugins/*/ten-reasons/panels.json
+public/images/plugins/*/ten-reasons/targets.json
+public/images/plugins/*/ten-reasons/plugin-icon.html
+public/images/plugins/*/ten-reasons/*.md
+public/images/plugins/*/ten-reasons/slides/*.md
+public/images/plugins/*/ten-reasons/slides/slides-manifest.json
