@@ -94,13 +94,21 @@
     </div>
 </section>
 
-<!-- ============ 12 REASONS (slide gallery) ============ -->
+<!-- ============ 12 REASONS (slider) ============ -->
+@push('styles')
+<style>
+    .reason-slider-track { scrollbar-width: none; -ms-overflow-style: none; }
+    .reason-slider-track::-webkit-scrollbar { display: none; }
+    .reason-dot { width: 8px; height: 8px; border-radius: 9999px; background: #D1E3FF; border: 0; padding: 0; cursor: pointer; transition: all .25s ease; }
+    .reason-dot.is-active { width: 26px; background: #4B8BE8; }
+</style>
+@endpush
 <section class="py-12 md:py-20 bg-brand-50/40 border-y border-blue-50">
     <div class="max-w-[1100px] mx-auto px-6 lg:px-12">
         <div class="text-center mb-12">
             <span class="inline-block px-4 py-1.5 rounded-full border border-blue-100 text-[11px] font-bold text-blue-600 bg-blue-50 tracking-widest uppercase mb-5">Why choose it</span>
             <h2 class="text-4xl md:text-5xl font-bold text-brand-700">12 reasons to choose <span class="font-serif italic text-brand-500">Modern Video Player</span></h2>
-            <p class="text-gray-500 mt-4">Click any image to view it full size.</p>
+            <p class="text-gray-500 mt-4">Swipe through the highlights — click any slide to view it full size.</p>
         </div>
         @php
         $reasonSlides = [
@@ -119,15 +127,57 @@
         ];
         $slidesBase = '/images/plugins/modern-video-player/ten-reasons/slides';
         @endphp
-        <div class="space-y-6 md:space-y-8">
-            @foreach ($reasonSlides as [$file, $alt])
-            <a href="{{ $slidesBase }}/{{ $file }}.png" target="_blank" rel="noopener" class="block group">
-                <img src="{{ $slidesBase }}/{{ $file }}.png" alt="{{ $alt }}" loading="lazy" class="w-full h-auto rounded-[24px] shadow-soft border border-gray-100 group-hover:shadow-float transition-shadow" />
-            </a>
-            @endforeach
+        <div class="relative" data-reason-slider>
+            <div class="reason-slider-track flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-5 pb-4 -mx-2 px-2" data-slider-track>
+                @foreach ($reasonSlides as [$file, $alt])
+                <a href="{{ $slidesBase }}/{{ $file }}.png" target="_blank" rel="noopener"
+                   class="snap-center shrink-0 w-[88%] sm:w-[72%] lg:w-[62%] rounded-[24px] overflow-hidden border border-gray-100 shadow-soft hover:shadow-float transition-shadow bg-white">
+                    <img src="{{ $slidesBase }}/{{ $file }}.png" alt="{{ $alt }}" loading="lazy" class="w-full h-auto block" />
+                </a>
+                @endforeach
+            </div>
+            <button type="button" data-slider-prev aria-label="Previous reason"
+                class="hidden md:flex items-center justify-center absolute top-1/2 -translate-y-1/2 -left-3 lg:-left-5 w-12 h-12 rounded-full bg-white border border-gray-100 shadow-float text-brand-700 hover:bg-brand-50 transition-colors z-10">
+                <iconify-icon icon="lucide:chevron-left" class="text-2xl"></iconify-icon>
+            </button>
+            <button type="button" data-slider-next aria-label="Next reason"
+                class="hidden md:flex items-center justify-center absolute top-1/2 -translate-y-1/2 -right-3 lg:-right-5 w-12 h-12 rounded-full bg-white border border-gray-100 shadow-float text-brand-700 hover:bg-brand-50 transition-colors z-10">
+                <iconify-icon icon="lucide:chevron-right" class="text-2xl"></iconify-icon>
+            </button>
+            <div class="flex flex-wrap justify-center gap-2 mt-6" data-slider-dots aria-hidden="true"></div>
         </div>
     </div>
 </section>
+@push('scripts')
+<script>
+    (function () {
+        const root = document.querySelector('[data-reason-slider]');
+        if (!root) return;
+        const track = root.querySelector('[data-slider-track]');
+        const slides = Array.from(track.children);
+        const prev = root.querySelector('[data-slider-prev]');
+        const next = root.querySelector('[data-slider-next]');
+        const dotsWrap = root.querySelector('[data-slider-dots]');
+        slides.forEach((_, i) => {
+            const d = document.createElement('button');
+            d.type = 'button';
+            d.className = 'reason-dot' + (i === 0 ? ' is-active' : '');
+            d.setAttribute('aria-label', 'Go to reason ' + (i + 1));
+            d.addEventListener('click', () => scrollToIndex(i));
+            dotsWrap.appendChild(d);
+        });
+        const dots = Array.from(dotsWrap.children);
+        function scrollToIndex(i) { const s = slides[i]; if (!s) return; track.scrollTo({ left: s.offsetLeft - (track.clientWidth - s.clientWidth) / 2, behavior: 'smooth' }); }
+        function currentIndex() { const center = track.scrollLeft + track.clientWidth / 2; let best = 0, bd = Infinity; slides.forEach((s, i) => { const c = s.offsetLeft + s.clientWidth / 2; const dist = Math.abs(c - center); if (dist < bd) { bd = dist; best = i; } }); return best; }
+        function update() { const idx = currentIndex(); dots.forEach((d, i) => d.classList.toggle('is-active', i === idx)); }
+        if (prev) prev.addEventListener('click', () => scrollToIndex(Math.max(0, currentIndex() - 1)));
+        if (next) next.addEventListener('click', () => scrollToIndex(Math.min(slides.length - 1, currentIndex() + 1)));
+        let t;
+        track.addEventListener('scroll', () => { clearTimeout(t); t = setTimeout(update, 80); });
+        window.addEventListener('resize', update);
+    })();
+</script>
+@endpush
 
 <!-- ============ KEY FEATURES (navy panel) ============ -->
 <section class="py-12 md:py-20">

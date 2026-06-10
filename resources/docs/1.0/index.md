@@ -1,6 +1,19 @@
 - ## Documentation
     - [Welcome](/{{route}}/{{version}}/overview)
 
+- ## Modern Learner Dashboard
+    - [Overview](/{{route}}/{{version}}/modern-learner-dashboard/overview)
+    - [Requirements](/{{route}}/{{version}}/modern-learner-dashboard/requirements)
+    - [Installation & Upgrade](/{{route}}/{{version}}/modern-learner-dashboard/installation)
+    - [Quick Start](/{{route}}/{{version}}/modern-learner-dashboard/quick-start)
+    - [Dashboard Tabs](/{{route}}/{{version}}/modern-learner-dashboard/dashboard-tabs)
+    - [Learning Transcript](/{{route}}/{{version}}/modern-learner-dashboard/learning-transcript)
+    - [Course Library](/{{route}}/{{version}}/modern-learner-dashboard/course-library)
+    - [Profile Editing](/{{route}}/{{version}}/modern-learner-dashboard/profile-editing)
+    - [Branding & Themes](/{{route}}/{{version}}/modern-learner-dashboard/branding-and-themes)
+    - [Admin Settings Reference](/{{route}}/{{version}}/modern-learner-dashboard/admin-settings)
+    - [FAQ](/{{route}}/{{version}}/modern-learner-dashboard/faq)
+
 - ## Modern Video Player
     - [Overview](/{{route}}/{{version}}/modern-video-player/overview)
     - [Requirements](/{{route}}/{{version}}/modern-video-player/requirements)

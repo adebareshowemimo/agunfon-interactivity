@@ -63,20 +63,6 @@
     </div>
 </section>
 
-<!-- ============ TRUST / STATS BAND ============ -->
-<section class="py-12 md:py-16 bg-brand-50/60 border-y border-blue-50">
-    <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
-        <p class="text-center text-xs font-bold tracking-widest uppercase text-gray-400 mb-10">Tested across the themes your site already runs</p>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div><div class="text-4xl font-extrabold text-brand-700">7+</div><div class="text-sm text-gray-500 mt-1">themes tested &amp; supported</div></div>
-            <div><div class="text-4xl font-extrabold text-brand-700">1</div><div class="text-sm text-gray-500 mt-1">block, every learner&apos;s view</div></div>
-            <div><div class="text-4xl font-extrabold text-brand-700">[XX]%</div><div class="text-sm text-gray-500 mt-1">fewer "where do I start?" tickets</div></div>
-            <div><div class="text-4xl font-extrabold text-brand-700">0</div><div class="text-sm text-gray-500 mt-1">learner setup required</div></div>
-        </div>
-        <p class="text-center text-xs text-gray-400 mt-6">Support-ticket figure is an illustrative placeholder — replace with verified data before publishing.</p>
-    </div>
-</section>
-
 <!-- ============ SOLUTION OVERVIEW ============ -->
 <section class="py-20 md:py-28">
     <div class="max-w-[1440px] mx-auto px-6 lg:px-12 text-center">
@@ -118,6 +104,116 @@
         </div>
     </div>
 </section>
+
+<!-- ============ 15 REASONS (SLIDER) ============ -->
+@push('styles')
+<style>
+    .mld-slider-track { scrollbar-width: none; -ms-overflow-style: none; }
+    .mld-slider-track::-webkit-scrollbar { display: none; }
+    .mld-dot { width: 8px; height: 8px; border-radius: 9999px; background: #D1E3FF; border: 0; padding: 0; cursor: pointer; transition: all .25s ease; }
+    .mld-dot.is-active { width: 26px; background: #4B8BE8; }
+</style>
+@endpush
+<section class="py-12 md:py-20">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+        <div class="text-center mb-10">
+            <span class="inline-block px-4 py-1.5 rounded-full border border-blue-100 text-[11px] font-bold text-blue-600 bg-blue-50 tracking-widest uppercase mb-5">Why choose it</span>
+            <h2 class="text-4xl md:text-5xl font-bold text-brand-700">15 reasons to choose Modern Learner Dashboard</h2>
+            <p class="text-gray-500 mt-4 max-w-2xl mx-auto">Swipe through the highlights — click any slide to view it full size.</p>
+        </div>
+
+        @php
+        $reasonSlides = [
+            ['02-one-dashboard-replaces-five.png', 'One dashboard replaces five'],
+            ['03-drop-in-zero-infrastructure.png', 'Drop-in, zero infrastructure'],
+            ['04-privacy-sign-off-in-minutes.png', 'Privacy sign-off in minutes'],
+            ['05-works-with-the-theme-you-already-run.png', 'Works with the theme you already run'],
+            ['06-fast-on-big-sites.png', 'Fast on big sites'],
+            ['07-drives-course-re-entry.png', 'Drives course re-entry'],
+            ['08-cuts-profile-admin-tickets.png', 'Cuts profile-admin tickets'],
+            ['09-a-course-storefront-on-the-dashboard.png', 'A course storefront on the Dashboard'],
+            ['10-achievement-made-visible.png', 'Achievement made visible'],
+            ['11-brand-it-without-touching-theme-code.png', 'Brand it without touching theme code'],
+            ['12-never-miss-a-deadline.png', 'Never miss a deadline'],
+            ['13-secure-by-construction.png', 'Secure by construction'],
+            ['14-no-lock-in-clean-uninstall.png', 'No lock-in, clean uninstall'],
+            ['15-current-and-supported.png', 'Current and supported'],
+            ['16-an-audit-ready-training-record.png', 'An audit-ready training record'],
+        ];
+        $slideBase = '/images/plugins/modern-learner-dashboard/ten-reasons/slides';
+        @endphp
+
+        <div class="relative" data-mld-slider>
+            <div class="mld-slider-track flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-5 pb-4 -mx-2 px-2" data-slider-track>
+                @foreach ($reasonSlides as [$file, $alt])
+                <a href="{{ $slideBase }}/{{ $file }}" target="_blank" rel="noopener"
+                   class="snap-center shrink-0 w-[88%] sm:w-[70%] lg:w-[58%] rounded-[24px] overflow-hidden border border-gray-100 shadow-soft hover:shadow-float transition-shadow bg-white">
+                    <img src="{{ $slideBase }}/{{ $file }}" alt="{{ $alt }}" loading="lazy" class="w-full h-auto block">
+                </a>
+                @endforeach
+            </div>
+
+            <button type="button" data-slider-prev aria-label="Previous reason"
+                class="hidden md:flex items-center justify-center absolute top-1/2 -translate-y-1/2 -left-3 lg:-left-5 w-12 h-12 rounded-full bg-white border border-gray-100 shadow-float text-brand-700 hover:bg-brand-50 transition-colors z-10">
+                <iconify-icon icon="lucide:chevron-left" class="text-2xl"></iconify-icon>
+            </button>
+            <button type="button" data-slider-next aria-label="Next reason"
+                class="hidden md:flex items-center justify-center absolute top-1/2 -translate-y-1/2 -right-3 lg:-right-5 w-12 h-12 rounded-full bg-white border border-gray-100 shadow-float text-brand-700 hover:bg-brand-50 transition-colors z-10">
+                <iconify-icon icon="lucide:chevron-right" class="text-2xl"></iconify-icon>
+            </button>
+
+            <div class="flex flex-wrap justify-center gap-2 mt-6" data-slider-dots aria-hidden="true"></div>
+        </div>
+    </div>
+</section>
+@push('scripts')
+<script>
+    (function () {
+        const root = document.querySelector('[data-mld-slider]');
+        if (!root) return;
+        const track = root.querySelector('[data-slider-track]');
+        const slides = Array.from(track.children);
+        const prev = root.querySelector('[data-slider-prev]');
+        const next = root.querySelector('[data-slider-next]');
+        const dotsWrap = root.querySelector('[data-slider-dots]');
+
+        slides.forEach((_, i) => {
+            const d = document.createElement('button');
+            d.type = 'button';
+            d.className = 'mld-dot' + (i === 0 ? ' is-active' : '');
+            d.setAttribute('aria-label', 'Go to reason ' + (i + 1));
+            d.addEventListener('click', () => scrollToIndex(i));
+            dotsWrap.appendChild(d);
+        });
+        const dots = Array.from(dotsWrap.children);
+
+        function scrollToIndex(i) {
+            const s = slides[i];
+            if (!s) return;
+            track.scrollTo({ left: s.offsetLeft - (track.clientWidth - s.clientWidth) / 2, behavior: 'smooth' });
+        }
+        function currentIndex() {
+            const center = track.scrollLeft + track.clientWidth / 2;
+            let best = 0, bestDist = Infinity;
+            slides.forEach((s, i) => {
+                const c = s.offsetLeft + s.clientWidth / 2;
+                const dist = Math.abs(c - center);
+                if (dist < bestDist) { bestDist = dist; best = i; }
+            });
+            return best;
+        }
+        function update() {
+            const idx = currentIndex();
+            dots.forEach((d, i) => d.classList.toggle('is-active', i === idx));
+        }
+        if (prev) prev.addEventListener('click', () => scrollToIndex(Math.max(0, currentIndex() - 1)));
+        if (next) next.addEventListener('click', () => scrollToIndex(Math.min(slides.length - 1, currentIndex() + 1)));
+        let t;
+        track.addEventListener('scroll', () => { clearTimeout(t); t = setTimeout(update, 80); });
+        window.addEventListener('resize', update);
+    })();
+</script>
+@endpush
 
 <!-- ============ HOW IT WORKS ============ -->
 <section class="py-12 md:py-20">
@@ -195,12 +291,6 @@
             </div>
             @endforeach
         </div>
-        <div class="max-w-3xl mx-auto bg-brand-50 rounded-[32px] p-10 text-center border border-blue-50">
-            <div class="text-brand-500 text-xl mb-4">★★★★★</div>
-            <p class="text-xl md:text-2xl font-semibold text-brand-700 leading-relaxed mb-4">“[TESTIMONIAL — an admin or instructional designer, their institution, and a concrete result, e.g. higher logins or fewer support tickets.]”</p>
-            <p class="text-gray-500 text-sm">— [Name, Role, Institution]</p>
-        </div>
-        <p class="text-center text-xs text-gray-400 mt-5">Scenario-based examples — replace with named customer results before publishing.</p>
     </div>
 </section>
 
@@ -214,7 +304,7 @@
         <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto items-center">
             <div class="bg-white rounded-[28px] border border-gray-100 shadow-soft p-8">
                 <h3 class="text-lg font-bold text-brand-700">Starter</h3>
-                <div class="text-4xl font-extrabold text-brand-700 my-4">$XX<span class="text-base font-normal text-gray-400">/yr</span></div>
+                <div class="text-4xl font-extrabold text-brand-700 my-4">$99<span class="text-base font-normal text-gray-400">/yr</span></div>
                 <ul class="space-y-3 text-gray-500 text-sm mb-8">
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> 1 site</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> All features</li>
@@ -226,7 +316,7 @@
             <div class="bg-white rounded-[28px] border-2 border-brand-500 shadow-float p-8 relative md:scale-105">
                 <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-500 text-white text-xs font-bold px-4 py-1 rounded-full">Most Popular</span>
                 <h3 class="text-lg font-bold text-brand-700">Pro</h3>
-                <div class="text-4xl font-extrabold text-brand-500 my-4">$XXX<span class="text-base font-normal text-gray-400">/yr</span></div>
+                <div class="text-4xl font-extrabold text-brand-500 my-4">$299<span class="text-base font-normal text-gray-400">/yr</span></div>
                 <ul class="space-y-3 text-gray-500 text-sm mb-8">
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Up to 5 sites</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> All features</li>
@@ -236,15 +326,16 @@
                 <a href="/contact" class="block text-center px-6 py-3 rounded-xl bg-brand-500 text-white font-bold hover:bg-brand-600 transition-all hover:-translate-y-0.5">Buy Pro</a>
             </div>
             <div class="bg-white rounded-[28px] border border-gray-100 shadow-soft p-8">
-                <h3 class="text-lg font-bold text-brand-700">Institution</h3>
+                <h3 class="text-lg font-bold text-brand-700">Enterprise</h3>
                 <div class="text-4xl font-extrabold text-brand-700 my-4">Custom</div>
                 <ul class="space-y-3 text-gray-500 text-sm mb-8">
-                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Unlimited sites</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> All features</li>
-                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Onboarding + SLA</li>
+                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Tailored pricing for your Moodle setup</li>
+                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Personalized implementation plan</li>
+                    <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Custom admin onboarding &amp; training</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Invoicing</li>
                 </ul>
-                <a href="/book-demo" class="block text-center px-6 py-3 rounded-xl border border-gray-200 font-bold text-brand-700 hover:bg-gray-50 transition-colors">Talk to sales</a>
+                <a href="/contact" class="block text-center px-6 py-3 rounded-xl border border-gray-200 font-bold text-brand-700 hover:bg-gray-50 transition-colors">Talk to sales</a>
             </div>
         </div>
         <p class="text-center text-sm text-gray-400 mt-8">✓ 30-day money-back guarantee &nbsp;·&nbsp; ✓ GPL v3 — modify freely &nbsp;·&nbsp; ✓ Cancel anytime</p>
