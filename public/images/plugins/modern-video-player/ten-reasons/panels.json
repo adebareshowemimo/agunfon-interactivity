@@ -1,0 +1,239 @@
+[
+  {
+    "type": "title",
+    "number": "12",
+    "headline": "Top features of",
+    "pluginName": "Modern Video Player",
+    "accent": "Modern Video Player",
+    "subtitle": "A controlled, Moodle-native video activity with server-validated tracking — heatmaps, signed-URL protection, cloud sources, branded skins, and audit-ready exports.",
+    "shortDescription": "A controlled, Moodle-native video activity with server-validated tracking, engagement heatmaps, signed-URL protection and audit-ready reports.",
+    "icon": "icon.png",
+    "intro": [
+      "Modern Video Player turns an ordinary video into a controlled, Moodle-native activity with playback that is validated on the server — so completion and watch-time actually mean something.",
+      "On that foundation it adds engagement heatmaps and a cohort analytics dashboard, signed-URL delivery with dynamic watermarking, cloud and provider sources, seven branded player skins, learner aids like resume, chapters, transcript and captions, and audit-ready exports — all GPLv3 and upgradeable from the free Community edition in place.",
+      "Supports Moodle 4.5–5.2."
+    ],
+    "badges": ["Moodle 4.5–5.2", "GPLv3", "Stable"],
+    "demo": {
+      "url": "https://demo.agunfoninteractivity.com/course/view.php?id=85",
+      "accounts": [
+        { "role": "Manager", "username": "manager", "password": "$Manager101" },
+        { "role": "Student", "username": "student", "password": "$Student101" }
+      ],
+      "note": "Shared demo accounts — please don't change the passwords."
+    },
+    "guarantee": {
+      "image": "guarantee.png",
+      "alt": "30-day money-back guarantee — try it for 30 days; if it doesn't work as described and our support can't resolve it, we'll refund 100%"
+    },
+    "featuregroups": [
+      { "heading": "Playback & integrity", "items": [
+        "Server-validated watch-time and max-verified position",
+        "Forward-seek guard with configurable grace seconds",
+        "Heartbeat tracking and suspicious-seek integrity flags",
+        "Force server-side validation"
+      ] },
+      { "heading": "Completion & grading", "items": [
+        "Complete by watched percentage or validated end-of-video",
+        "Configurable required watch percentage (default 95%)",
+        "Gradebook integration with a grade-to-pass threshold"
+      ] },
+      { "heading": "Learner experience", "items": [
+        "Resume exactly where the learner left off",
+        "Clickable WebVTT chapter markers and chapter list",
+        "Searchable transcript panel with optional download",
+        "Multi-language WebVTT captions",
+        "Learner bookmarks with labels",
+        "Adjustable playback speed (with a max-speed cap), rewind and fullscreen",
+        "Autoplay (off / muted / unmuted with fallback) and poster image",
+        "Next-activity overlay — replay or continue to the next activity",
+        "Keyboard shortcuts with a shortcuts-help dialog"
+      ] },
+      { "heading": "Engagement analytics", "items": [
+        "Per-activity engagement heatmap and audience-retention curve",
+        "Viewers-per-moment with drop-off and rewatch peaks",
+        "Site-level cohort dashboard aggregating every activity, with a cohort filter",
+        "Scheduled engagement digests emailed to instructors"
+      ] },
+      { "heading": "Compliance & audit", "items": [
+        "Full audit export as CSV, JSON, Excel or ODS",
+        "Per-learner integrity records and validated watched segments"
+      ] },
+      { "heading": "Content protection", "items": [
+        "Dynamic name/email watermark overlay",
+        "Screen-capture deterrence with a tamper-evident audit log",
+        "Signed, user-bound video URLs that expire"
+      ] },
+      { "heading": "Sources & delivery", "items": [
+        "File upload, external direct URL (MP4/WebM), YouTube and Vimeo",
+        "Cloud storage: S3-compatible (AWS S3, Cloudflare R2, Wasabi, Spaces, B2, MinIO) and Azure Blob",
+        "Short-lived signed delivery from your own bucket",
+        "Admin source-policy guardrails"
+      ] },
+      { "heading": "Appearance", "items": [
+        "Seven player styles: YouTube, Vimeo, Netflix, Plyr, Apple, Classic and Minimal",
+        "Per-activity style choice with an admin-set default",
+        "Configurable title position and control-text toggle"
+      ] },
+      { "heading": "Focus mode", "items": [
+        "Hide navigation, course index and right blocks during playback",
+        "Block Picture-in-Picture and skip shortcuts",
+        "Auto-pause when the browser tab is hidden"
+      ] },
+      { "heading": "Standards & integration", "items": [
+        "xAPI statements (initialized, completed, flagged) to any LRS",
+        "LTI 1.3 Advantage publishing via core enrol_lti",
+        "Activity events and logs for clean reporting"
+      ] },
+      { "heading": "Platform & trust", "items": [
+        "Moodle 4.5–5.2, GPLv3",
+        "Privacy API (GDPR) — declares every learner data point stored",
+        "Full backup and restore of activities, files and progress",
+        "Open-core: upgrade the free Community edition in place"
+      ] }
+    ],
+    "image": "Optional hero image: the Modern Video Player playing inside a Moodle course, or a clean montage of the player + an engagement heatmap. Keep it on-brand (deep navy / blue)."
+  },
+  {
+    "type": "reason", "number": "01", "variant": "left",
+    "title": "Server-validated playback", "accent": "playback",
+    "checks": [
+      "Watch-time and max-verified position computed on the server",
+      "Forward-seek guard with configurable grace seconds",
+      "Heartbeat tracking with suspicious-seek integrity flags"
+    ],
+    "screenshot": "screenshots/01-player.png",
+    "image": "Screenshot of the Modern Video Player open in a course: the video stage with custom controls and the progress/seek bar. Capture /mod/modernvideoplayer/view.php?id=<cmid> (#region-main). 16:9 crop, light UI."
+  },
+  {
+    "type": "reason", "number": "02", "variant": "right",
+    "title": "Tamper-proof completion & grading", "accent": "completion",
+    "checks": [
+      "Complete by watched percentage or validated end-of-video",
+      "Required watch % (default 95), enforced server-side",
+      "Gradebook integration with a grade-to-pass threshold"
+    ],
+    "screenshot": "screenshots/02-completion.png",
+    "image": "Screenshot of the activity Completion conditions (watched % vs validated end + required percentage) and, ideally, the grading / grade-to-pass fields. Capture the Completion + Grade fieldsets on /course/modedit.php."
+  },
+  {
+    "type": "reason", "number": "03", "variant": "left",
+    "title": "Engagement heatmap", "accent": "heatmap",
+    "checks": [
+      "Audience-retention curve per activity from validated segments",
+      "Viewers-per-moment with drop-off and rewatch peaks",
+      "See exactly where attention is lost"
+    ],
+    "screenshot": "screenshots/03-heatmap.png",
+    "image": "Screenshot of the per-activity engagement heatmap / audience-retention report: the retention curve with drop-off and rewatch peaks. Capture /mod/modernvideoplayer/heatmap.php?id=<cmid>."
+  },
+  {
+    "type": "reason", "number": "04", "variant": "right",
+    "title": "Cohort analytics dashboard", "accent": "dashboard",
+    "checks": [
+      "Site-level Video engagement dashboard under Reports",
+      "Aggregates validated engagement across every activity",
+      "Optional cohort filter"
+    ],
+    "screenshot": "screenshots/04-dashboard.png",
+    "image": "Screenshot of the site-level Video engagement dashboard (Site administration > Reports) showing the cohort filter and aggregate stats/chart. Capture /mod/modernvideoplayer/dashboard.php."
+  },
+  {
+    "type": "reason", "number": "05", "variant": "left",
+    "title": "Compliance audit & scheduled reports", "accent": "audit",
+    "checks": [
+      "Full audit trail as CSV, JSON, Excel or ODS",
+      "Per-learner integrity records plus validated watched segments",
+      "Scheduled engagement digests emailed to instructors"
+    ],
+    "screenshot": "screenshots/05-report.png",
+    "image": "Screenshot of the activity report page with the audit export panel (CSV / JSON / Excel / ODS) and the learner integrity records table. Capture /mod/modernvideoplayer/report.php?id=<cmid>. (Optionally show the scheduled-task setting.)"
+  },
+  {
+    "type": "reason", "number": "06", "variant": "right",
+    "title": "Built-in content protection", "accent": "protection",
+    "checks": [
+      "Dynamic name/email watermark to deter re-sharing",
+      "Screen-capture deterrence with a tamper-evident log",
+      "Signed, user-bound URLs that expire"
+    ],
+    "screenshot": "screenshots/06-protection.png",
+    "image": "Screenshot of the player showing the dynamic name/email watermark overlay on the video (enable watermark on the activity first). Alternatively the content-protection admin settings. Capture /mod/modernvideoplayer/view.php?id=<cmid>."
+  },
+  {
+    "type": "reason", "number": "07", "variant": "left",
+    "title": "Built for learners", "accent": "learners",
+    "checks": [
+      "Resume exactly where they left off",
+      "Clickable chapters, searchable transcript and multi-language captions",
+      "Bookmarks, adjustable speed and a next-activity overlay"
+    ],
+    "screenshot": "screenshots/07-learners.png",
+    "image": "Screenshot of the player with learner aids visible: the resume prompt, the chapter list, or the transcript/captions panel open. Capture /mod/modernvideoplayer/view.php?id=<cmid> with chapters + captions uploaded."
+  },
+  {
+    "type": "reason", "number": "08", "variant": "right",
+    "title": "Seven player styles", "accent": "styles",
+    "checks": [
+      "YouTube, Vimeo, Netflix, Plyr, Apple, Classic and Minimal skins",
+      "Same tracking and enforcement across every style",
+      "Choose the style per activity"
+    ],
+    "screenshot": "screenshots/08-styles.png",
+    "image": "Screenshot of the player-style selector listing the seven skins (YouTube, Vimeo, Netflix, Plyr, Apple, Classic, Minimal) — the admin default-style dropdown or the activity appearance setting. A small montage of two contrasting skins also works well."
+  },
+  {
+    "type": "reason", "number": "09", "variant": "left",
+    "title": "Flexible video sources", "accent": "sources",
+    "checks": [
+      "Upload, external URL, YouTube/Vimeo, or cloud storage",
+      "S3-compatible (S3, R2, Wasabi, Spaces, B2, MinIO) plus Azure Blob",
+      "Short-lived signed delivery from your own bucket"
+    ],
+    "screenshot": "screenshots/09-sources.png",
+    "image": "Screenshot of the activity Video settings source picker: upload / external URL / YouTube-Vimeo / cloud (S3 / Azure). Capture the Video settings fieldset on /course/modedit.php."
+  },
+  {
+    "type": "reason", "number": "10", "variant": "right",
+    "title": "Distraction-free focus mode", "accent": "focus",
+    "checks": [
+      "Hide navigation, course index and right blocks during playback",
+      "Picture-in-Picture and skip shortcuts blocked",
+      "Auto-pause when the browser tab is hidden"
+    ],
+    "screenshot": "screenshots/10-focus.png",
+    "image": "Screenshot of the player in focus mode: navigation, course index and right blocks hidden so only the video is on screen. Capture /mod/modernvideoplayer/view.php?id=<cmid>&focus=1."
+  },
+  {
+    "type": "reason", "number": "11", "variant": "left",
+    "title": "Standards & integration", "accent": "integration",
+    "checks": [
+      "xAPI statements (initialized, completed, flagged) to any LRS",
+      "One-click LTI Advantage publishing via core enrol_lti",
+      "Keyboard shortcuts, events and logs for clean reporting"
+    ],
+    "screenshot": "screenshots/11-standards.png",
+    "image": "Screenshot of the Standards & integration admin settings: the xAPI / LRS endpoint fields and the LTI Advantage publishing toggle. Capture /admin/settings.php?section=modsettingmodernvideoplayer (the standards section)."
+  },
+  {
+    "type": "reason", "number": "12", "variant": "right",
+    "title": "Trusted & compliant", "accent": "compliant",
+    "checks": [
+      "Privacy API (GDPR) — declares every learner data point it stores",
+      "Full backup & restore of activities, files and progress",
+      "GPLv3 open-core: upgrade the free Community edition in place"
+    ],
+    "screenshot": "screenshots/12-trust.png",
+    "image": "Screenshot of the plugin's Privacy registry entry (Site administration > Users > Privacy and policies > Plugin privacy registry > mod_modernvideoplayer), or a simple on-brand trust graphic (GPLv3 · GDPR · Backup/restore)."
+  },
+  {
+    "type": "cta",
+    "headline": "Convinced?",
+    "subhead": "Get Modern Video Player now",
+    "accent": "Modern Video Player",
+    "button": "BUY NOW",
+    "url": "https://marketplace.moodle.com/plugins/69",
+    "note": "Moodle 4.5–5.2 · GPLv3 · 30-day money-back guarantee · Upgrade the free edition in place",
+    "image": "Optional background: a clean laptop/desk lifestyle photo with a deep navy/blue overlay (Lambda-style), kept dark enough that the white headline and BUY NOW button stay legible."
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "_comment": "Capture config for mod_modernvideoplayer. Run: node <skill>/references/build.mjs --out <thisFolder> --cmid <CMID>. Each 'name' matches a screenshot in panels.json.",
+  "base": "http://premium-moodle.test",
+  "targets": [
+    { "name": "01-player",     "url": "/mod/modernvideoplayer/view.php?id={CMID}",               "selector": "#region-main", "wait": ".modernvideoplayer-stage, video" },
+    { "name": "02-completion", "url": "/course/modedit.php?update={CMID}",                       "selector": "#id_modstandardelshdr", "expand": "a[href='#id_modstandardelshdr']" },
+    { "name": "03-heatmap",    "url": "/mod/modernvideoplayer/heatmap.php?id={CMID}",            "selector": "#region-main" },
+    { "name": "04-dashboard",  "url": "/mod/modernvideoplayer/dashboard.php",                    "selector": "#region-main, #page-content, [role='main']" },
+    { "name": "05-report",     "url": "/mod/modernvideoplayer/report.php?id={CMID}",             "selector": "#region-main" },
+    { "name": "06-protection", "url": "/mod/modernvideoplayer/view.php?id={CMID}",               "selector": "#region-main", "wait": "video", "capture": "enable watermark + capture deterrence on the activity" },
+    { "name": "07-styles",     "url": "/admin/settings.php?section=modsettingmodernvideoplayer", "selector": "#admin-defaultplayerstyle, #modernvideoplayerappearance, .settingsform" },
+    { "name": "08-sources",    "url": "/course/modedit.php?update={CMID}",                       "selector": "#id_general" },
+    { "name": "09-focus",      "url": "/mod/modernvideoplayer/view.php?id={CMID}&focus=1",       "selector": "#region-main", "wait": "video" },
+    { "name": "10-standards",  "url": "/admin/settings.php?section=modsettingmodernvideoplayer", "selector": "#modernvideoplayerstandards, .settingsform" }
+  ]
+}
