@@ -39,3 +39,17 @@
     - [Reports, Analytics & Health](/{{route}}/{{version}}/modern-course-reminder/reports-and-analytics)
     - [Admin Settings Reference](/{{route}}/{{version}}/modern-course-reminder/admin-settings)
     - [FAQ](/{{route}}/{{version}}/modern-course-reminder/faq)
+
+- ## Modern Enrolment Notifier
+    - [Overview](/{{route}}/{{version}}/modern-enrolment-notifier/overview)
+    - [Requirements](/{{route}}/{{version}}/modern-enrolment-notifier/requirements)
+    - [Installation & Upgrade](/{{route}}/{{version}}/modern-enrolment-notifier/installation)
+    - [Quick Start](/{{route}}/{{version}}/modern-enrolment-notifier/quick-start)
+    - [Notification Rules](/{{route}}/{{version}}/modern-enrolment-notifier/rules)
+    - [Templates & Branding](/{{route}}/{{version}}/modern-enrolment-notifier/templates)
+    - [Recipients & Manager Mapping](/{{route}}/{{version}}/modern-enrolment-notifier/recipients-and-managers)
+    - [Channels & Delivery](/{{route}}/{{version}}/modern-enrolment-notifier/channels-and-delivery)
+    - [Dashboard & Logs](/{{route}}/{{version}}/modern-enrolment-notifier/dashboard-and-logs)
+    - [Course-Level Notifications](/{{route}}/{{version}}/modern-enrolment-notifier/course-level)
+    - [Admin Settings Reference](/{{route}}/{{version}}/modern-enrolment-notifier/admin-settings)
+    - [FAQ](/{{route}}/{{version}}/modern-enrolment-notifier/faq)
