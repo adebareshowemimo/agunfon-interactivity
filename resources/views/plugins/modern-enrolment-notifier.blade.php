@@ -77,20 +77,6 @@
     </div>
 </section>
 
-<!-- ============ TRUST / STATS BAND ============ -->
-<section class="py-12 md:py-16 bg-brand-50/60 border-y border-blue-50">
-    <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
-        <p class="text-center text-xs font-bold tracking-widest uppercase text-gray-400 mb-10">Trusted by Moodle teams in education &amp; enterprise</p>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div><div class="text-4xl font-extrabold text-brand-700">5</div><div class="text-sm text-gray-500 mt-1">delivery channels</div></div>
-            <div><div class="text-4xl font-extrabold text-brand-700">3</div><div class="text-sm text-gray-500 mt-1">enrolment events tracked</div></div>
-            <div><div class="text-4xl font-extrabold text-brand-700">[XX] hrs</div><div class="text-sm text-gray-500 mt-1">saved on manual emails, monthly</div></div>
-            <div><div class="text-4xl font-extrabold text-brand-700">100%</div><div class="text-sm text-gray-500 mt-1">auditable delivery log</div></div>
-        </div>
-        <p class="text-center text-xs text-gray-400 mt-6">Time-saved figure is an illustrative placeholder — replace with verified deployment data before publishing.</p>
-    </div>
-</section>
-
 <!-- ============ SOLUTION OVERVIEW ============ -->
 <section class="py-20 md:py-28">
     <div class="max-w-[1440px] mx-auto px-6 lg:px-12 text-center">
@@ -102,6 +88,89 @@
         </div>
     </div>
 </section>
+
+<!-- ============ 10 REASONS (slider) ============ -->
+@push('styles')
+<style>
+    .reason-slider-track { scrollbar-width: none; -ms-overflow-style: none; }
+    .reason-slider-track::-webkit-scrollbar { display: none; }
+    .reason-dot { width: 8px; height: 8px; border-radius: 9999px; background: #D1E3FF; border: 0; padding: 0; cursor: pointer; transition: all .25s ease; }
+    .reason-dot.is-active { width: 26px; background: #4B8BE8; }
+</style>
+@endpush
+<section class="py-12 md:py-20 bg-brand-50/40 border-y border-blue-50">
+    <div class="max-w-[1100px] mx-auto px-6 lg:px-12">
+        <div class="text-center mb-12">
+            <span class="inline-block px-4 py-1.5 rounded-full border border-blue-100 text-[11px] font-bold text-blue-600 bg-blue-50 tracking-widest uppercase mb-5">Why choose it</span>
+            <h2 class="text-4xl md:text-5xl font-bold text-brand-700">10 reasons to choose <span class="font-serif italic text-brand-500">Modern Enrolment Notifier</span></h2>
+            <p class="text-gray-500 mt-4">Swipe through the highlights — click any slide to view it full size.</p>
+        </div>
+        @php
+        $reasonSlides = [
+            ['02-one-lifecycle-engine', 'One lifecycle engine'],
+            ['03-zero-manual-chase', 'Zero manual chase'],
+            ['04-the-right-recipients', 'The right recipients'],
+            ['05-never-block-enrolment', 'Never block enrolment'],
+            ['06-five-delivery-channels', 'Five delivery channels'],
+            ['07-twenty-branded-templates', 'Twenty branded templates'],
+            ['08-ai-assisted-drafting', 'AI-assisted drafting'],
+            ['09-delegate-safely', 'Delegate, safely'],
+            ['10-prove-it-works', 'Prove it works'],
+            ['11-enterprise-ready-and-compliant', 'Enterprise-ready & compliant'],
+        ];
+        $slidesBase = '/images/plugins/modern-enrolment-notifier/ten-reasons/slides';
+        @endphp
+        <div class="relative" data-reason-slider>
+            <div class="reason-slider-track flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-5 pb-4 -mx-2 px-2" data-slider-track>
+                @foreach ($reasonSlides as [$file, $alt])
+                <a href="{{ $slidesBase }}/{{ $file }}.png" target="_blank" rel="noopener"
+                   class="snap-center shrink-0 w-[88%] sm:w-[72%] lg:w-[62%] rounded-[24px] overflow-hidden border border-gray-100 shadow-soft hover:shadow-float transition-shadow bg-white">
+                    <img src="{{ $slidesBase }}/{{ $file }}.png" alt="{{ $alt }}" loading="lazy" class="w-full h-auto block" />
+                </a>
+                @endforeach
+            </div>
+            <button type="button" data-slider-prev aria-label="Previous reason"
+                class="hidden md:flex items-center justify-center absolute top-1/2 -translate-y-1/2 -left-3 lg:-left-5 w-12 h-12 rounded-full bg-white border border-gray-100 shadow-float text-brand-700 hover:bg-brand-50 transition-colors z-10">
+                <iconify-icon icon="lucide:chevron-left" class="text-2xl"></iconify-icon>
+            </button>
+            <button type="button" data-slider-next aria-label="Next reason"
+                class="hidden md:flex items-center justify-center absolute top-1/2 -translate-y-1/2 -right-3 lg:-right-5 w-12 h-12 rounded-full bg-white border border-gray-100 shadow-float text-brand-700 hover:bg-brand-50 transition-colors z-10">
+                <iconify-icon icon="lucide:chevron-right" class="text-2xl"></iconify-icon>
+            </button>
+            <div class="flex flex-wrap justify-center gap-2 mt-6" data-slider-dots aria-hidden="true"></div>
+        </div>
+    </div>
+</section>
+@push('scripts')
+<script>
+    (function () {
+        const root = document.querySelector('[data-reason-slider]');
+        if (!root) return;
+        const track = root.querySelector('[data-slider-track]');
+        const slides = Array.from(track.children);
+        const prev = root.querySelector('[data-slider-prev]');
+        const next = root.querySelector('[data-slider-next]');
+        const dotsWrap = root.querySelector('[data-slider-dots]');
+        slides.forEach((_, i) => {
+            const d = document.createElement('button');
+            d.type = 'button';
+            d.className = 'reason-dot' + (i === 0 ? ' is-active' : '');
+            d.setAttribute('aria-label', 'Go to reason ' + (i + 1));
+            d.addEventListener('click', () => scrollToIndex(i));
+            dotsWrap.appendChild(d);
+        });
+        const dots = Array.from(dotsWrap.children);
+        function scrollToIndex(i) { const s = slides[i]; if (!s) return; track.scrollTo({ left: s.offsetLeft - (track.clientWidth - s.clientWidth) / 2, behavior: 'smooth' }); }
+        function currentIndex() { const center = track.scrollLeft + track.clientWidth / 2; let best = 0, bd = Infinity; slides.forEach((s, i) => { const c = s.offsetLeft + s.clientWidth / 2; const dist = Math.abs(c - center); if (dist < bd) { bd = dist; best = i; } }); return best; }
+        function update() { const idx = currentIndex(); dots.forEach((d, i) => d.classList.toggle('is-active', i === idx)); }
+        if (prev) prev.addEventListener('click', () => scrollToIndex(Math.max(0, currentIndex() - 1)));
+        if (next) next.addEventListener('click', () => scrollToIndex(Math.min(slides.length - 1, currentIndex() + 1)));
+        let t;
+        track.addEventListener('scroll', () => { clearTimeout(t); t = setTimeout(update, 80); });
+        window.addEventListener('resize', update);
+    })();
+</script>
+@endpush
 
 <!-- ============ KEY FEATURES (navy panel) ============ -->
 <section class="py-12 md:py-20">
@@ -219,12 +288,6 @@
             </div>
             @endforeach
         </div>
-        <div class="max-w-3xl mx-auto bg-brand-50 rounded-[32px] p-10 text-center border border-blue-50">
-            <div class="text-brand-500 text-xl mb-4">★★★★★</div>
-            <p class="text-xl md:text-2xl font-semibold text-brand-700 leading-relaxed mb-4">“[TESTIMONIAL — a named admin or L&amp;D lead, their institution, and a concrete result, e.g. faster onboarding or fewer lapsed enrolments.]”</p>
-            <p class="text-gray-500 text-sm">— [Name, Role, Institution]</p>
-        </div>
-        <p class="text-center text-xs text-gray-400 mt-5">Scenario-based examples — replace with named customer results before publishing.</p>
     </div>
 </section>
 
@@ -238,26 +301,26 @@
         <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto items-center">
             <div class="bg-white rounded-[28px] border border-gray-100 shadow-soft p-8">
                 <h3 class="text-lg font-bold text-brand-700">Starter</h3>
-                <div class="text-4xl font-extrabold text-brand-700 my-4">$XX<span class="text-base font-normal text-gray-400">/yr</span></div>
+                <div class="text-4xl font-extrabold text-brand-700 my-4">$99<span class="text-base font-normal text-gray-400">/yr</span></div>
                 <ul class="space-y-3 text-gray-500 text-sm mb-8">
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> 1 site</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> All features &amp; channels</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> 1 year updates</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Email support</li>
                 </ul>
-                <a href="/contact" class="block text-center px-6 py-3 rounded-xl border border-gray-200 font-bold text-brand-700 hover:bg-gray-50 transition-colors">Buy Starter</a>
+                <a href="https://marketplace.moodle.com/plugins/76" target="_blank" rel="noopener" class="block text-center px-6 py-3 rounded-xl border border-gray-200 font-bold text-brand-700 hover:bg-gray-50 transition-colors">Buy Starter</a>
             </div>
             <div class="bg-white rounded-[28px] border-2 border-brand-500 shadow-float p-8 relative md:scale-105">
                 <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-500 text-white text-xs font-bold px-4 py-1 rounded-full">Most Popular</span>
                 <h3 class="text-lg font-bold text-brand-700">Pro</h3>
-                <div class="text-4xl font-extrabold text-brand-500 my-4">$XXX<span class="text-base font-normal text-gray-400">/yr</span></div>
+                <div class="text-4xl font-extrabold text-brand-500 my-4">$299<span class="text-base font-normal text-gray-400">/yr</span></div>
                 <ul class="space-y-3 text-gray-500 text-sm mb-8">
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Up to 5 sites</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> All features &amp; channels</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> 1 year updates</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Priority support</li>
                 </ul>
-                <a href="/contact" class="block text-center px-6 py-3 rounded-xl bg-brand-500 text-white font-bold hover:bg-brand-600 transition-all hover:-translate-y-0.5">Buy Pro</a>
+                <a href="https://marketplace.moodle.com/plugins/76" target="_blank" rel="noopener" class="block text-center px-6 py-3 rounded-xl bg-brand-500 text-white font-bold hover:bg-brand-600 transition-all hover:-translate-y-0.5">Buy Pro</a>
             </div>
             <div class="bg-white rounded-[28px] border border-gray-100 shadow-soft p-8">
                 <h3 class="text-lg font-bold text-brand-700">Enterprise</h3>
