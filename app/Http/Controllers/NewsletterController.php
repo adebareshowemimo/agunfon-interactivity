@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\NewsletterSubscriber;
 use App\Models\AdminEmail;
 use App\Mail\NewsletterNotification;
+use App\Support\SpamGuard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -14,6 +15,11 @@ class NewsletterController extends Controller
 {
     public function subscribe(Request $request)
     {
+        // Silently drop spam (honeypot/timing) — feign success so bots don't retry.
+        if (SpamGuard::isSpam($request)) {
+            return $this->respond($request, true, 'Thank you for subscribing!');
+        }
+
         $validator = Validator::make($request->all(), [
             'email' => 'required|email|max:255',
         ]);

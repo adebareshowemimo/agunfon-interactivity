@@ -7,6 +7,7 @@ use App\Models\AdminEmail;
 use App\Mail\DemoConfirmation;
 use App\Mail\DemoNotification;
 use App\Services\RecaptchaService;
+use App\Support\SpamGuard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -14,6 +15,12 @@ class DemoRequestController extends Controller
 {
     public function store(Request $request, RecaptchaService $recaptcha)
     {
+        // First line of defence: honeypot + timing trap (works even if reCAPTCHA
+        // is unconfigured). Feign success so bots don't learn they were blocked.
+        if (SpamGuard::isSpam($request)) {
+            return redirect()->route('demo.success');
+        }
+
         // Validate form data
         $validated = $request->validate([
             'name' => 'required|string|max:255',

@@ -39,6 +39,10 @@ return [
         'site_key' => env('RECAPTCHA_SITE_KEY'),
         'secret' => env('RECAPTCHA_SECRET_KEY'),
         'project_id' => env('RECAPTCHA_PROJECT_ID'),
+        // When true, submissions are rejected if reCAPTCHA credentials are missing
+        // (fail closed). When false (default), verification is skipped if unconfigured
+        // and the honeypot/timing guard remains the active protection.
+        'required' => env('RECAPTCHA_REQUIRED', false),
     ],
 
     'sendgrid' => [

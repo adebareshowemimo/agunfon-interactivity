@@ -24,7 +24,7 @@ Route::get('/contact', function () {
 })->name('contact');
 
 // Contact Form Submission
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/contact', [ContactController::class, 'store'])->middleware('throttle:8,1')->name('contact.store');
 Route::get('/contact/success', function () {
     return view('contact-success');
 })->name('contact.success');
@@ -77,13 +77,13 @@ Route::get('/book-demo', function () {
 })->name('book-demo');
 
 // Demo Request Form Submission
-Route::post('/book-demo', [DemoRequestController::class, 'store'])->name('demo.store');
+Route::post('/book-demo', [DemoRequestController::class, 'store'])->middleware('throttle:8,1')->name('demo.store');
 Route::get('/book-demo/success', function () {
     return view('demo-success');
 })->name('demo.success');
 
 // Newsletter Subscription
-Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
+Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->middleware('throttle:6,1')->name('newsletter.subscribe');
 
 Route::get('/employee-onboarding', function () {
     return view('employee-onboarding');

@@ -14,6 +14,7 @@
                         </p>
                         <form id="newsletter-form" action="{{ url('/newsletter/subscribe') }}" method="POST">
                             @csrf
+                            <x-spam-guard />
                             <div class="flex bg-white rounded-xl p-1 shadow-lg h-[60px]">
                                 <input type="email" name="email" placeholder="Email Address" class="flex-1 bg-transparent px-5 py-2 outline-none text-brand-950 placeholder-gray-500 font-medium" required>
                                 <button type="submit" id="newsletter-btn" class="bg-brand-500 text-white px-8 py-2 rounded-lg text-sm font-semibold hover:bg-brand-600 transition-all disabled:opacity-70 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2 min-w-[130px]">

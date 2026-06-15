@@ -13,12 +13,14 @@ class RecaptchaService
     protected string $siteKey;
     protected string $projectId;
     protected float $minScore;
+    protected bool $required;
 
     public function __construct()
     {
         $this->siteKey = config('services.recaptcha.site_key');
         $this->projectId = config('services.recaptcha.project_id');
         $this->minScore = 0.5; // Minimum acceptable score (0.0 to 1.0)
+        $this->required = (bool) config('services.recaptcha.required', false);
     }
 
     /**
@@ -38,11 +40,24 @@ class RecaptchaService
             ];
         }
 
-        // Graceful fallback: if credentials are not configured, allow submission
+        // Credentials check. reCAPTCHA Enterprise authenticates via the Google
+        // service-account JSON (GOOGLE_APPLICATION_CREDENTIALS); the classic
+        // secret key is only used by reCAPTCHA v2/v3.
         $credentialsPath = base_path(env('GOOGLE_APPLICATION_CREDENTIALS', ''));
         $secret = config('services.recaptcha.secret');
         if ((empty($secret) && (empty($credentialsPath) || !file_exists($credentialsPath)))) {
-            Log::warning('reCAPTCHA credentials not configured — bypassing verification');
+            // Fail closed if the site explicitly requires reCAPTCHA, otherwise fall
+            // back gracefully (the honeypot + timing guard still protects the form).
+            if ($this->required) {
+                Log::error('reCAPTCHA credentials missing while RECAPTCHA_REQUIRED=true — rejecting submission');
+                return [
+                    'success' => false,
+                    'score' => 0,
+                    'error' => 'CAPTCHA verification is temporarily unavailable. Please try again later.'
+                ];
+            }
+
+            Log::warning('reCAPTCHA credentials not configured — skipping verification (honeypot/timing guard still active)');
             return [
                 'success' => true,
                 'score' => 1.0,
@@ -51,8 +66,12 @@ class RecaptchaService
         }
 
         try {
-            // Create the reCAPTCHA client
-            $client = new RecaptchaEnterpriseServiceClient();
+            // Create the reCAPTCHA client. Pass the service-account JSON explicitly
+            // (resolved from the app root) so authentication works regardless of the
+            // web server's working directory, rather than relying on env auto-discovery.
+            $client = new RecaptchaEnterpriseServiceClient(
+                file_exists($credentialsPath) ? ['credentials' => $credentialsPath] : []
+            );
             $projectName = $client->projectName($this->projectId);
 
             // Set the properties of the event to be tracked

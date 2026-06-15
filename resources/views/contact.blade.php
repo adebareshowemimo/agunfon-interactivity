@@ -49,6 +49,7 @@
 
             <form id="contact-form" class="space-y-6" action="{{ route('contact.store') }}" method="POST">
                 @csrf
+                <x-spam-guard />
                 <div class="space-y-2">
                     <label class="text-sm font-bold text-gray-900">Name<span class="text-red-500">*</span></label>
                     <input type="text" name="name" value="{{ old('name') }}" placeholder="Enter your full name" class="w-full px-5 py-4 rounded-xl border border-gray-100 bg-[#F9FAFB] focus:outline-none focus:ring-2 focus:ring-brand-400/20 focus:border-brand-400 transition-all @error('name') border-red-500 @enderror" required>
