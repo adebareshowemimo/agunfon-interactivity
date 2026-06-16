@@ -14,7 +14,8 @@
                         </p>
                         <form id="newsletter-form" action="{{ url('/newsletter/subscribe') }}" method="POST">
                             @csrf
-                            <x-spam-guard />
+                            <x-spam-guard form="newsletter" />
+                            <input type="hidden" name="g-recaptcha-response" id="newsletter-recaptcha-token">
                             <div class="flex bg-white rounded-xl p-1 shadow-lg h-[60px]">
                                 <input type="email" name="email" placeholder="Email Address" class="flex-1 bg-transparent px-5 py-2 outline-none text-brand-950 placeholder-gray-500 font-medium" required>
                                 <button type="submit" id="newsletter-btn" class="bg-brand-500 text-white px-8 py-2 rounded-lg text-sm font-semibold hover:bg-brand-600 transition-all disabled:opacity-70 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2 min-w-[130px]">
@@ -28,6 +29,9 @@
                             <p id="newsletter-message" class="text-sm mt-3 {{ session('newsletter_success') ? 'text-green-400' : 'text-red-400' }}" aria-live="polite">{{ session('newsletter_success') ?: session('newsletter_error') }}</p>
                         </form>
                         @push('scripts')
+                        @if(config('services.recaptcha.site_key'))
+                        <script src="https://www.google.com/recaptcha/enterprise.js?render={{ config('services.recaptcha.site_key') }}"></script>
+                        @endif
                         <script>
                             (function () {
                                 var form = document.getElementById('newsletter-form');
@@ -36,14 +40,10 @@
                                 var label = form.querySelector('.newsletter-btn-label');
                                 var spinner = form.querySelector('.newsletter-spinner');
                                 var msg = document.getElementById('newsletter-message');
+                                var recaptchaSiteKey = @json(config('services.recaptcha.site_key'));
+                                var recaptchaToken = document.getElementById('newsletter-recaptcha-token');
 
-                                form.addEventListener('submit', function (e) {
-                                    e.preventDefault();
-                                    btn.disabled = true;
-                                    label.textContent = 'Subscribing...';
-                                    spinner.classList.remove('hidden');
-                                    msg.textContent = '';
-
+                                function sendSubscription() {
                                     fetch(form.action, {
                                         method: 'POST',
                                         headers: {
@@ -68,6 +68,34 @@
                                         label.textContent = 'Subscribe';
                                         spinner.classList.add('hidden');
                                     });
+                                }
+
+                                form.addEventListener('submit', function (e) {
+                                    e.preventDefault();
+                                    btn.disabled = true;
+                                    label.textContent = 'Subscribing...';
+                                    spinner.classList.remove('hidden');
+                                    msg.textContent = '';
+
+                                    if (recaptchaSiteKey && window.grecaptcha && window.grecaptcha.enterprise && recaptchaToken) {
+                                        window.grecaptcha.enterprise.ready(function () {
+                                            window.grecaptcha.enterprise.execute(recaptchaSiteKey, { action: 'newsletter_subscribe' })
+                                                .then(function (token) {
+                                                    recaptchaToken.value = token;
+                                                    sendSubscription();
+                                                })
+                                                .catch(function () {
+                                                    btn.disabled = false;
+                                                    label.textContent = 'Subscribe';
+                                                    spinner.classList.add('hidden');
+                                                    msg.textContent = 'Verification failed. Please try again.';
+                                                    msg.className = 'text-sm mt-3 text-red-400';
+                                                });
+                                        });
+                                        return;
+                                    }
+
+                                    sendSubscription();
                                 });
                             })();
                         </script>

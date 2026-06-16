@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\NewsletterSubscriber;
 use App\Models\AdminEmail;
 use App\Mail\NewsletterNotification;
+use App\Services\RecaptchaService;
 use App\Support\SpamGuard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -13,19 +14,43 @@ use Illuminate\Support\Facades\Log;
 
 class NewsletterController extends Controller
 {
-    public function subscribe(Request $request)
+    public function subscribe(Request $request, RecaptchaService $recaptcha)
     {
         // Silently drop spam (honeypot/timing) — feign success so bots don't retry.
-        if (SpamGuard::isSpam($request)) {
+        if (SpamGuard::isSpam(
+            $request,
+            minSeconds: 1.0,
+            contentFields: ['email'],
+            expectedForm: 'newsletter',
+            maxSeconds: 7200,
+            rateLimit: ['scope' => 'newsletter', 'max' => 5, 'decay' => 3600],
+        )) {
             return $this->respond($request, true, 'Thank you for subscribing!');
         }
 
         $validator = Validator::make($request->all(), [
             'email' => 'required|email|max:255',
+            'g-recaptcha-response' => 'nullable|string',
         ]);
 
         if ($validator->fails()) {
             return $this->respond($request, false, 'Please enter a valid email address.');
+        }
+
+        if ($recaptcha->shouldVerify()) {
+            $recaptchaResult = $recaptcha->verify(
+                $request->input('g-recaptcha-response'),
+                'newsletter_subscribe'
+            );
+
+            if (!$recaptchaResult['success']) {
+                Log::warning('Newsletter reCAPTCHA blocked submission', [
+                    'ip' => $request->ip(),
+                    'error' => $recaptchaResult['error'] ?? null,
+                ]);
+
+                return $this->respond($request, false, 'Please verify that you are not a bot and try again.');
+            }
         }
 
         $email = strtolower(trim($request->input('email')));

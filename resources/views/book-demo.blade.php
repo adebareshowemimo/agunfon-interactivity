@@ -67,7 +67,7 @@
 
             <form id="demo-form" class="space-y-6" action="{{ route('demo.store') }}" method="POST">
                 @csrf
-                <x-spam-guard />
+                <x-spam-guard form="demo" />
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-bold text-brand-700 mb-2">Name<span class="text-red-500">*</span></label>

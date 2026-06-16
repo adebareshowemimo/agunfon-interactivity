@@ -17,7 +17,14 @@ class ContactController extends Controller
     {
         // First line of defence: honeypot + timing trap (works even if reCAPTCHA
         // is unconfigured). Feign success so bots don't learn they were blocked.
-        if (SpamGuard::isSpam($request)) {
+        if (SpamGuard::isSpam(
+            $request,
+            minSeconds: 3.0,
+            contentFields: ['name', 'company', 'email', 'phone', 'message'],
+            expectedForm: 'contact',
+            maxSeconds: 7200,
+            rateLimit: ['scope' => 'contact', 'max' => 4, 'decay' => 3600],
+        )) {
             return redirect()->route('contact.success');
         }
 
