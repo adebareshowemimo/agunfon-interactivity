@@ -13,7 +13,8 @@
     }
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
-<script src="https://www.google.com/recaptcha/enterprise.js?render={{ config('services.recaptcha.site_key') }}"></script>
+@php($usesClassicRecaptcha = filled(config('services.recaptcha.secret')))
+<script src="https://www.google.com/recaptcha/{{ $usesClassicRecaptcha ? 'api.js' : 'enterprise.js' }}?render={{ config('services.recaptcha.site_key') }}"></script>
 @endpush
 
 @section('content')
@@ -117,12 +118,22 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
     const form = this;
     const btn = document.getElementById('submit-btn');
+    const useClassicRecaptcha = @json(filled(config('services.recaptcha.secret')));
+    const recaptchaClient = window.grecaptcha && (useClassicRecaptcha ? window.grecaptcha : window.grecaptcha.enterprise);
+
     btn.disabled = true;
     btn.textContent = 'Sending...';
-    
-    grecaptcha.enterprise.ready(async () => {
+
+    if (!recaptchaClient) {
+        btn.disabled = false;
+        btn.textContent = 'Send Message';
+        alert('reCAPTCHA verification failed. Please refresh and try again.');
+        return;
+    }
+
+    recaptchaClient.ready(async () => {
         try {
-            const token = await grecaptcha.enterprise.execute('{{ config('services.recaptcha.site_key') }}', {action: 'contact_submit'});
+            const token = await recaptchaClient.execute('{{ config('services.recaptcha.site_key') }}', {action: 'contact_submit'});
             document.getElementById('recaptcha-token').value = token;
             form.submit();
         } catch (error) {

@@ -6,6 +6,7 @@ use Google\Cloud\RecaptchaEnterprise\V1\Client\RecaptchaEnterpriseServiceClient;
 use Google\Cloud\RecaptchaEnterprise\V1\Event;
 use Google\Cloud\RecaptchaEnterprise\V1\Assessment;
 use Google\Cloud\RecaptchaEnterprise\V1\CreateAssessmentRequest;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
 class RecaptchaService
@@ -26,11 +27,8 @@ class RecaptchaService
     }
 
     /**
-     * Verify reCAPTCHA Enterprise token
-     *
-     * @param string|null $token The reCAPTCHA token from the frontend
-     * @param string $action The expected action name
-     * @return array ['success' => bool, 'score' => float, 'error' => string|null]
+     * Verify a reCAPTCHA token using classic siteverify when a secret is present,
+     * otherwise fall back to Enterprise when service-account credentials exist.
      */
     public function verify(?string $token, string $action = 'submit'): array
     {
@@ -42,10 +40,8 @@ class RecaptchaService
             ];
         }
 
-        // Credentials check. reCAPTCHA Enterprise authenticates via the Google
-        // service-account JSON (GOOGLE_APPLICATION_CREDENTIALS); the classic
-        // secret key is only used by reCAPTCHA v2/v3.
         $credentialsPath = $this->credentialsPath();
+
         if (!$this->hasVerificationConfig()) {
             // Fail closed if the site explicitly requires reCAPTCHA, otherwise fall
             // back gracefully (the honeypot + timing guard still protects the form).
@@ -64,6 +60,10 @@ class RecaptchaService
                 'score' => 1.0,
                 'error' => null
             ];
+        }
+
+        if ($this->secret !== '') {
+            return $this->verifyClassic($token, $action);
         }
 
         try {
@@ -147,6 +147,77 @@ class RecaptchaService
         }
     }
 
+    protected function verifyClassic(string $token, string $action): array
+    {
+        try {
+            $response = Http::asForm()
+                ->timeout(8)
+                ->post('https://www.google.com/recaptcha/api/siteverify', [
+                    'secret' => $this->secret,
+                    'response' => $token,
+                ]);
+        } catch (\Exception $e) {
+            Log::error('reCAPTCHA siteverify request failed', ['error' => $e->getMessage()]);
+
+            return [
+                'success' => false,
+                'score' => 0,
+                'error' => 'reCAPTCHA verification failed',
+            ];
+        }
+
+        if (!$response->ok()) {
+            Log::error('reCAPTCHA siteverify returned an HTTP error', ['status' => $response->status()]);
+
+            return [
+                'success' => false,
+                'score' => 0,
+                'error' => 'reCAPTCHA verification failed',
+            ];
+        }
+
+        $data = $response->json();
+
+        if (empty($data['success'])) {
+            Log::warning('reCAPTCHA siteverify rejected token', [
+                'error_codes' => $data['error-codes'] ?? [],
+            ]);
+
+            return [
+                'success' => false,
+                'score' => 0,
+                'error' => 'Invalid reCAPTCHA token',
+            ];
+        }
+
+        $tokenAction = $data['action'] ?? null;
+        if ($tokenAction !== null && $tokenAction !== $action) {
+            Log::warning('reCAPTCHA action mismatch', [
+                'expected' => $action,
+                'received' => $tokenAction,
+            ]);
+
+            return [
+                'success' => false,
+                'score' => 0,
+                'error' => 'reCAPTCHA action mismatch',
+            ];
+        }
+
+        $score = isset($data['score']) ? (float) $data['score'] : 1.0;
+
+        Log::info('reCAPTCHA siteverify assessment', [
+            'score' => $score,
+            'action' => $tokenAction,
+        ]);
+
+        return [
+            'success' => $score >= $this->minScore,
+            'score' => $score,
+            'error' => $score < $this->minScore ? 'Low reCAPTCHA score - suspected bot' : null,
+        ];
+    }
+
     /**
      * Whether this environment has enough configuration to attempt verification.
      */
@@ -166,8 +237,7 @@ class RecaptchaService
     protected function hasVerificationConfig(): bool
     {
         return $this->siteKey !== ''
-            && $this->projectId !== ''
-            && ($this->secret !== '' || $this->credentialsPath() !== null);
+            && ($this->secret !== '' || ($this->projectId !== '' && $this->credentialsPath() !== null));
     }
 
     protected function credentialsPath(): ?string

@@ -30,7 +30,8 @@
                         </form>
                         @push('scripts')
                         @if(config('services.recaptcha.site_key'))
-                        <script src="https://www.google.com/recaptcha/enterprise.js?render={{ config('services.recaptcha.site_key') }}"></script>
+                        @php($usesClassicRecaptcha = filled(config('services.recaptcha.secret')))
+                        <script src="https://www.google.com/recaptcha/{{ $usesClassicRecaptcha ? 'api.js' : 'enterprise.js' }}?render={{ config('services.recaptcha.site_key') }}"></script>
                         @endif
                         <script>
                             (function () {
@@ -41,6 +42,7 @@
                                 var spinner = form.querySelector('.newsletter-spinner');
                                 var msg = document.getElementById('newsletter-message');
                                 var recaptchaSiteKey = @json(config('services.recaptcha.site_key'));
+                                var useClassicRecaptcha = @json(filled(config('services.recaptcha.secret')));
                                 var recaptchaToken = document.getElementById('newsletter-recaptcha-token');
 
                                 function sendSubscription() {
@@ -77,9 +79,11 @@
                                     spinner.classList.remove('hidden');
                                     msg.textContent = '';
 
-                                    if (recaptchaSiteKey && window.grecaptcha && window.grecaptcha.enterprise && recaptchaToken) {
-                                        window.grecaptcha.enterprise.ready(function () {
-                                            window.grecaptcha.enterprise.execute(recaptchaSiteKey, { action: 'newsletter_subscribe' })
+                                    var recaptchaClient = window.grecaptcha && (useClassicRecaptcha ? window.grecaptcha : window.grecaptcha.enterprise);
+
+                                    if (recaptchaSiteKey && recaptchaClient && recaptchaToken) {
+                                        recaptchaClient.ready(function () {
+                                            recaptchaClient.execute(recaptchaSiteKey, { action: 'newsletter_subscribe' })
                                                 .then(function (token) {
                                                     recaptchaToken.value = token;
                                                     sendSubscription();
