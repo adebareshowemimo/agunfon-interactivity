@@ -83,10 +83,9 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div><div class="text-4xl font-extrabold text-brand-700">5</div><div class="text-sm text-gray-500 mt-1">completion rule types</div></div>
             <div><div class="text-4xl font-extrabold text-brand-700">0</div><div class="text-sm text-gray-500 mt-1">CDN dependencies (bundled)</div></div>
-            <div><div class="text-4xl font-extrabold text-brand-700">[XX]%</div><div class="text-sm text-gray-500 mt-1">more reading evidence vs file links</div></div>
+            <div><div class="text-2xl font-extrabold text-brand-700">Tracked</div><div class="text-sm text-gray-500 mt-1">page-level reading evidence</div></div>
             <div><div class="text-4xl font-extrabold text-brand-700">100%</div><div class="text-sm text-gray-500 mt-1">mobile-friendly reading</div></div>
         </div>
-        <p class="text-center text-xs text-gray-400 mt-6">Reading-evidence figure is an illustrative placeholder — replace with verified data before publishing.</p>
     </div>
 </section>
 
@@ -208,12 +207,6 @@
             </div>
             @endforeach
         </div>
-        <div class="max-w-3xl mx-auto bg-brand-50 rounded-[32px] p-10 text-center border border-blue-50">
-            <div class="text-brand-500 text-xl mb-4">★★★★★</div>
-            <p class="text-xl md:text-2xl font-semibold text-brand-700 leading-relaxed mb-4">“[TESTIMONIAL — a compliance or L&amp;D lead, their institution, and a concrete result, e.g. acknowledgement rate or audit readiness.]”</p>
-            <p class="text-gray-500 text-sm">— [Name, Role, Institution]</p>
-        </div>
-        <p class="text-center text-xs text-gray-400 mt-5">Scenario-based examples — replace with named customer results before publishing.</p>
     </div>
 </section>
 
@@ -227,26 +220,26 @@
         <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto items-center">
             <div class="bg-white rounded-[28px] border border-gray-100 shadow-soft p-8">
                 <h3 class="text-lg font-bold text-brand-700">Starter</h3>
-                <div class="text-4xl font-extrabold text-brand-700 my-4">$XX<span class="text-base font-normal text-gray-400">/yr</span></div>
+                <div class="text-3xl font-extrabold text-brand-700 my-4">Contact us</div>
                 <ul class="space-y-3 text-gray-500 text-sm mb-8">
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> 1 site</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> All features</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> 1 year updates</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Email support</li>
                 </ul>
-                <a href="/contact" class="block text-center px-6 py-3 rounded-xl border border-gray-200 font-bold text-brand-700 hover:bg-gray-50 transition-colors">Buy Starter</a>
+                <a href="/contact" class="block text-center px-6 py-3 rounded-xl border border-gray-200 font-bold text-brand-700 hover:bg-gray-50 transition-colors">Request Starter pricing</a>
             </div>
             <div class="bg-white rounded-[28px] border-2 border-brand-500 shadow-float p-8 relative md:scale-105">
                 <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-500 text-white text-xs font-bold px-4 py-1 rounded-full">Most Popular</span>
                 <h3 class="text-lg font-bold text-brand-700">Pro</h3>
-                <div class="text-4xl font-extrabold text-brand-500 my-4">$XXX<span class="text-base font-normal text-gray-400">/yr</span></div>
+                <div class="text-3xl font-extrabold text-brand-500 my-4">Contact us</div>
                 <ul class="space-y-3 text-gray-500 text-sm mb-8">
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Up to 5 sites</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> All features</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> 1 year updates</li>
                     <li class="flex items-center gap-2"><iconify-icon icon="lucide:check" class="text-brand-500"></iconify-icon> Priority support</li>
                 </ul>
-                <a href="/contact" class="block text-center px-6 py-3 rounded-xl bg-brand-500 text-white font-bold hover:bg-brand-600 transition-all hover:-translate-y-0.5">Buy Pro</a>
+                <a href="/contact" class="block text-center px-6 py-3 rounded-xl bg-brand-500 text-white font-bold hover:bg-brand-600 transition-all hover:-translate-y-0.5">Request Pro pricing</a>
             </div>
             <div class="bg-white rounded-[28px] border border-gray-100 shadow-soft p-8">
                 <h3 class="text-lg font-bold text-brand-700">Enterprise</h3>
@@ -295,7 +288,7 @@
     <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div class="bg-brand-950 rounded-[64px] overflow-hidden relative p-12 lg:p-24 flex items-center shadow-2xl min-h-[440px]">
             <div class="absolute inset-0 z-0 opacity-30">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000" alt="" aria-hidden="true" class="w-full h-full object-cover object-center">
+                <img src="/images/brand-2026/agunfon-lagos-consultants-hero.webp" alt="" aria-hidden="true" class="w-full h-full object-cover object-center">
                 <div class="absolute inset-0 bg-gradient-to-r from-brand-950 via-brand-950/80 to-transparent"></div>
             </div>
             <div class="max-w-2xl relative z-10">

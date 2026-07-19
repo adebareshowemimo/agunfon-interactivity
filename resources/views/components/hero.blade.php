@@ -68,7 +68,7 @@
                             <button class="bg-white text-brand-900 px-3 py-1.5 rounded text-xs font-semibold hover:bg-gray-50">Start Now</button>
                         </div>
                         <div class="absolute right-4 top-1/2 -translate-y-1/2 w-32 h-24 rounded-lg overflow-hidden shadow-lg transform rotate-[-5deg]">
-                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=300" alt="Course" class="w-full h-full object-cover">
+                            <img src="/images/brand-2026/adaptive-lms-product-team.webp" alt="Course" class="w-full h-full object-cover">
                         </div>
                         <div class="absolute right-0 top-0 bottom-0 w-1/2 bg-gradient-to-l from-brand-600/20 to-transparent"></div>
                     </div>
@@ -95,10 +95,10 @@
                         <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
                             <h4 class="text-xs font-semibold text-gray-500 mb-3">Currently learning</h4>
                             <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg mb-3">
-                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=80" alt="Course" class="w-10 h-10 rounded-lg object-cover">
+                                <img src="/images/brand-2026/leadership-development-session.webp" alt="Course" class="w-10 h-10 rounded-lg object-cover">
                                 <div class="flex-1">
                                     <h5 class="text-xs font-semibold">Establishing hierarchy</h5>
-                                    <p class="text-[10px] text-gray-500">By John Doe • 45m left</p>
+                                    <p class="text-[10px] text-gray-500">45 minutes remaining</p>
                                 </div>
                                 <button class="px-2 py-1 text-[10px] font-medium border border-gray-200 rounded bg-white hover:bg-gray-50">Continue</button>
                             </div>

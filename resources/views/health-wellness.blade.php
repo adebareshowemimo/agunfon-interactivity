@@ -9,7 +9,7 @@
         font-style: italic;
     }
     .cta-pattern {
-        background-image: linear-gradient(135deg, rgba(6, 24, 51, 0.95) 0%, rgba(6, 24, 51, 0.8) 100%), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000');
+        background-image: linear-gradient(135deg, rgba(6, 24, 51, 0.95) 0%, rgba(6, 24, 51, 0.8) 100%), url('/images/brand-2026/healthcare-social-impact-learning.webp');
         background-size: cover;
         background-position: center;
     }
@@ -38,7 +38,7 @@
         </div>
         <div class="relative flex justify-center lg:justify-end">
             <div class="hero-img-container w-full max-w-[580px] aspect-[4/3] flex items-center justify-center">
-                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1200" alt="Wellness and Mindfulness" class="w-full h-full object-cover rounded-[32px] shadow-2xl">
+                <img src="/images/brand-2026/leadership-development-session.webp" alt="Wellness and Mindfulness" class="w-full h-full object-cover rounded-[32px] shadow-2xl">
             </div>
         </div>
     </div>
@@ -60,12 +60,12 @@
         <div class="bg-brand-700 rounded-[48px] p-8 md:p-16 flex flex-col lg:flex-row items-center gap-16 shadow-2xl relative overflow-hidden">
             <!-- Left: Image -->
             <div class="w-full lg:w-1/2 rounded-[48px] overflow-hidden shadow-xl aspect-square lg:aspect-auto h-full min-h-[480px]">
-                <img src="https://images.unsplash.com/photo-1573164574511-73c773193279?auto=format&fit=crop&q=80&w=1200" alt="Health and Productivity" class="w-full h-full object-cover">
+                <img src="/images/brand-2026/agunfon-lagos-consultants-hero.webp" alt="Health and Productivity" class="w-full h-full object-cover">
             </div>
             <!-- Right: Features -->
             <div class="w-full lg:w-1/2">
                 <div class="inline-block px-6 py-2.5 rounded-full bg-white mb-12 shadow-sm">
-                    <span class="text-brand-700 font-extrabold text-sm tracking-wide">Key Feature & Capabilities</span>
+                    <span class="text-brand-700 font-extrabold text-sm tracking-wide">Key Features & Capabilities</span>
                 </div>
                 <ul class="space-y-8">
                     <li class="flex items-center gap-6 group">

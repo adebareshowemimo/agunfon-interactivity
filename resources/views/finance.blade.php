@@ -9,12 +9,9 @@
         font-style: italic;
     }
     .cta-architecture-bg {
-        background-image: linear-gradient(rgba(6, 24, 51, 0.9), rgba(6, 24, 51, 0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000');
+        background-image: linear-gradient(rgba(6, 24, 51, 0.9), rgba(6, 24, 51, 0.7)), url('/images/brand-2026/finance-compliance-advisory.webp');
         background-size: cover;
         background-position: center;
-    }
-    .diagonal-pattern {
-        background-image: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255, 255, 255, 0.03) 40px, rgba(255, 255, 255, 0.03) 80px);
     }
 </style>
 @endpush
@@ -35,7 +32,7 @@
             </p>
         </div>
         <div class="relative rounded-[48px] overflow-hidden aspect-[21/9] shadow-2xl bg-[#E6ECF4]">
-            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=2000" alt="Financial Professional" class="w-full h-full object-cover">
+            <img src="/images/brand-2026/adaptive-lms-product-team.webp" alt="Financial Professional" class="w-full h-full object-cover">
         </div>
     </div>
 </section>
@@ -57,11 +54,11 @@
     <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div class="bg-brand-700 rounded-[48px] overflow-hidden p-8 lg:p-16 flex flex-col lg:flex-row gap-16 items-center shadow-2xl relative">
             <div class="w-full lg:w-1/2 aspect-square lg:aspect-[4/3] rounded-[32px] overflow-hidden shadow-xl">
-                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1200" alt="Presentation to financial group" class="w-full h-full object-cover">
+                <img src="/images/brand-2026/agunfon-lagos-consultants-hero.webp" alt="Presentation to financial group" class="w-full h-full object-cover">
             </div>
             <div class="w-full lg:w-1/2">
                 <div class="inline-block px-5 py-2 rounded-full bg-white mb-10 shadow-sm">
-                    <span class="text-brand-700 font-bold text-sm tracking-wide">Key Feature & Capabilities</span>
+                    <span class="text-brand-700 font-bold text-sm tracking-wide">Key Features & Capabilities</span>
                 </div>
                 <ul class="space-y-6">
                     <li class="flex items-center gap-5 group">
@@ -109,12 +106,12 @@
 <!-- CTA Section -->
 <section class="py-24 md:py-32">
     <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
-        <div class="cta-architecture-bg diagonal-pattern rounded-[64px] min-h-[500px] flex items-center p-12 lg:p-24 relative overflow-hidden shadow-2xl">
+        <div class="cta-architecture-bg rounded-[64px] min-h-[500px] flex items-center p-12 lg:p-24 relative overflow-hidden shadow-2xl">
             <div class="max-w-3xl relative z-10">
                 <h2 class="text-4xl md:text-6xl font-bold text-white mb-8 leading-[1.15]">
-                    <span class="font-serif-italic text-brand-500">Deploy</span> Agunfon LMS & empower your finance and compliant team
+                    <span class="font-serif-italic text-brand-500">Deploy</span> Agunfon LMS and empower your finance and compliance teams
                 </h2>
-                <p class="text-xl text-gray-300 mb-10">Get in touch with our team to get started</p>
+                <p class="text-xl text-gray-200 mb-10">Talk to our team about a secure, role-based learning environment for your organisation.</p>
                 <a href="/book-demo" class="inline-flex items-center px-10 py-4 bg-brand-500 text-white font-bold rounded-xl hover:bg-opacity-90 transition-all hover:-translate-y-1 shadow-xl">Book a meeting</a>
             </div>
         </div>

@@ -99,7 +99,7 @@
         </p>
     </div>
     <div class="max-w-5xl mx-auto rounded-[48px] overflow-hidden shadow-soft border-4 border-white">
-        <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=2000" alt="Collaborative team working together on a laptop" class="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-1000">
+        <img src="/images/brand-2026/agunfon-lagos-consultants-hero.webp" alt="Collaborative team working together on a laptop" class="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-1000">
     </div>
 </section>
 

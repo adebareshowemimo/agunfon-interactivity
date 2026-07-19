@@ -13,8 +13,11 @@
     }
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+@php($recaptchaEnabled = config('services.recaptcha.enabled') && filled(config('services.recaptcha.site_key')))
 @php($usesClassicRecaptcha = filled(config('services.recaptcha.secret')))
+@if($recaptchaEnabled)
 <script src="https://www.google.com/recaptcha/{{ $usesClassicRecaptcha ? 'api.js' : 'enterprise.js' }}?render={{ config('services.recaptcha.site_key') }}"></script>
+@endif
 @endpush
 
 @section('content')
@@ -119,10 +122,16 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     const form = this;
     const btn = document.getElementById('submit-btn');
     const useClassicRecaptcha = @json(filled(config('services.recaptcha.secret')));
-    const recaptchaClient = window.grecaptcha && (useClassicRecaptcha ? window.grecaptcha : window.grecaptcha.enterprise);
+    const recaptchaEnabled = @json($recaptchaEnabled);
+    const recaptchaClient = recaptchaEnabled && window.grecaptcha && (useClassicRecaptcha ? window.grecaptcha : window.grecaptcha.enterprise);
 
     btn.disabled = true;
     btn.textContent = 'Sending...';
+
+    if (!recaptchaEnabled) {
+        form.submit();
+        return;
+    }
 
     if (!recaptchaClient) {
         btn.disabled = false;

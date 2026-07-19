@@ -9,7 +9,7 @@
         font-style: italic;
     }
     .cta-architecture-bg {
-        background-image: linear-gradient(rgba(6, 24, 51, 0.85), rgba(6, 24, 51, 0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000');
+        background-image: linear-gradient(rgba(6, 24, 51, 0.85), rgba(6, 24, 51, 0.7)), url('/images/brand-2026/healthcare-social-impact-learning.webp');
         background-size: cover;
         background-position: center;
     }
@@ -32,7 +32,7 @@
             </p>
         </div>
         <div class="relative rounded-[48px] overflow-hidden aspect-[21/9] shadow-2xl bg-gray-100">
-            <img src="https://images.unsplash.com/photo-1573166364524-d9dbfd8bbf83?auto=format&fit=crop&q=80&w=2000" alt="Non-profit staff collaborating with masks and laptops" class="w-full h-full object-cover">
+            <img src="/images/brand-2026/enterprise-learning-strategy-workshop.webp" alt="Non-profit staff collaborating with masks and laptops" class="w-full h-full object-cover">
         </div>
     </div>
 </section>
@@ -54,11 +54,11 @@
     <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div class="bg-brand-700 rounded-[48px] overflow-hidden p-8 lg:p-16 flex flex-col lg:flex-row gap-16 items-center shadow-2xl relative">
             <div class="w-full lg:w-1/2 aspect-square lg:aspect-[4/3] rounded-[32px] overflow-hidden shadow-xl">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1200" alt="Black woman working at laptop in home office" class="w-full h-full object-cover">
+                <img src="/images/brand-2026/leadership-development-session.webp" alt="Black woman working at laptop in home office" class="w-full h-full object-cover">
             </div>
             <div class="w-full lg:w-1/2">
                 <div class="inline-block px-5 py-2 rounded-full bg-white mb-10 shadow-sm">
-                    <span class="text-brand-700 font-extrabold text-sm tracking-wide">Key Feature & Capabilities</span>
+                    <span class="text-brand-700 font-extrabold text-sm tracking-wide">Key Features & Capabilities</span>
                 </div>
                 <ul class="grid grid-cols-1 gap-6">
                     <li class="flex items-center gap-5 group">

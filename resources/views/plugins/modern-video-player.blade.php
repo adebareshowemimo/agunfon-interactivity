@@ -389,7 +389,7 @@
     <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div class="bg-brand-950 rounded-[64px] overflow-hidden relative p-12 lg:p-24 flex items-center shadow-2xl min-h-[440px]">
             <div class="absolute inset-0 z-0 opacity-30">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000" alt="" aria-hidden="true" class="w-full h-full object-cover object-center">
+                <img src="/images/brand-2026/agunfon-lagos-consultants-hero.webp" alt="" aria-hidden="true" class="w-full h-full object-cover object-center">
                 <div class="absolute inset-0 bg-gradient-to-r from-brand-950 via-brand-950/80 to-transparent"></div>
             </div>
             <div class="max-w-2xl relative z-10">

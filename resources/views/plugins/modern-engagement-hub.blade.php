@@ -62,12 +62,11 @@
     <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
         <p class="text-center text-xs font-bold tracking-widest uppercase text-gray-400 mb-10">Built for engagement teams in education &amp; enterprise</p>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div><div class="text-4xl font-extrabold text-brand-700">[XX]%</div><div class="text-sm text-gray-500 mt-1">higher response after journeys</div></div>
-            <div><div class="text-4xl font-extrabold text-brand-700">[XX] hrs</div><div class="text-sm text-gray-500 mt-1">saved on manual outreach</div></div>
-            <div><div class="text-4xl font-extrabold text-brand-700">1</div><div class="text-sm text-gray-500 mt-1">dashboard for every campaign</div></div>
-            <div><div class="text-4xl font-extrabold text-brand-700">100%</div><div class="text-sm text-gray-500 mt-1">auditable delivery log</div></div>
+            <div><div class="text-2xl font-extrabold text-brand-700">Targeted</div><div class="text-sm text-gray-500 mt-1">segment-based journeys</div></div>
+            <div><div class="text-2xl font-extrabold text-brand-700">Automated</div><div class="text-sm text-gray-500 mt-1">scheduled outreach</div></div>
+            <div><div class="text-2xl font-extrabold text-brand-700">Centralised</div><div class="text-sm text-gray-500 mt-1">campaign dashboard</div></div>
+            <div><div class="text-2xl font-extrabold text-brand-700">Traceable</div><div class="text-sm text-gray-500 mt-1">delivery history</div></div>
         </div>
-        <p class="text-center text-xs text-gray-400 mt-6">Figures are illustrative placeholders — replace with verified data before publishing.</p>
     </div>
 </section>
 
@@ -188,12 +187,6 @@
             </div>
             @endforeach
         </div>
-        <div class="max-w-3xl mx-auto bg-brand-50 rounded-[32px] p-10 text-center border border-blue-50">
-            <div class="text-brand-500 text-xl mb-4">★★★★★</div>
-            <p class="text-xl md:text-2xl font-semibold text-brand-700 leading-relaxed mb-4">“[TESTIMONIAL — an engagement or L&amp;D lead, their institution, and a concrete result, e.g. higher response or retention.]”</p>
-            <p class="text-gray-500 text-sm">— [Name, Role, Institution]</p>
-        </div>
-        <p class="text-center text-xs text-gray-400 mt-5">Scenario-based examples — replace with named customer results before publishing.</p>
     </div>
 </section>
 
@@ -246,7 +239,7 @@
     <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div class="bg-brand-950 rounded-[64px] overflow-hidden relative p-12 lg:p-24 flex items-center shadow-2xl min-h-[440px]">
             <div class="absolute inset-0 z-0 opacity-30">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000" alt="" aria-hidden="true" class="w-full h-full object-cover object-center">
+                <img src="/images/brand-2026/agunfon-lagos-consultants-hero.webp" alt="" aria-hidden="true" class="w-full h-full object-cover object-center">
                 <div class="absolute inset-0 bg-gradient-to-r from-brand-950 via-brand-950/80 to-transparent"></div>
             </div>
             <div class="max-w-2xl relative z-10">

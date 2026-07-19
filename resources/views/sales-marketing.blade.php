@@ -9,7 +9,7 @@
         font-style: italic;
     }
     .cta-bg-overlay {
-        background-image: linear-gradient(rgba(6, 24, 51, 0.9), rgba(6, 24, 51, 0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000');
+        background-image: linear-gradient(rgba(6, 24, 51, 0.9), rgba(6, 24, 51, 0.7)), url('/images/brand-2026/enterprise-learning-strategy-workshop.webp');
         background-size: cover;
         background-position: center;
     }
@@ -33,7 +33,7 @@
         </div>
         <div class="relative flex justify-center lg:justify-end">
             <div class="w-full max-w-[580px] aspect-square rounded-[48px] overflow-hidden bg-blue-50 relative">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1200" alt="Professional Sales Lead" class="w-full h-full object-cover">
+                <img src="/images/brand-2026/adaptive-lms-product-team.webp" alt="Professional Sales Lead" class="w-full h-full object-cover">
                 <div class="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-[48px]"></div>
             </div>
         </div>
@@ -55,11 +55,11 @@
     <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div class="bg-brand-700 rounded-[48px] p-8 md:p-16 flex flex-col lg:flex-row items-center gap-16 shadow-2xl overflow-hidden relative">
             <div class="w-full lg:w-1/2 aspect-square lg:aspect-[4/3] rounded-[48px] overflow-hidden shadow-xl">
-                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1200" alt="Workspace collaboration" class="w-full h-full object-cover">
+                <img src="/images/brand-2026/agunfon-lagos-consultants-hero.webp" alt="Workspace collaboration" class="w-full h-full object-cover">
             </div>
             <div class="w-full lg:w-1/2">
                 <div class="inline-block px-6 py-2.5 rounded-full bg-white mb-10 shadow-sm">
-                    <span class="text-brand-700 font-extrabold text-sm tracking-wide">Key Feature & Capabilities</span>
+                    <span class="text-brand-700 font-extrabold text-sm tracking-wide">Key Features & Capabilities</span>
                 </div>
                 <ul class="space-y-6">
                     <li class="flex items-center gap-5">

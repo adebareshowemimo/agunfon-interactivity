@@ -39,7 +39,7 @@ class DemoRequestController extends Controller
             'summary' => 'nullable|string|max:5000',
             'preferred_date' => 'required|date|after_or_equal:today',
             'preferred_date_end' => 'required|date|after_or_equal:preferred_date',
-            'g-recaptcha-response' => 'required',
+            'g-recaptcha-response' => $recaptcha->shouldVerify() ? 'required' : 'nullable',
         ]);
 
         // Verify reCAPTCHA Enterprise

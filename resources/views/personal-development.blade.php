@@ -28,7 +28,7 @@
         </div>
         <div class="relative flex justify-center lg:justify-end">
             <div class="relative w-full max-w-[580px] aspect-[4/3] rounded-[48px] overflow-hidden bg-blue-50 flex items-center justify-center p-8">
-                <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=1200" alt="Professional at laptop" class="w-full h-full object-cover rounded-[32px] shadow-2xl">
+                <img src="/images/brand-2026/leadership-development-session.webp" alt="Professional at laptop" class="w-full h-full object-cover rounded-[32px] shadow-2xl">
             </div>
         </div>
     </div>
@@ -51,11 +51,11 @@
     <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div class="bg-brand-700 rounded-[48px] overflow-hidden p-8 lg:p-16 flex flex-col lg:flex-row gap-16 items-center shadow-2xl">
             <div class="w-full lg:w-1/2 aspect-video lg:aspect-auto h-full min-h-[400px] rounded-[32px] overflow-hidden shadow-xl">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1200" alt="Working in office" class="w-full h-full object-cover">
+                <img src="/images/brand-2026/adaptive-lms-product-team.webp" alt="Working in office" class="w-full h-full object-cover">
             </div>
             <div class="w-full lg:w-1/2">
                 <div class="inline-block px-5 py-2.5 rounded-full bg-white mb-10 shadow-sm">
-                    <span class="text-brand-700 font-bold text-sm tracking-wide">Key Feature & Capabilities</span>
+                    <span class="text-brand-700 font-bold text-sm tracking-wide">Key Features & Capabilities</span>
                 </div>
                 <ul class="space-y-6">
                     <li class="flex items-center gap-5">
@@ -99,7 +99,7 @@
     <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div class="bg-brand-950 rounded-[64px] overflow-hidden relative p-12 lg:p-24 flex items-center min-h-[520px] shadow-2xl">
             <div class="absolute inset-0 z-0 opacity-40">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000" alt="Modern Office Architecture" class="w-full h-full object-cover object-center">
+                <img src="/images/brand-2026/agunfon-lagos-consultants-hero.webp" alt="Modern Office Architecture" class="w-full h-full object-cover object-center">
                 <div class="absolute inset-0 bg-gradient-to-r from-brand-950 via-brand-950/80 to-transparent"></div>
             </div>
             <div class="max-w-3xl relative z-10">

@@ -35,7 +35,7 @@ class ContactController extends Controller
             'email' => 'required|email|max:255',
             'phone' => 'nullable|string|max:50',
             'message' => 'required|string|max:5000',
-            'g-recaptcha-response' => 'required',
+            'g-recaptcha-response' => $recaptcha->shouldVerify() ? 'required' : 'nullable',
         ]);
 
         // Verify reCAPTCHA Enterprise

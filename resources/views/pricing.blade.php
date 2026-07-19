@@ -70,7 +70,7 @@
 
                 <!-- Right: Visual Badge Card -->
                 <div class="relative rounded-[32px] overflow-hidden group">
-                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=800" alt="Professional team" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <img src="/images/brand-2026/agunfon-lagos-consultants-hero.webp" alt="Professional team" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-900/90 via-transparent to-transparent"></div>
                     <div class="absolute bottom-8 left-8 right-8 bg-brand-900/40 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
                         <div class="text-4xl font-bold text-white mb-6">
@@ -109,7 +109,7 @@
     <!-- Tailored Plan Section -->
     <section class="relative py-24 overflow-hidden">
         <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1440" alt="Skyscraper background" class="w-full h-full object-cover">
+            <img src="/images/brand-2026/enterprise-learning-strategy-workshop.webp" alt="Skyscraper background" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-brand-900/90"></div>
         </div>
         <div class="relative z-10 max-w-7xl mx-auto px-6">

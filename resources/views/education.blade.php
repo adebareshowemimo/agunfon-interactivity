@@ -9,7 +9,7 @@
         font-style: italic;
     }
     .cta-bg-overlay {
-        background-image: linear-gradient(rgba(6, 24, 51, 0.85), rgba(6, 24, 51, 0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000');
+        background-image: linear-gradient(rgba(6, 24, 51, 0.85), rgba(6, 24, 51, 0.7)), url('/images/brand-2026/leadership-development-session.webp');
         background-size: cover;
         background-position: center;
     }
@@ -32,7 +32,7 @@
             </p>
         </div>
         <div class="relative rounded-[48px] overflow-hidden bg-gray-100 aspect-[21/9] shadow-2xl">
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=2000" alt="Students collaborating" class="w-full h-full object-cover">
+            <img src="/images/brand-2026/adaptive-lms-product-team.webp" alt="Students collaborating" class="w-full h-full object-cover">
         </div>
     </div>
 </section>
@@ -54,11 +54,11 @@
     <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div class="bg-brand-700 rounded-[48px] overflow-hidden p-8 lg:p-16 flex flex-col lg:flex-row gap-16 items-center shadow-2xl">
             <div class="w-full lg:w-1/2 aspect-square lg:aspect-[4/3] rounded-[32px] overflow-hidden shadow-xl">
-                <img src="https://images.unsplash.com/photo-1491309055486-24ae511c15c7?auto=format&fit=crop&q=80&w=1200" alt="Educator in library" class="w-full h-full object-cover">
+                <img src="/images/brand-2026/retail-workforce-learning.webp" alt="Educator in library" class="w-full h-full object-cover">
             </div>
             <div class="w-full lg:w-1/2">
                 <div class="inline-block px-5 py-2 rounded-full bg-white mb-10">
-                    <span class="text-brand-700 font-bold text-sm tracking-wide">Key Feature & Capabilities</span>
+                    <span class="text-brand-700 font-bold text-sm tracking-wide">Key Features & Capabilities</span>
                 </div>
                 <ul class="space-y-6">
                     <li class="flex items-center gap-5 group">

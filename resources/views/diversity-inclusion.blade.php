@@ -14,7 +14,7 @@
         padding: 24px;
     }
     .cta-background {
-        background-image: linear-gradient(rgba(6, 24, 51, 0.8), rgba(6, 24, 51, 0.8)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000');
+        background-image: linear-gradient(rgba(6, 24, 51, 0.8), rgba(6, 24, 51, 0.8)), url('/images/brand-2026/healthcare-social-impact-learning.webp');
         background-size: cover;
         background-position: center;
         position: relative;
@@ -49,7 +49,7 @@
         </div>
         <div class="relative">
             <div class="hero-image-frame">
-                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200" alt="Diverse group of professionals collaborating" class="w-full h-auto rounded-[32px] shadow-2xl">
+                <img src="/images/brand-2026/leadership-development-session.webp" alt="Diverse group of professionals collaborating" class="w-full h-auto rounded-[32px] shadow-2xl">
             </div>
         </div>
     </div>
@@ -70,11 +70,11 @@
     <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div class="bg-brand-700 rounded-[48px] p-8 md:p-16 flex flex-col lg:flex-row gap-16 items-center shadow-2xl relative">
             <div class="w-full lg:w-1/2 aspect-square lg:aspect-[4/3] rounded-[48px] overflow-hidden shadow-xl">
-                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=1200" alt="Team collaborating at desk" class="w-full h-full object-cover">
+                <img src="/images/brand-2026/enterprise-learning-strategy-workshop.webp" alt="Team collaborating at desk" class="w-full h-full object-cover">
             </div>
             <div class="w-full lg:w-1/2">
                 <div class="inline-block px-6 py-2.5 rounded-full bg-white mb-10 shadow-sm">
-                    <span class="text-brand-700 font-extrabold text-sm tracking-wide">Key Feature & Capabilities</span>
+                    <span class="text-brand-700 font-extrabold text-sm tracking-wide">Key Features & Capabilities</span>
                 </div>
                 <ul class="space-y-6">
                     <li class="flex items-center gap-5 group">

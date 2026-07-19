@@ -67,7 +67,7 @@
 
         <!-- Right: Image -->
         <div class="relative h-[400px] rounded-[28px] overflow-hidden shadow-xl">
-            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800" alt="Modern professional educator" class="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+            <img src="/images/brand-2026/leadership-development-session.webp" alt="Modern professional educator" class="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-700">
         </div>
     </div>
 </section>

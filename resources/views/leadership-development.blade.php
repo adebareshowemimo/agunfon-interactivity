@@ -28,7 +28,7 @@
         </div>
         <div class="relative">
             <div class="rounded-[40px] overflow-hidden shadow-2xl relative">
-                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1200" alt="Leadership Training" class="w-full aspect-[4/5] object-cover">
+                <img src="/images/brand-2026/leadership-development-session.webp" alt="Leadership Training" class="w-full aspect-[4/5] object-cover">
             </div>
         </div>
     </div>
@@ -49,11 +49,11 @@
     <div class="max-w-[1280px] mx-auto px-6">
         <div class="bg-brand-700 rounded-[48px] overflow-hidden p-8 lg:p-16 flex flex-col lg:flex-row gap-16 items-center shadow-2xl">
             <div class="w-full lg:w-[45%] rounded-[32px] overflow-hidden shadow-xl aspect-square">
-                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800" alt="Coaching Session" class="w-full h-full object-cover">
+                <img src="/images/brand-2026/enterprise-learning-strategy-workshop.webp" alt="Coaching Session" class="w-full h-full object-cover">
             </div>
             <div class="w-full lg:w-[55%]">
                 <div class="inline-block px-5 py-2 rounded-lg bg-white mb-12">
-                    <span class="text-brand-700 font-extrabold text-sm tracking-wide">Key Feature & Capabilities</span>
+                    <span class="text-brand-700 font-extrabold text-sm tracking-wide">Key Features & Capabilities</span>
                 </div>
                 <ul class="space-y-6">
                     <li class="flex items-center gap-5 group">
@@ -103,7 +103,7 @@
     <div class="max-w-[1280px] mx-auto px-6">
         <div class="bg-brand-950 rounded-[64px] overflow-hidden relative min-h-[540px] flex items-center p-12 lg:p-24 shadow-2xl">
             <div class="absolute inset-0 z-0 opacity-40">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1600" alt="Architecture" class="w-full h-full object-cover">
+                <img src="/images/brand-2026/agunfon-lagos-consultants-hero.webp" alt="Architecture" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-r from-brand-950 via-brand-950/80 to-transparent"></div>
             </div>
             <div class="max-w-3xl relative z-10">

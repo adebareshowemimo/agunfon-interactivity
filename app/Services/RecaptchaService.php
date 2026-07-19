@@ -16,6 +16,7 @@ class RecaptchaService
     protected string $secret;
     protected float $minScore;
     protected bool $required;
+    protected bool $enabled;
 
     public function __construct()
     {
@@ -24,6 +25,7 @@ class RecaptchaService
         $this->secret = (string) config('services.recaptcha.secret', '');
         $this->minScore = 0.5; // Minimum acceptable score (0.0 to 1.0)
         $this->required = (bool) config('services.recaptcha.required', false);
+        $this->enabled = (bool) config('services.recaptcha.enabled', true);
     }
 
     /**
@@ -32,6 +34,10 @@ class RecaptchaService
      */
     public function verify(?string $token, string $action = 'submit'): array
     {
+        if (! $this->enabled) {
+            return ['success' => true, 'score' => 1.0, 'error' => null];
+        }
+
         if (empty($token)) {
             return [
                 'success' => false,
@@ -223,7 +229,7 @@ class RecaptchaService
      */
     public function shouldVerify(): bool
     {
-        return $this->required || $this->hasVerificationConfig();
+        return $this->enabled && ($this->required || $this->hasVerificationConfig());
     }
 
     /**

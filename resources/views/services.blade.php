@@ -79,7 +79,7 @@
             <a href="/contact" class="btn-dark px-8 py-3.5 rounded-xl font-bold inline-block">Request a Consultation</a>
         </div>
         <div class="flex-1 order-1 lg:order-2 service-card-image">
-            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1200" alt="LMS Implementation" class="w-full h-[500px] object-cover">
+            <img src="/images/brand-2026/enterprise-learning-strategy-workshop.webp" alt="LMS Implementation" class="w-full h-[500px] object-cover">
         </div>
     </section>
 
@@ -122,7 +122,7 @@
             <a href="/contact" class="btn-dark px-8 py-3.5 rounded-xl font-bold inline-block">Request a Consultation</a>
         </div>
         <div class="flex-1 service-card-image border-8 border-brand-700/5">
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200" alt="E-Learning Development" class="w-full h-[500px] object-cover">
+            <img src="/images/brand-2026/leadership-development-session.webp" alt="E-Learning Development" class="w-full h-[500px] object-cover">
         </div>
     </section>
 
@@ -165,7 +165,7 @@
             <a href="/contact" class="btn-dark px-8 py-3.5 rounded-xl font-bold inline-block">Request a Consultation</a>
         </div>
         <div class="flex-1 order-1 lg:order-2 service-card-image">
-            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=1200" alt="UI/UX Design" class="w-full h-[500px] object-cover">
+            <img src="/images/brand-2026/adaptive-lms-product-team.webp" alt="UI/UX Design" class="w-full h-[500px] object-cover">
         </div>
     </section>
 
@@ -208,7 +208,7 @@
             <a href="/contact" class="btn-dark px-8 py-3.5 rounded-xl font-bold inline-block">Request a Consultation</a>
         </div>
         <div class="flex-1 service-card-image">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200" alt="Web Development" class="w-full h-[500px] object-cover">
+            <img src="/images/brand-2026/adaptive-lms-product-team.webp" alt="Web Development" class="w-full h-[500px] object-cover">
         </div>
     </section>
 
@@ -251,7 +251,7 @@
             <a href="/contact" class="btn-dark px-8 py-3.5 rounded-xl font-bold inline-block">Request a Consultation</a>
         </div>
         <div class="flex-1 order-1 lg:order-2 service-card-image">
-            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=1200" alt="Moodle Mobile" class="w-full h-[500px] object-cover">
+            <img src="/images/brand-2026/retail-workforce-learning.webp" alt="Moodle Mobile" class="w-full h-[500px] object-cover">
         </div>
     </section>
 
@@ -290,7 +290,7 @@
             <a href="/contact" class="btn-dark px-8 py-3.5 rounded-xl font-bold inline-block">Request a Consultation</a>
         </div>
         <div class="flex-1 service-card-image">
-            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&q=80&w=1200" alt="HR Automation" class="w-full h-[500px] object-cover">
+            <img src="/images/brand-2026/enterprise-learning-strategy-workshop.webp" alt="HR Automation" class="w-full h-[500px] object-cover">
         </div>
     </section>
 
@@ -333,7 +333,7 @@
             <a href="/contact" class="btn-dark px-8 py-3.5 rounded-xl font-bold inline-block">Request a Consultation</a>
         </div>
         <div class="flex-1 order-1 lg:order-2 service-card-image">
-            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200" alt="Integration" class="w-full h-[500px] object-cover">
+            <img src="/images/brand-2026/adaptive-lms-product-team.webp" alt="Integration" class="w-full h-[500px] object-cover">
         </div>
     </section>
 
@@ -376,7 +376,7 @@
             <a href="/contact" class="btn-dark px-8 py-3.5 rounded-xl font-bold inline-block">Request a Consultation</a>
         </div>
         <div class="flex-1 service-card-image">
-            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=1200" alt="Project Management" class="w-full h-[500px] object-cover">
+            <img src="/images/brand-2026/enterprise-learning-strategy-workshop.webp" alt="Project Management" class="w-full h-[500px] object-cover">
         </div>
     </section>
 
@@ -385,14 +385,14 @@
         <div class="flex-1 order-2 lg:order-1">
             <h2 class="text-3xl font-bold text-brand-700 mb-4">Consultancy & Training</h2>
             <p class="text-gray-500 mb-8">
-                Strengthen your internal capacity with expert consulting and hands-on training. We help organizations refine their learning strategies, boost adoption, and build long-term operational maturity.
+                Strengthen your internal capability with expert consulting and hands-on training. We help organisations refine their learning strategies, improve adoption and build long-term operational maturity.
             </p>
             <div class="feature-box mb-8">
                 <p class="text-sm font-bold text-brand-700 mb-4">What's Included</p>
                 <ul class="space-y-3">
                     <li class="flex items-center gap-3 text-sm text-brand-700">
                         <iconify-icon icon="lucide:check-circle-2" class="text-brand-500 text-lg"></iconify-icon>
-                        LMS strategy and optimization consulting
+                        LMS strategy and optimisation consulting
                     </li>
                     <li class="flex items-center gap-3 text-sm text-brand-700">
                         <iconify-icon icon="lucide:check-circle-2" class="text-brand-500 text-lg"></iconify-icon>
@@ -419,7 +419,7 @@
             <a href="/contact" class="btn-dark px-8 py-3.5 rounded-xl font-bold inline-block">Request a Consultation</a>
         </div>
         <div class="flex-1 order-1 lg:order-2 service-card-image">
-            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200" alt="Consultancy" class="w-full h-[500px] object-cover">
+            <img src="/images/brand-2026/leadership-development-session.webp" alt="Agunfon consultant leading a professional training session" class="w-full h-[500px] object-cover object-center">
         </div>
     </section>
 
@@ -462,7 +462,7 @@
             <a href="/contact" class="btn-dark px-8 py-3.5 rounded-xl font-bold inline-block">Request a Consultation</a>
         </div>
         <div class="flex-1 service-card-image">
-            <img src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?auto=format&fit=crop&q=80&w=1200" alt="Support" class="w-full h-[500px] object-cover">
+            <img src="/images/brand-2026/enterprise-learning-strategy-workshop.webp" alt="Support" class="w-full h-[500px] object-cover">
         </div>
     </section>
 

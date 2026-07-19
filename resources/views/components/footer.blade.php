@@ -29,7 +29,7 @@
                             <p id="newsletter-message" class="text-sm mt-3 {{ session('newsletter_success') ? 'text-green-400' : 'text-red-400' }}" aria-live="polite">{{ session('newsletter_success') ?: session('newsletter_error') }}</p>
                         </form>
                         @push('scripts')
-                        @if(config('services.recaptcha.site_key'))
+                        @if(config('services.recaptcha.enabled') && config('services.recaptcha.site_key'))
                         @php($usesClassicRecaptcha = filled(config('services.recaptcha.secret')))
                         <script src="https://www.google.com/recaptcha/{{ $usesClassicRecaptcha ? 'api.js' : 'enterprise.js' }}?render={{ config('services.recaptcha.site_key') }}"></script>
                         @endif
@@ -41,7 +41,7 @@
                                 var label = form.querySelector('.newsletter-btn-label');
                                 var spinner = form.querySelector('.newsletter-spinner');
                                 var msg = document.getElementById('newsletter-message');
-                                var recaptchaSiteKey = @json(config('services.recaptcha.site_key'));
+                                var recaptchaSiteKey = @json(config('services.recaptcha.enabled') ? config('services.recaptcha.site_key') : null);
                                 var useClassicRecaptcha = @json(filled(config('services.recaptcha.secret')));
                                 var recaptchaToken = document.getElementById('newsletter-recaptcha-token');
 
@@ -165,7 +165,7 @@
                         <div class="space-y-5">
                             <h4 class="font-bold text-lg text-white">Product</h4>
                             <ul class="space-y-3 text-sm text-gray-300 border-l-2 border-brand-500/50 pl-4">
-                                <li><a href="/learning-suite" class="hover:text-white transition-colors">Learning Suits</a></li>
+                                <li><a href="/learning-suite" class="hover:text-white transition-colors">Learning Suite</a></li>
                                 <li><a href="/adaptive-lms" class="hover:text-white transition-colors">Adaptive LMS</a></li>
                             </ul>
                         </div>
@@ -217,7 +217,7 @@
         <!-- Bottom Bar -->
         <div class="pt-12 border-t border-brand-700/50">
             <div class="flex flex-col space-y-4">
-                <p class="text-sm text-gray-300 font-medium">© Agunfon 2025, All Right Reserved</p>
+                <p class="text-sm text-gray-300 font-medium">© Agunfon {{ date('Y') }}. All Rights Reserved.</p>
                 <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm text-gray-400">
                     <a href="/privacy-policy" class="hover:text-white transition-colors">Privacy Policy</a>
                     <span class="text-gray-600">|</span>

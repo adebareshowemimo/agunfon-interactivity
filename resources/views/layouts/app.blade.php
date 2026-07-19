@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $title ?? 'Agunfon - Enterprise LMS' }}</title>
-    <meta name="description" content="Empower your teams with an adaptive LMS built for clarity, growth, and measurable impact.">
+    <title>@yield('title', 'Agunfon - Enterprise Learning Solutions')</title>
+    <meta name="description" content="@yield('description', 'Agunfon delivers adaptive LMS platforms, learning content and specialist consulting for enterprise teams across Africa.')">
+    <link rel="canonical" href="{{ url()->current() }}">
+    <meta property="og:title" content="@yield('title', 'Agunfon - Enterprise Learning Solutions')">
+    <meta property="og:description" content="@yield('description', 'Agunfon delivers adaptive LMS platforms, learning content and specialist consulting for enterprise teams across Africa.')">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/images/Agunfon_Icon.png">
@@ -15,7 +20,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Iconify -->
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
@@ -28,7 +33,7 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
+                        serif: ['Sora', 'sans-serif'],
                     },
                     colors: {
                         brand: {

@@ -26,7 +26,7 @@
                             <div class="space-y-8">
                                 <a href="/learning-suite" class="flex gap-6 group/item">
                                     <div class="w-32 h-32 shrink-0 rounded-[20px] overflow-hidden bg-gray-100">
-                                        <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=300" alt="Learning Suite" class="w-full h-full object-cover group-hover/item:scale-110 transition-transform duration-500">
+                                        <img src="/images/brand-2026/adaptive-lms-product-team.webp" alt="Learning Suite" class="w-full h-full object-cover group-hover/item:scale-110 transition-transform duration-500">
                                     </div>
                                     <div class="flex flex-col">
                                         <h3 class="text-lg font-bold text-brand-700 mb-2">Agunfon Learning Suite</h3>
@@ -37,7 +37,7 @@
                                 <div class="h-[1px] bg-gray-100 w-full"></div>
                                 <a href="/adaptive-lms" class="flex gap-6 group/item">
                                     <div class="w-32 h-32 shrink-0 rounded-[20px] overflow-hidden bg-gray-100">
-                                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=300" alt="Adaptive LMS" class="w-full h-full object-cover group-hover/item:scale-110 transition-transform duration-500">
+                                        <img src="/images/brand-2026/agunfon-lagos-consultants-hero.webp" alt="Adaptive LMS" class="w-full h-full object-cover group-hover/item:scale-110 transition-transform duration-500">
                                     </div>
                                     <div class="flex flex-col">
                                         <h3 class="text-lg font-bold text-brand-700 mb-2">Agunfon Adaptive LMS</h3>
@@ -66,7 +66,7 @@
                                         Moodle Plugins
                                     </div>
                                     <div class="w-[360px] h-[210px] rounded-2xl overflow-hidden shadow-xl">
-                                        <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800" alt="Modern Moodle plugins by Agunfon" class="w-full h-full object-cover">
+                                        <img src="/images/brand-2026/enterprise-learning-strategy-workshop.webp" alt="Modern Moodle plugins by Agunfon" class="w-full h-full object-cover">
                                     </div>
                                 </div>
                                 <div class="flex-1">
@@ -126,7 +126,7 @@
                                         Our Solutions
                                     </div>
                                     <div class="w-[400px] h-[240px] rounded-2xl overflow-hidden shadow-xl">
-                                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800" alt="Solutions Support" class="w-full h-full object-cover">
+                                        <img src="/images/brand-2026/leadership-development-session.webp" alt="Solutions Support" class="w-full h-full object-cover">
                                     </div>
                                 </div>
                                 <div class="flex-1">
@@ -292,7 +292,7 @@
                                 </div>
                                 <div class="flex items-start gap-10">
                                     <div class="w-80 h-48 rounded-2xl overflow-hidden shadow-lg shrink-0">
-                                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600" alt="Resources featured" class="w-full h-full object-cover">
+                                        <img src="/images/brand-2026/adaptive-lms-product-team.webp" alt="Resources featured" class="w-full h-full object-cover">
                                     </div>
                                     <div class="flex-1">
                                         <h2 class="text-2xl font-bold text-brand-700 leading-tight mb-4">

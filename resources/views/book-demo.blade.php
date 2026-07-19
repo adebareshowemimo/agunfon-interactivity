@@ -35,8 +35,11 @@
         border-color: #EF4444;
     }
 </style>
+@php($recaptchaEnabled = config('services.recaptcha.enabled') && filled(config('services.recaptcha.site_key')))
 @php($usesClassicRecaptcha = filled(config('services.recaptcha.secret')))
+@if($recaptchaEnabled)
 <script src="https://www.google.com/recaptcha/{{ $usesClassicRecaptcha ? 'api.js' : 'enterprise.js' }}?render={{ config('services.recaptcha.site_key') }}"></script>
+@endif
 @endpush
 
 @section('content')
@@ -48,7 +51,7 @@
         <div class="lg:pt-12">
             <div class="inline-block px-4 py-1.5 rounded-full border border-gray-200 text-brand-700 text-xs font-bold tracking-widest bg-white mb-8 uppercase">Book a Demo</div>
             <h1 class="text-5xl lg:text-[64px] font-bold text-brand-700 leading-[1.1] mb-8">
-                See Adaptive's Learning Platform <span class="font-accent text-brand-500">in Action!</span>
+                See the Agunfon Adaptive LMS <span class="font-accent text-brand-500">in Action</span>
             </h1>
             <p class="text-lg text-gray-500 max-w-lg leading-relaxed mb-10">
                 Schedule a personalized walkthrough or preview a quick demo video to experience how Agunfon streamlines learning, onboarding, and workforce development across your organization
@@ -72,7 +75,7 @@
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-bold text-brand-700 mb-2">Name<span class="text-red-500">*</span></label>
-                        <input type="text" name="name" value="{{ old('name') }}" placeholder="Elebute Usman" class="form-input @error('name') is-invalid @enderror" required>
+                        <input type="text" name="name" value="{{ old('name') }}" placeholder="Your full name" class="form-input @error('name') is-invalid @enderror" required>
                         @error('name')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
                     </div>
                     <div>
@@ -84,7 +87,7 @@
 
                 <div>
                     <label class="block text-sm font-bold text-brand-700 mb-2">Email<span class="text-red-500">*</span></label>
-                    <input type="email" name="email" value="{{ old('email') }}" placeholder="elebuteusman@gmail.com" class="form-input @error('email') is-invalid @enderror" required>
+                    <input type="email" name="email" value="{{ old('email') }}" placeholder="you@company.com" class="form-input @error('email') is-invalid @enderror" required>
                     @error('email')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
                 </div>
 
@@ -108,7 +111,7 @@
                             <option value="+61" {{ old('country_code') == '+61' ? 'selected' : '' }}>🇦🇺 +61</option>
                             <option value="+1" {{ old('country_code') == '+1-CA' ? 'selected' : '' }}>🇨🇦 +1</option>
                         </select>
-                        <input type="tel" name="phone" value="{{ old('phone') }}" placeholder="09079682537" class="flex-grow form-input">
+                        <input type="tel" name="phone" value="{{ old('phone') }}" placeholder="Your phone number" class="flex-grow form-input">
                     </div>
                 </div>
 
@@ -266,7 +269,7 @@
                     <!-- Course Card 1 -->
                     <div class="bg-white rounded-2xl overflow-hidden soft-shadow border border-gray-100 group">
                         <div class="relative h-36 bg-gray-200">
-                            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=400" alt="Course" class="w-full h-full object-cover">
+                            <img src="/images/brand-2026/adaptive-lms-product-team.webp" alt="Course" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-100">
                                 <div class="flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/30 text-white text-xs font-bold">
                                     <iconify-icon icon="lucide:play-circle" class="text-lg"></iconify-icon>
@@ -295,7 +298,7 @@
                     <!-- Course Card 2 -->
                     <div class="bg-white rounded-2xl overflow-hidden soft-shadow border border-gray-100">
                         <div class="relative h-36 bg-gray-200">
-                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400" alt="Course" class="w-full h-full object-cover">
+                            <img src="/images/brand-2026/leadership-development-session.webp" alt="Course" class="w-full h-full object-cover">
                         </div>
                         <div class="p-5">
                             <h4 class="font-bold text-brand-700 text-sm mb-2">Empathy</h4>
@@ -318,7 +321,7 @@
                     <!-- Course Card 3 -->
                     <div class="bg-white rounded-2xl overflow-hidden soft-shadow border border-gray-100">
                         <div class="relative h-36 bg-gray-200">
-                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=400" alt="Course" class="w-full h-full object-cover">
+                            <img src="/images/brand-2026/enterprise-learning-strategy-workshop.webp" alt="Course" class="w-full h-full object-cover">
                         </div>
                         <div class="p-5">
                             <h4 class="font-bold text-brand-700 text-sm mb-2">Learn colours</h4>
@@ -350,10 +353,16 @@ document.getElementById('demo-form').addEventListener('submit', function(e) {
     const form = this;
     const btn = document.getElementById('submit-btn');
     const useClassicRecaptcha = @json(filled(config('services.recaptcha.secret')));
-    const recaptchaClient = window.grecaptcha && (useClassicRecaptcha ? window.grecaptcha : window.grecaptcha.enterprise);
+    const recaptchaEnabled = @json($recaptchaEnabled);
+    const recaptchaClient = recaptchaEnabled && window.grecaptcha && (useClassicRecaptcha ? window.grecaptcha : window.grecaptcha.enterprise);
 
     btn.disabled = true;
     btn.textContent = 'Submitting...';
+
+    if (!recaptchaEnabled) {
+        form.submit();
+        return;
+    }
 
     if (!recaptchaClient) {
         btn.disabled = false;

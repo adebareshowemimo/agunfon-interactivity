@@ -40,7 +40,7 @@
         </div>
         <div class="relative">
             <div class="rounded-[32px] overflow-hidden shadow-float bg-white p-2">
-                <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=2070&auto=format&fit=crop" alt="Learning Suite Mockup" class="w-full h-auto rounded-[28px] border border-gray-100">
+                <img src="/images/brand-2026/adaptive-lms-product-team.webp" alt="Learning Suite Mockup" class="w-full h-auto rounded-[28px] border border-gray-100">
             </div>
             <div class="absolute -top-6 -right-6 w-32 h-32 bg-grid-pattern z-[-1]"></div>
         </div>
@@ -57,7 +57,7 @@
             The Agunfon Learning Suite is a curated catalog of high-quality, ready-made courses designed to accelerate employee development and simplify organizational learning. Built by subject-matter experts and structured for real-world impact, it enables teams to learn faster, stay compliant, and grow with confidence, without the cost or delay of building content from scratch.
         </div>
         <div class="flex-1 flex justify-center">
-            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="Team Learning" class="rounded-[24px] shadow-soft w-full max-w-md h-64 object-cover">
+            <img src="/images/brand-2026/enterprise-learning-strategy-workshop.webp" alt="Team Learning" class="rounded-[24px] shadow-soft w-full max-w-md h-64 object-cover">
         </div>
         <div class="flex-1">
             <p class="text-gray-600 mb-8 text-lg">
@@ -81,7 +81,7 @@
 <section class="py-20 px-6 lg:px-12">
     <div class="max-w-[1440px] mx-auto grid lg:grid-cols-2 gap-10">
         <div class="relative rounded-[32px] overflow-hidden h-[600px] flex items-center px-12">
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop" alt="Background" class="absolute inset-0 w-full h-full object-cover">
+            <img src="/images/brand-2026/leadership-development-session.webp" alt="Background" class="absolute inset-0 w-full h-full object-cover">
             <div class="absolute inset-0 bg-brand-700/80"></div>
             <div class="relative z-10 max-w-sm">
                 <h2 class="text-4xl font-bold text-white mb-6">
@@ -204,7 +204,7 @@
 
         <!-- Card 5: Multi-Device Access -->
         <div class="col-span-12 lg:col-span-5 bg-brand-700 rounded-[32px] p-10 text-white bento-card relative overflow-hidden min-h-[400px] flex flex-col justify-between">
-            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop" alt="Team Meeting" class="absolute inset-0 w-full h-full object-cover opacity-20">
+            <img src="/images/brand-2026/agunfon-lagos-consultants-hero.webp" alt="Team Meeting" class="absolute inset-0 w-full h-full object-cover opacity-20">
             <div class="relative z-10">
                 <h3 class="text-3xl font-bold mb-4">Multi-Device Access</h3>
                 <p class="text-blue-100 text-sm opacity-80 leading-relaxed">
@@ -262,7 +262,7 @@
                 Empower your workforce with expert-built, industry-ready learning content
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="/contact" class="w-full sm:w-auto px-10 py-4 bg-brand-500 text-white font-bold rounded-xl hover:shadow-lg transition-all transform hover:-translate-y-1">Book a Demo</a>
+                <a href="/book-demo" class="w-full sm:w-auto px-10 py-4 bg-brand-500 text-white font-bold rounded-xl hover:shadow-lg transition-all transform hover:-translate-y-1">Book a Demo</a>
                 <a href="/contact" class="w-full sm:w-auto px-10 py-4 bg-white text-brand-700 font-bold rounded-xl hover:shadow-lg transition-all transform hover:-translate-y-1">Contact Sales</a>
             </div>
         </div>
