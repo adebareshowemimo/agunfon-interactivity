@@ -1,0 +1,8 @@
+[
+  {
+    "type": "title",
+    "pluginName": "Modern Commerce",
+    "icon": "icon.png",
+    "shortDescription": "Sell courses, bundles and subscriptions from inside Moodle: a branded storefront with cart, checkout, coupons, enrolment keys, invoices and refunds — paid via Stripe, Paystack, PayPal or Flutterwave, plus course reviews, sales reports and email/Slack/Teams alerts."
+  }
+]

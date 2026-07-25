@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modern Commerce — animation preview</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+  :root{--navy:#0A1830;--blue2:#4B8BE8;--font:"Inter","Segoe UI",system-ui,sans-serif;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;background:#05070f;font-family:var(--font);overflow:hidden;}
+  #wrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;}
+
+  /* 16:9 stage, scaled to fit the viewport via JS */
+  #stage{position:relative;width:1920px;height:1080px;background:#000;overflow:hidden;
+    transform-origin:center center;box-shadow:0 30px 120px rgba(0,0,0,.7);}
+
+  .screen{position:absolute;inset:0;opacity:0;visibility:hidden;}
+  .screen.on{opacity:1;visibility:visible;}
+  .screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  /* screenshots are letterboxed (contain) on a dark stage */
+  .screen.shot img{object-fit:contain;background:#0A1830;}
+  .layer{position:absolute;inset:0;opacity:0;}
+  .layer.show{opacity:1;}
+
+  /* screenshot placeholder (shows until the real PNG is saved) */
+  .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;
+    background:repeating-linear-gradient(45deg,#0e1c38 0 40px,#0a1830 40px 80px);color:#7f9bc9;text-align:center;}
+  .ph b{font-size:56px;font-weight:800;color:#cfe0f7;}
+  .ph small{font-size:30px;color:#5f7db0;}
+  .ph .tag{font-size:26px;letter-spacing:3px;text-transform:uppercase;color:#F97316;font-weight:700;}
+
+  /* overlay compositing (S9 gateways / S12 recovery card) */
+  .ovl-row{position:absolute;left:50%;bottom:120px;transform:translateX(-50%);width:1500px;}
+  .ovl-row img{position:static;width:100%;height:auto;object-fit:contain;}
+  .ovl-card{position:absolute;right:150px;top:50%;transform:translateY(-50%);width:620px;}
+  .ovl-card img{position:static;width:100%;height:auto;}
+
+  /* entrance animations, triggered when a screen gets .on */
+  @keyframes riseup{from{transform:translateY(80px) scale(.98);opacity:0}to{transform:none;opacity:1}}
+  @keyframes fadezoom{from{transform:scale(1.06);opacity:0}to{transform:none;opacity:1}}
+  @keyframes slideL{from{transform:translateX(90px);opacity:0}to{transform:none;opacity:1}}
+  @keyframes iris{from{clip-path:circle(6% at 50% 50%);opacity:.4}to{clip-path:circle(75% at 50% 50%);opacity:1}}
+  @keyframes stamp{0%{transform:scale(1.12);opacity:0}60%{transform:scale(.99)}100%{transform:none;opacity:1}}
+  @keyframes slam{0%{transform:scale(1.25);opacity:0}70%{transform:scale(.98)}100%{transform:none;opacity:1}}
+  @keyframes pop{from{transform:scale(.9);opacity:0}to{transform:none;opacity:1}}
+  @keyframes fadeup{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+  @keyframes fadeb{from{opacity:0}to{opacity:1}}
+  .screen.on[data-anim="riseup"]  img,.screen.on[data-anim="riseup"] .ph{animation:riseup .7s cubic-bezier(.16,1,.3,1) both}
+  .screen.on[data-anim="fadezoom"] img{animation:fadezoom .8s cubic-bezier(.16,1,.3,1) both}
+  .screen.on[data-anim="slideL"] img{animation:slideL .6s cubic-bezier(.16,1,.3,1) both}
+  .screen.on[data-anim="iris"] img{animation:iris .7s ease-out both}
+  .screen.on[data-anim="stamp"] img{animation:stamp .5s cubic-bezier(.16,1,.3,1) both}
+  .screen.on[data-anim="slam"] img{animation:slam .55s cubic-bezier(.16,1,.3,1) both}
+  .screen.on[data-anim="pop"] img{animation:pop .5s cubic-bezier(.16,1,.3,1) both}
+  .screen.on[data-anim="fadeup"] img{animation:fadeup .7s cubic-bezier(.16,1,.3,1) both}
+  .screen.on[data-anim="fadeb"] img{animation:fadeb .5s ease both}
+  .screen.on .ovl-row{animation:fadeup .5s .25s both}
+  .screen.on .ovl-card{animation:pop .55s .2s both}
+
+  /* caption (VO subtitle) */
+  #cap{position:absolute;left:50%;bottom:40px;transform:translateX(-50%);max-width:1500px;text-align:center;
+    color:#fff;font-size:34px;font-weight:600;text-shadow:0 3px 14px rgba(0,0,0,.8);line-height:1.3;padding:0 40px;}
+
+  /* controls */
+  #bar{position:fixed;left:0;right:0;bottom:0;height:76px;background:rgba(6,12,26,.92);display:flex;align-items:center;
+    gap:20px;padding:0 24px;color:#cfe0f7;font-size:16px;z-index:10;backdrop-filter:blur(6px);}
+  #play{width:48px;height:48px;border-radius:50%;border:none;background:var(--blue2);color:#fff;font-size:20px;cursor:pointer;flex:0 0 auto;}
+  #seek{flex:1 1 auto;height:8px;border-radius:6px;background:#22314f;position:relative;cursor:pointer;}
+  #fill{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:6px;background:var(--blue2);}
+  #time{font-variant-numeric:tabular-nums;flex:0 0 auto;min-width:96px;}
+  #hint{position:fixed;top:16px;left:50%;transform:translateX(-50%);color:#5f7db0;font-size:14px;z-index:10;}
+  .scr-tag{position:absolute;top:18px;left:20px;color:rgba(255,255,255,.5);font-size:20px;font-weight:700;letter-spacing:2px;z-index:2;}
+</style>
+</head>
+<body>
+<div id="hint">▶ Press Play — approximate sync to the 1:02 Brian voiceover</div>
+<div id="wrap">
+  <div id="stage">
+
+    <div class="screen" data-start="0"  data-end="4"  data-anim="fadeb"    data-cap="You built your courses in Moodle."><span class="scr-tag">S1</span><img src="s01_hook.png"></div>
+    <div class="screen" data-start="4"  data-end="8"  data-anim="slideL"   data-cap="But to sell them, every alternative drags you off it —"><span class="scr-tag">S2</span><img src="s02_why.png"></div>
+    <div class="screen" data-start="8"  data-end="14" data-anim="fadezoom" data-cap="WordPress, WooCommerce, LearnDash, Edwiser Bridge to sync… or a monthly move to LearnWorlds."><span class="scr-tag">S3</span><img src="s03_tangle.png"></div>
+    <div class="screen" data-start="14" data-end="17" data-anim="stamp"    data-cap="Two platforms. Monthly fees. Endless syncing."><span class="scr-tag">S4</span><img src="s04_pain.png"></div>
+    <div class="screen" data-start="17" data-end="19" data-anim="fadeb"    data-cap="There's a smarter way."><span class="scr-tag">S5</span><img src="s05_smarter.png"></div>
+    <div class="screen" data-start="19" data-end="22" data-anim="iris"     data-cap="Modern Commerce turns the Moodle you already run…"><span class="scr-tag">S6</span><img src="s06_logo.png"></div>
+
+    <div class="screen shot" data-start="22" data-end="26" data-anim="riseup" data-cap="…into a complete storefront.">
+      <span class="scr-tag">S7</span>
+      <div class="ph"><span class="tag">Screenshot</span><b>S7 · Storefront</b><small>save screenshots/s07_storefront.png</small></div>
+      <img src="screenshots/s07_storefront.png" onerror="this.style.display='none'">
+    </div>
+    <div class="screen shot" data-start="26" data-end="29" data-anim="riseup" data-cap="A branded catalogue. Cart and checkout.">
+      <span class="scr-tag">S8</span>
+      <div class="ph"><span class="tag">Screenshot</span><b>S8 · Cart</b><small>save screenshots/s08_cart.png</small></div>
+      <img src="screenshots/s08_cart.png" onerror="this.style.display='none'">
+    </div>
+    <div class="screen shot" data-start="29" data-end="32" data-anim="riseup" data-cap="Paid through Stripe, Paystack, PayPal, or Flutterwave.">
+      <span class="scr-tag">S9</span>
+      <div class="ph"><span class="tag">Screenshot</span><b>S9 · Checkout</b><small>save screenshots/s09_checkout.png</small></div>
+      <img src="screenshots/s09_checkout.png" onerror="this.style.display='none'">
+      <div class="ovl-row"><img src="overlays/s09_gateways_row.png"></div>
+    </div>
+    <div class="screen shot" data-start="32" data-end="35" data-anim="riseup" data-cycle
+         data-cap="Sell courses, bundles, or recurring subscriptions.">
+      <span class="scr-tag">S10</span>
+      <div class="ph"><span class="tag">Screenshot</span><b>S10 · Products / Bundles / Subscriptions</b><small>save screenshots/s10a_products.png …</small></div>
+      <div class="layer"><img src="screenshots/s10a_products.png" onerror="this.style.display='none'"></div>
+      <div class="layer"><img src="screenshots/s10b_bundles.png" onerror="this.style.display='none'"></div>
+      <div class="layer"><img src="screenshots/s10c_subscriptions.png" onerror="this.style.display='none'"></div>
+    </div>
+    <div class="screen shot" data-start="35" data-end="38" data-anim="riseup" data-cycle
+         data-cap="Coupons, enrolment keys, invoices, refunds.">
+      <span class="scr-tag">S11</span>
+      <div class="ph"><span class="tag">Screenshot</span><b>S11 · Coupons / Keys / Invoices / Orders</b><small>save screenshots/s11a_coupons.png …</small></div>
+      <div class="layer"><img src="screenshots/s11a_coupons.png" onerror="this.style.display='none'"></div>
+      <div class="layer"><img src="screenshots/s11b_keys.png" onerror="this.style.display='none'"></div>
+      <div class="layer"><img src="screenshots/s11c_invoices.png" onerror="this.style.display='none'"></div>
+      <div class="layer"><img src="screenshots/s11d_orders.png" onerror="this.style.display='none'"></div>
+    </div>
+    <div class="screen shot" data-start="38" data-end="41" data-anim="fadeb" data-cap="Recover lost sales automatically —">
+      <span class="scr-tag">S12</span>
+      <div class="ph"><span class="tag">Screenshot</span><b>S12 · Email templates</b><small>save screenshots/s12_emails.png</small></div>
+      <img src="screenshots/s12_emails.png" onerror="this.style.display='none'">
+      <div class="ovl-card"><img src="overlays/s12_recovery_card.png"></div>
+    </div>
+    <div class="screen shot" data-start="41" data-end="45" data-anim="riseup" data-cap="— and track every order on a live dashboard.">
+      <span class="scr-tag">S13</span>
+      <div class="ph"><span class="tag">Screenshot</span><b>S13 · Dashboard</b><small>save screenshots/s13_dashboard.png</small></div>
+      <img src="screenshots/s13_dashboard.png" onerror="this.style.display='none'">
+    </div>
+
+    <div class="screen" data-start="45" data-end="48" data-anim="stamp"  data-cap="No bridge. No second website. No monthly SaaS."><span class="scr-tag">S14</span><img src="s14_no.png"></div>
+    <div class="screen" data-start="48" data-end="52" data-anim="pop"    data-cap="And every sale stays yours — we never take a cut."><span class="scr-tag">S15</span><img src="s15_keep.png"></div>
+    <div class="screen" data-start="52" data-end="57" data-anim="slam"   data-cap="One plugin. One-time. $300 per site — with a full year of support, free."><span class="scr-tag">S16</span><img src="s16_price.png"></div>
+    <div class="screen" data-start="57" data-end="61" data-anim="fadeup" data-cap="Modern Commerce — sell from the Moodle you already own."><span class="scr-tag">S17</span><img src="s17_cta.png"></div>
+
+    <div id="cap"></div>
+  </div>
+</div>
+
+<div id="bar">
+  <button id="play">▶</button>
+  <div id="seek"><div id="fill"></div></div>
+  <div id="time">0:00 / 0:00</div>
+</div>
+
+<audio id="vo" src="voiceover_music.mp3" preload="auto"></audio>
+
+<script>
+  const REF = 61;                 // reference timeline length (s) used by data-start/end
+  const stage = document.getElementById('stage');
+  const screens = [...document.querySelectorAll('.screen')];
+  const audio = document.getElementById('vo');
+  const cap = document.getElementById('cap');
+  const fill = document.getElementById('fill');
+  const timeEl = document.getElementById('time');
+  const playBtn = document.getElementById('play');
+  const seek = document.getElementById('seek');
+  let scale = 1;
+
+  // fit the 1920x1080 stage into the viewport (minus the control bar)
+  function fit(){
+    const s = Math.min(window.innerWidth/1920, (window.innerHeight-76)/1080);
+    stage.style.transform = 'scale(' + s + ')';
+  }
+  window.addEventListener('resize', fit); fit();
+
+  audio.addEventListener('loadedmetadata', ()=>{ scale = audio.duration / REF; draw(); });
+
+  function fmt(t){ t=Math.max(0,t||0); const m=Math.floor(t/60), s=Math.floor(t%60); return m+':'+String(s).padStart(2,'0'); }
+
+  function draw(){
+    const real = audio.currentTime;
+    const ref  = real / (scale || 1);      // map audio time back onto the reference timeline
+    let active = screens[0];
+    for (const el of screens){
+      if (ref >= +el.dataset.start && ref < +el.dataset.end){ active = el; break; }
+      if (ref >= +el.dataset.end) active = el;
+    }
+    screens.forEach(el=>{ if (el!==active) el.classList.remove('on'); });
+    if (!active.classList.contains('on')){ active.classList.add('on'); }
+    cap.textContent = active.dataset.cap || '';
+
+    // sub-cycle screens (S10, S11): reveal layers evenly across the screen's window
+    if (active.hasAttribute('data-cycle')){
+      const layers = [...active.querySelectorAll('.layer')];
+      const a=+active.dataset.start, b=+active.dataset.end;
+      const idx = Math.min(layers.length-1, Math.floor((ref-a)/((b-a)/layers.length)));
+      layers.forEach((L,i)=>L.classList.toggle('show', i===idx));
+    }
+
+    const dur = audio.duration || REF*scale;
+    fill.style.width = (100*real/dur) + '%';
+    timeEl.textContent = fmt(real) + ' / ' + fmt(dur);
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+
+  playBtn.addEventListener('click', ()=>{ audio.paused ? audio.play() : audio.pause(); });
+  audio.addEventListener('play', ()=> playBtn.textContent='❚❚');
+  audio.addEventListener('pause',()=> playBtn.textContent='▶');
+  audio.addEventListener('ended',()=> playBtn.textContent='▶');
+  window.addEventListener('keydown', e=>{ if(e.code==='Space'){ e.preventDefault(); playBtn.click(); } });
+  seek.addEventListener('click', e=>{
+    const r = seek.getBoundingClientRect();
+    audio.currentTime = ((e.clientX-r.left)/r.width) * (audio.duration||0);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+[
+  { "type": "title", "pluginName": "Modern Course Reminder", "moodle": "4.5 – 5.2", "licence": "GPL v3" },
+
+  { "type": "cover", "file": "c01_hero.png", "headline": "Re-engage learners on autopilot",
+    "alt": "Modern Course Reminder for Moodle 4.5–5.2 — rule-based reminders, manager escalation, AI-drafted templates; runs on cron.",
+    "shot": "rulebuilder.png" },
+
+  { "type": "cover", "file": "c02_templates.png", "headline": "A template for every nudge",
+    "alt": "Reusable learner, manager and digest email templates with placeholder substitution, grouped by engagement, escalation and compliance.",
+    "shot": "templates.png" },
+
+  { "type": "cover", "file": "c03_escalation.png", "headline": "Escalate to the right manager",
+    "alt": "Manager escalation — map learners to line managers by role, profile field or manual table, with daily manager digests.",
+    "shot": "managermap.png" },
+
+  { "type": "cover", "file": "c04_ai.png", "headline": "Draft reminder emails with AI",
+    "alt": "AI drafting — describe the reminder and Moodle's AI provider drafts a subject and HTML body; no API keys stored in the plugin.",
+    "shot": "ai.png" },
+
+  { "type": "cover", "file": "c05_analytics.png", "headline": "Know what your reminders recover",
+    "alt": "Analytics — sent, reminded, overdue and inactive reports, reminder effectiveness, delivery logs and a Report Builder datasource.",
+    "shot": "reports.png" },
+
+  { "type": "cover", "file": "c99_cta.png", "headline": "Get Modern Course Reminder",
+    "alt": "Get Modern Course Reminder — automated, rule-based re-engagement for Moodle 4.5–5.2." }
+]

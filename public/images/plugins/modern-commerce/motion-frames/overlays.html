@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Modern Commerce — overlay elements</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+  :root{
+    --navy:#0A1830; --blue1:#0F3D7A; --blue2:#4B8BE8; --green:#16B364; --coral:#F97316;
+    --grad:linear-gradient(140deg,#4B8BE8 0%,#0F3D7A 100%);
+    --font:"Inter","Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:transparent;font-family:var(--font);-webkit-font-smoothing:antialiased;}
+  /* transparent capture wrapper — padding gives room so drop-shadows aren't clipped */
+  .ovl{display:inline-block;padding:52px;background:transparent;}
+
+  /* ---------- gateway trust chips ---------- */
+  .chip{display:inline-flex;align-items:center;gap:16px;background:#fff;border-radius:18px;
+    padding:24px 38px;box-shadow:0 18px 44px rgba(6,24,51,.30);font-weight:800;font-size:42px;line-height:1;}
+  .chip .mark{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:26px;font-weight:900;}
+  .gw-stripe{color:#635BFF;}           .gw-stripe .mark{background:#635BFF;}
+  .gw-paystack{color:#0AA5DF;}          .gw-paystack .mark{background:#0AA5DF;}
+  .gw-paypal{color:#003087;font-style:italic;}  .gw-paypal .mark{background:#0079C1;}
+  .gw-paypal .pal{color:#0079C1;}
+  .gw-flutter{color:#F5820A;}           .gw-flutter .mark{background:#F5820A;}
+  .chip.secure{color:#0f7a45;background:rgba(22,179,100,.12);border:2px solid rgba(22,179,100,.4);box-shadow:none;}
+  .chip.secure svg{width:40px;height:40px;color:var(--green);}
+
+  .gw-row{display:flex;align-items:center;gap:30px;}
+
+  /* ---------- S12 recovery email card ---------- */
+  .email-card{width:880px;background:#fff;border-radius:30px;padding:44px 48px;
+    box-shadow:0 40px 90px rgba(6,24,51,.38);border:1px solid rgba(15,61,122,.06);}
+  .email-head{display:flex;align-items:center;gap:20px;margin-bottom:26px;}
+  .sender-ic{width:70px;height:70px;border-radius:18px;background:var(--navy);
+    display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .sender-ic svg{width:40px;height:40px;color:#fff;}
+  .sender-name{font-size:32px;font-weight:800;color:var(--navy);line-height:1.1;}
+  .sender-sub{font-size:23px;font-weight:500;color:#64748B;}
+  .env{margin-left:auto;color:#94A3B8;font-size:34px;}
+  .subject{font-size:44px;font-weight:800;color:var(--navy);line-height:1.15;margin-bottom:16px;}
+  .preview{font-size:27px;font-weight:500;color:#475569;line-height:1.4;margin-bottom:30px;}
+  .mini-item{display:flex;align-items:center;gap:18px;padding:16px 20px;border:1px solid #E7EDF5;
+    border-radius:16px;font-size:26px;font-weight:600;color:var(--navy);margin-bottom:14px;}
+  .mini-item .th{width:52px;height:52px;border-radius:11px;flex:0 0 auto;}
+  .mini-item .th1{background:linear-gradient(135deg,#f6c56b,#e0a53f);}
+  .mini-item .th2{background:linear-gradient(135deg,#ef8ba0,#d8637d);}
+  .mini-item .pr{margin-left:auto;font-weight:800;}
+  .cta{display:inline-block;margin-top:12px;background:var(--grad);color:#fff;font-size:30px;font-weight:800;
+    padding:22px 44px;border-radius:15px;box-shadow:0 18px 36px rgba(15,61,122,.35);}
+  .timeline{display:flex;align-items:center;margin-top:38px;padding-top:30px;border-top:1px dashed #D6E0EC;}
+  .tl-step{display:flex;flex-direction:column;align-items:center;gap:10px;font-size:22px;font-weight:700;color:#94A3B8;flex:0 0 auto;}
+  .tl-step .dot{width:26px;height:26px;border-radius:50%;background:#CBD5E1;box-shadow:0 0 0 6px rgba(203,213,225,.25);}
+  .tl-step.done{color:var(--green);}   .tl-step.done .dot{background:var(--green);box-shadow:0 0 0 6px rgba(22,179,100,.2);}
+  .tl-step.now{color:var(--blue1);}     .tl-step.now .dot{background:var(--blue2);box-shadow:0 0 0 6px rgba(75,139,232,.22);}
+  .tl-step.last{color:var(--coral);}    .tl-step.last .dot{background:var(--coral);box-shadow:0 0 0 6px rgba(249,115,22,.2);}
+  .tl-line{height:4px;flex:1 1 auto;background:linear-gradient(90deg,#22c07a,#cbd5e1);margin:0 14px;border-radius:2px;position:relative;top:-15px;}
+  .tl-line.b{background:linear-gradient(90deg,#cbd5e1,#f8b48a);}
+
+  /* ---------- cart status pills ---------- */
+  .status-pill{display:inline-flex;align-items:center;gap:16px;padding:22px 38px;border-radius:999px;
+    font-size:38px;font-weight:800;box-shadow:0 18px 40px rgba(6,24,51,.28);}
+  .status-pill svg{width:40px;height:40px;}
+  .abandoned{background:#fff;color:var(--coral);border:2px solid rgba(249,115,22,.45);}
+  .recovered{background:#fff;color:#0f7a45;border:2px solid rgba(22,179,100,.5);}
+</style>
+</head>
+<body>
+
+  <!-- individual gateway chips (for beat-by-beat pop-in) -->
+  <div class="ovl" id="s09_gw_stripe"><div class="chip gw-stripe"><span class="mark">S</span>stripe</div></div>
+  <div class="ovl" id="s09_gw_paystack"><div class="chip gw-paystack"><span class="mark">P</span>Paystack</div></div>
+  <div class="ovl" id="s09_gw_paypal"><div class="chip gw-paypal"><span class="mark">P</span>Pay<span class="pal">Pal</span></div></div>
+  <div class="ovl" id="s09_gw_flutterwave"><div class="chip gw-flutter"><span class="mark">F</span>Flutterwave</div></div>
+  <div class="ovl" id="s09_gw_secure"><div class="chip secure">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4" y="10.5" width="16" height="10" rx="2.5"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
+    Secure payment</div></div>
+
+  <!-- combined gateway trust row -->
+  <div class="ovl" id="s09_gateways_row">
+    <div class="gw-row">
+      <div class="chip gw-stripe"><span class="mark">S</span>stripe</div>
+      <div class="chip gw-paystack"><span class="mark">P</span>Paystack</div>
+      <div class="chip gw-paypal"><span class="mark">P</span>Pay<span class="pal">Pal</span></div>
+      <div class="chip gw-flutter"><span class="mark">F</span>Flutterwave</div>
+      <div class="chip secure">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="10.5" width="16" height="10" rx="2.5"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
+        Secure</div>
+    </div>
+  </div>
+
+  <!-- S12 recovery email card -->
+  <div class="ovl" id="s12_recovery_card">
+    <div class="email-card">
+      <div class="email-head">
+        <div class="sender-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 8.5h12l-.86 10.4A2.2 2.2 0 0 1 14.95 21H9.05a2.2 2.2 0 0 1-2.19-2.1L6 8.5Z"/>
+            <path d="M9 9V7a3 3 0 0 1 6 0v2"/></svg>
+        </div>
+        <div>
+          <div class="sender-name">Modern Commerce</div>
+          <div class="sender-sub">to you · 1 hour ago</div>
+        </div>
+        <div class="env">✉</div>
+      </div>
+      <div class="subject">You left 3 courses in your cart</div>
+      <div class="preview">Still deciding? Your seats are saved. Finish checkout now and start learning today.</div>
+      <div class="mini-item"><span class="th th1"></span>Personal Budgeting Essentials <span class="pr">€29</span></div>
+      <div class="mini-item"><span class="th th2"></span>Investing for Beginners <span class="pr">€49</span></div>
+      <div class="mini-item"><span class="th th2"></span>Responsive Web Design Mastery <span class="pr">€29</span></div>
+      <div class="cta">Complete your purchase →</div>
+      <div class="timeline">
+        <div class="tl-step done"><span class="dot"></span>1h · sent</div>
+        <div class="tl-line"></div>
+        <div class="tl-step now"><span class="dot"></span>24h · reminder</div>
+        <div class="tl-line b"></div>
+        <div class="tl-step last"><span class="dot"></span>72h · last chance</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- cart status pills (coral -> green transition) -->
+  <div class="ovl" id="s12_cart_abandoned">
+    <div class="status-pill abandoned">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2.5 3h2.2l2.3 12.3a1.7 1.7 0 0 0 1.7 1.4h8.4a1.7 1.7 0 0 0 1.7-1.3L21.5 7H6"/></svg>
+      Cart abandoned</div>
+  </div>
+  <div class="ovl" id="s12_cart_recovered">
+    <div class="status-pill recovered">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 6 9 17l-5-5"/></svg>
+      Cart recovered</div>
+  </div>
+
+</body>
+</html>

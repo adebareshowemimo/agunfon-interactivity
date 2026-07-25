@@ -1,0 +1,26 @@
+You upload a video to Moodle and go blind. Modern Video Player changes that: it turns any Moodle video into an activity you can track, protect, and prove.
+
+▶ WHAT PREMIUM DOES
+• See how every learner watches — engagement heatmap, audience-retention curve, and rewatch intensity, on a cohort dashboard across your courses
+• Protect your content — a dynamic per-learner watermark (name & email), signed URLs from your own S3 or Azure storage, and screen-capture deterrence with a tamper-evident audit log
+• Prove completion — full audit exports (CSV, JSON, Excel, ODS), xAPI/cmi5 to your LRS, and LTI 1.3 publishing with grade passback
+• Play from an upload, direct URL, YouTube, Vimeo, or your own cloud — in seven player skins (Classic, YouTube, Vimeo, Netflix, Plyr, Apple, Minimal)
+• Server-validated watched segments, seek & playback-rate enforcement, and suspicious-activity flags
+
+✅ OPEN-CORE
+The free Community edition is a complete, GPL video activity (player, captions, transcript, chapters, bookmarks, Focus Mode, validated tracking, completion & gradebook). Premium adds the analytics, protection, and integrations above as an in-place upgrade that keeps all your existing data.
+
+🔗 GET IT
+• Buy Premium on the Moodle Marketplace: https://marketplace.moodle.com/plugins/  (search "Modern Video Player")
+• Free edition: search "Modern Video Player" on moodle.org/plugins
+• Details & docs: https://agunfoninteractivity.com/plugins/modern-video-player
+
+💳 PRICING
+One-time licence, a full year of support included. No subscription.
+
+🧩 COMPATIBILITY
+Moodle 4.5–5.2 · GPLv3 · privacy-ready
+
+Modern Video Player makes Moodle work harder. From Agunfon Interactivity — we help teams build, support, and get more from their LMS. ✉️ info@agunfoninteractivity.com
+
+#Moodle #eLearning #VideoLearning

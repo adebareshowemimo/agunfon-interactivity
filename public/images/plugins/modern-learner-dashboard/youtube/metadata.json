@@ -1,0 +1,13 @@
+{
+  "title": "Modern Learner Dashboard — One Home for Every Moodle Learner",
+  "description": "Your learners log in to Moodle... then what? Modern Learner Dashboard gives every learner one home — courses, progress, due dates, grades, badges and certificates in a single Moodle Dashboard block.\n\n▶ WHAT IT DOES\n• One tabbed block on the Dashboard: overview stats, Continue learning, Course Library, My courses, Calendar, Grades, Badges, Certificates and Profile\n• Continue learning surfaces recently-accessed courses with progress bars and one-click resume\n• A searchable, filterable Course Library learners can self-enrol from\n• A built-in monthly calendar plus a due-soon count so deadlines don't slip\n• Earned badges and Course Certificates, plus a learning transcript of every completed course — audit-ready\n• Learners edit their own profile inline (name, picture, custom fields) — fewer profile tickets for your team\n• Runs on core Moodle only: no external service, no new database tables, no cron\n\n✅ WHY IT'S DIFFERENT\nThe default Moodle Dashboard scatters courses, grades, the calendar and the profile across separate pages. Modern Learner Dashboard pulls them into one fast, theme-aware, privacy-clean block — with nothing new to host.\n\n🔗 GET IT\n• Buy on the Moodle Marketplace: https://marketplace.moodle.com/plugins/73\n• Details & docs: https://agunfoninteractivity.com/plugins/modern-learner-dashboard\n\n💳 PRICING\nOne-time licence — includes a full year of support. No subscription. 30-day money-back guarantee.\n\n🧩 COMPATIBILITY\nMoodle 4.5 – 5.2 · PHP 8.3 · GPLv3 · privacy-clean (stores no personal data) · tested on Boost, Boost Union, Classic, Moove, Academi, Adaptable and Degrade\n\nPremium Moodle plugins by Agunfon Interactivity — we help teams build, support and get more from their LMS. ✉️ info@agunfoninteractivity.com\n\n#Moodle #eLearning #MoodlePlugins",
+  "tags": ["Modern Learner Dashboard","Moodle","Moodle plugin","Moodle block","Moodle learner dashboard","Moodle dashboard block","learner dashboard","student dashboard","course progress","my courses","course library","Moodle badges","Moodle certificates","learning transcript","learner engagement","course completion","LMS","eLearning","learning management system","Moodle 5.2","Moodle 4.5","Moodle admin","Boost theme","Agunfon"],
+  "categoryId": "27",
+  "defaultLanguage": "en",
+  "privacyStatus": "unlisted",
+  "selfDeclaredMadeForKids": false,
+  "license": "youtube",
+  "playlist": "Modern Moodle Plugins",
+  "video": "..\\motion-frames\\modern-learner-dashboard-promo.mp4",
+  "thumbnail": "thumbnail.png"
+}

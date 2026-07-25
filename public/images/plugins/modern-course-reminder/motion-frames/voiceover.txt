@@ -1,0 +1,13 @@
+You enrolled five hundred learners. Six weeks later, half of them never finished — not because your course was bad, but because nobody reminded them.
+
+Modern Course Reminder fixes that — automatically. Set one rule, and it chases them for you. Forever.
+
+It finds the learners who slipped — never started, inactive for weeks, past the deadline, still incomplete. Target one course, a whole category, or a cohort. Then it nudges them by email and Moodle notification, on your schedule, in your branding.
+
+Need the wording fast? Let Moodle's built-in AI draft the template. Still no response? It escalates straight to their manager.
+
+Every reminder is queued, deduplicated, retried, and logged — so no one gets spammed, and nothing slips through. And a live dashboard shows completion climbing.
+
+Built for Moodle 4.5 to 5.2. One-time license — buy it once, with a full year of support included. No subscription.
+
+Modern Course Reminder. Turn enrolments into completions. Find it now on the Moodle Plugins Directory.

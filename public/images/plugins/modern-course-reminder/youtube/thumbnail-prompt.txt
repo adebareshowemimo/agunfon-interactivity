@@ -1,0 +1,35 @@
+MODERN COURSE REMINDER — YouTube thumbnail prompts (1280x720, 16:9, < 2 MB)
+Use with any image model / Claude Design. Two A/B options; keep the same template
+across the plugin series so the channel reads as one brand.
+
+================================================================================
+OPTION A — pain-led (recommended; matches the video's drop-off hook)
+================================================================================
+A 1280x720 (16:9) YouTube thumbnail for a Moodle plugin promo — premium, modern SaaS look.
+Background: deep navy #0A1830 with a subtle #0F3D7A -> #4B8BE8 diagonal gradient glow and a
+faint dot grid.
+Left ~55%: three huge bold words in Inter Black, white, tight leading, stacked:
+"STOP COURSE DROP-OFF" — render the word "DROP-OFF" in coral #F97316.
+Right ~45%: a clean Moodle "Add rule" screen (a rule builder showing WHEN / IF / THEN rows)
+inside a minimal rounded browser frame with a soft drop shadow, tilted slightly in 3D to the left.
+Top-left: a bell glyph with a small green #16B364 check badge, next to a small white
+"Modern Course Reminder" wordmark.
+Bottom-right: a small rounded green pill reading "AUTO-REMINDERS".
+High contrast, generous negative space, crisp and legible as a small mobile tile.
+No stock photos, no faces, no clutter, no gradient on the text.
+
+================================================================================
+OPTION B — proof / outcome-led
+================================================================================
+Same 1280x720 premium navy style and brand palette as Option A.
+Left ~50%: two huge bold lines in Inter Black, white — "COURSES THAT FINISH" — accent the
+word "FINISH" in green #16B364.
+Right ~50%: a Moodle "Reminder effectiveness" dashboard with a rising completion line/area
+chart (blue #4B8BE8 -> green #16B364) inside a rounded browser frame, slight 3D tilt, soft shadow.
+Top-left: bell + green-check glyph + small white "Modern Course Reminder" wordmark.
+Overlay a small green pill "48% -> 71%".
+High contrast, lots of negative space, readable small. No stock photos, no faces, no clutter.
+
+Notes: real (anonymised) UI only — the reference screens are in
+../ten-reasons/edited-deck-media/ (rule-builder.png for A, reports-dashboard.png for B).
+Thumbnail text must COMPLEMENT the video title, not repeat it.

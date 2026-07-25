@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Modern Learner Dashboard — YouTube thumbnail</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;800;900&display=swap');
+  :root{
+    --nav:#0A1830; --brand1:#0F3D7A; --brand2:#4B8BE8;
+    --ink:#FFFFFF; --muted:#9FB3D1; --green:#16B364; --coral:#F97316;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#000;}
+  /* Exactly 1280x720. Screenshot the .tn element. */
+  .tn{
+    position:relative; width:1280px; height:720px; overflow:hidden;
+    background:
+      radial-gradient(1200px 600px at 78% 18%, rgba(75,139,232,.28), transparent 60%),
+      radial-gradient(900px 700px at 8% 95%, rgba(15,61,122,.55), transparent 60%),
+      var(--nav);
+    font-family:Inter,system-ui,sans-serif; color:var(--ink);
+    display:flex; align-items:center;
+  }
+  /* faint dot grid */
+  .tn::before{
+    content:""; position:absolute; inset:0;
+    background-image:radial-gradient(rgba(255,255,255,.06) 1.5px, transparent 1.6px);
+    background-size:34px 34px; opacity:.5;
+  }
+  .left{ position:relative; z-index:2; width:56%; padding:0 40px 0 64px; }
+  .brand{ display:flex; align-items:center; gap:16px; margin-bottom:30px; }
+  .glyph{ width:66px; height:66px; border-radius:16px;
+          background:linear-gradient(135deg,var(--brand1),var(--brand2));
+          box-shadow:0 12px 30px rgba(0,0,0,.45); display:block; }
+  .wordmark{ font-weight:800; font-size:26px; letter-spacing:-.01em; }
+  .wordmark span{ display:block; font-weight:600; font-size:15px; color:var(--muted);
+                  letter-spacing:.14em; text-transform:uppercase; margin-top:2px; }
+  .headline{ font-weight:900; font-size:118px; line-height:.94; letter-spacing:-.02em; }
+  .headline .scatter{ color:#5E739B; position:relative; }
+  .headline .scatter::after{ content:""; position:absolute; left:-4px; right:-4px; top:52%; height:9px;
+                             background:var(--coral); border-radius:6px; transform:rotate(-2deg); opacity:.9; }
+  .headline .home{ color:var(--green); }
+  .sub{ margin-top:26px; font-weight:600; font-size:26px; color:var(--muted); letter-spacing:.005em; }
+  /* right: browser-framed screenshot on a slight 3D tilt */
+  .right{ position:relative; z-index:2; width:44%; height:100%;
+          display:flex; align-items:center; justify-content:center; }
+  .frame{ width:620px; border-radius:16px; overflow:hidden; background:#0b1526;
+          box-shadow:0 44px 120px rgba(0,0,0,.6);
+          transform:perspective(1400px) rotateY(-13deg) rotateX(3deg) scale(1.06);
+          transform-origin:left center; }
+  .bar{ height:34px; background:#0b1526; display:flex; align-items:center; gap:7px; padding:0 14px; }
+  .bar i{ width:11px; height:11px; border-radius:50%; display:block; }
+  .frame img{ width:100%; display:block; }
+  .badge{ position:absolute; z-index:3; right:44px; bottom:40px;
+          background:rgba(10,24,48,.82); border:1px solid rgba(75,139,232,.45);
+          color:#DCE7F7; font-weight:700; font-size:18px; padding:9px 16px; border-radius:999px;
+          backdrop-filter:blur(4px); }
+</style>
+</head>
+<body>
+  <div class="tn">
+    <div class="left">
+      <div class="brand">
+        <svg class="glyph" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="66" height="66" rx="15" fill="url(#g)"/>
+          <rect x="16" y="15" width="14" height="24" rx="4" fill="#fff" fill-opacity=".93"/>
+          <rect x="34" y="15" width="16" height="11" rx="4" fill="#fff" fill-opacity=".93"/>
+          <rect x="16" y="43" width="14" height="8"  rx="4" fill="#fff" fill-opacity=".93"/>
+          <rect x="34" y="30" width="16" height="21" rx="4" fill="#fff" fill-opacity=".93"/>
+          <defs><linearGradient id="g" x1="0" y1="0" x2="66" y2="66" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#0F3D7A"/><stop offset="1" stop-color="#4B8BE8"/></linearGradient></defs>
+        </svg>
+        <div class="wordmark">Modern Learner Dashboard<span>for Moodle</span></div>
+      </div>
+      <div class="headline"><span class="scatter">5&nbsp;PAGES.</span><br><span class="home">ONE&nbsp;HOME.</span></div>
+      <div class="sub">Courses · progress · grades · badges · in one block</div>
+    </div>
+    <div class="right">
+      <div class="frame">
+        <div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+        <!-- Anonymise before public use. Swap to continue-learning.png for a more colourful tile. -->
+        <img src="../ten-reasons/edited-deck-media/overview-hero.png" alt="Modern Learner Dashboard overview">
+      </div>
+    </div>
+    <div class="badge">Moodle 4.5–5.2 · One-time licence</div>
+  </div>
+</body>
+</html>

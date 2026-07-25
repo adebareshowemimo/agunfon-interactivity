@@ -85,6 +85,7 @@
                                 <div class="grid grid-cols-3 gap-x-8 gap-y-7">
                                     @php
                                     $plugins = [
+                                        ['/plugins/modern-commerce', 'shopping-bag', 'Modern Commerce', 'Sell courses, bundles & subscriptions from inside Moodle.'],
                                         ['/plugins/modern-course-reminder', 'bell-ring', 'Modern Course Reminder', 'Automated, rule-based completion reminders with manager escalation.'],
                                         ['/plugins/modern-enrolment-notifier', 'send', 'Modern Enrolment Notifier', 'Multi-channel enrolment, expiry & completion notifications.'],
                                         ['/plugins/modern-engagement-hub', 'activity', 'Modern Engagement Hub', 'Multi-step engagement campaigns, journeys & interventions.'],
@@ -409,6 +410,7 @@
                     <iconify-icon icon="lucide:chevron-down" class="text-sm text-gray-400 transition-transform duration-200"></iconify-icon>
                 </button>
                 <div class="mobile-accordion-content hidden pb-3 pl-4 space-y-2">
+                    <a href="/plugins/modern-commerce" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Modern Commerce</a>
                     <a href="/plugins/modern-course-reminder" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Modern Course Reminder</a>
                     <a href="/plugins/modern-enrolment-notifier" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Modern Enrolment Notifier</a>
                     <a href="/plugins/modern-engagement-hub" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Modern Engagement Hub</a>

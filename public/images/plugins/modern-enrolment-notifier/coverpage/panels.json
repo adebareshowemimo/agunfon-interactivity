@@ -1,0 +1,30 @@
+[
+  { "type": "title", "pluginName": "Modern Enrolment Notifier", "moodle": "4.5 – 5.2", "licence": "GPL v3" },
+
+  { "type": "cover", "file": "c01_hero.png", "headline": "Enrolment messages that send themselves",
+    "alt": "Modern Enrolment Notifier for Moodle 4.5–5.2 — rules for enrolment, expiry and completion across five delivery channels, queued on cron.",
+    "shot": "rulebuilder.png" },
+
+  { "type": "cover", "file": "c02_lifecycle.png", "headline": "One rule engine for the whole lifecycle",
+    "alt": "Notification rules for enrolment, expiry and completion events, scoped site-wide, to a category or one course.",
+    "shot": "rulebuilder.png" },
+
+  { "type": "cover", "file": "c03_presets.png", "headline": "Zero manual chase",
+    "alt": "Rule presets — one-click starters for learner welcome, teacher alert, expiry reminder, completion congratulations and manager digest.",
+    "shot": "presets.png" },
+
+  { "type": "cover", "file": "c04_channels.png", "headline": "Five delivery channels",
+    "alt": "Email, Moodle message, webhook, Slack and Microsoft Teams per rule, with HMAC-signed webhooks and a live channel test.",
+    "shot": "channels.png" },
+
+  { "type": "cover", "file": "c05_templates.png", "headline": "Branded templates, drafted by AI",
+    "alt": "20 branded HTML templates with placeholders and live preview, plus optional AI drafting via Moodle's AI subsystem.",
+    "shot": "templates.png" },
+
+  { "type": "cover", "file": "c06_recipients.png", "headline": "Reach the right recipients",
+    "alt": "Send to learner, teachers, course managers, contacts or line manager; resolve managers by role, profile field or manual table.",
+    "shot": "managermap.png" },
+
+  { "type": "cover", "file": "c99_cta.png", "headline": "Get Modern Enrolment Notifier",
+    "alt": "Get Modern Enrolment Notifier — rule-based enrolment, expiry and completion notifications for Moodle 4.5–5.2." }
+]

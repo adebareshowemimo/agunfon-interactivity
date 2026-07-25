@@ -1,0 +1,15 @@
+A 1280x720 (16:9) YouTube thumbnail for a Moodle plugin promo, premium SaaS look.
+Background: deep navy #0A1830 with a subtle #0F3D7A -> #4B8BE8 gradient glow, faint dot grid.
+Left ~55%: 3 huge bold words in Inter Black, white, tight leading — "5 PAGES. ONE HOME."
+with "ONE HOME" accented in green #16B364 (success). A small coral #F97316 strike/scatter motif behind "5 PAGES".
+Right ~45%: a clean browser-framed screenshot of the Modern Learner Dashboard overview (the sidebar with
+Dashboard / Course library / My badges / My courses / Calendar / My grades / My profile, plus the stat-tile row)
+on a slight 3D tilt, soft shadow.
+Top-left: the 4-tile "dashboard" hero glyph (four white rounded tiles in a 2x2 asymmetric bento on a blue gradient
+rounded square) + a small "Modern Learner Dashboard" wordmark.
+High contrast, lots of negative space, readable as a small mobile tile. No stock photos, no clutter, no fake faces.
+
+--- Fill notes ---
+Hook words complement (do NOT repeat) the title "One Home for Every Moodle Learner".
+Screenshot = ../ten-reasons/edited-deck-media/overview-hero.png (or continue-learning.png for a more colourful tile).
+Anonymise any visible email before use. A/B a second version with "EVERYTHING IN ONE PLACE" if you want to test.

@@ -1,0 +1,11 @@
+You hit upload. And that's the last thing you really know about that video. Who watched it? Did they skip to the end? Did it leak? Moodle just… plays it.
+
+Modern Video Player changes that. It turns any Moodle video into an activity you can track, protect, and prove.
+
+Track it. Now you see exactly how every learner watches. An engagement heatmap. A retention curve that reveals where they drop off. The parts they rewatch. All on one dashboard, across every course and cohort.
+
+Protect it. Stamp every stream with the learner's own name. Serve it through signed URLs from your own S3 or Azure storage. Deter screen capture with a tamper-evident audit trail.
+
+Prove it. Full audit exports. xAPI to your LRS. LTI 1.3 with grade passback. Play from an upload, YouTube, Vimeo, or your own cloud, in seven player skins.
+
+Modern Video Player. Know exactly how your videos are watched. One-time licence, a full year of support, no subscription. Start free on the Moodle Plugins Directory, or go Premium on the Moodle Marketplace. Modern Video Player makes Moodle work harder.

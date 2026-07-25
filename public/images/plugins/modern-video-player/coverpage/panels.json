@@ -1,0 +1,35 @@
+[
+  { "type": "title", "pluginName": "Modern Video Player", "moodle": "4.5 – 5.2", "licence": "GPL v3" },
+
+  { "type": "cover", "file": "c01_hero.png", "headline": "Video learning you can measure",
+    "alt": "Modern Video Player hero cover — the player, engagement heatmap and player-style skins in a 3D window cluster, with Moodle 4.5–5.2 / GPLv3 chips.",
+    "shot": "player.png" },
+
+  { "type": "cover", "file": "c02_integrity.png", "headline": "Playback you can prove",
+    "alt": "Server-validated playback: watch-time and max-verified position computed on the server, forward-seek guard, and heartbeat tracking with suspicious-seek integrity flags.",
+    "shot": "player.png" },
+
+  { "type": "cover", "file": "c03_completion.png", "headline": "Completion that can't be gamed",
+    "alt": "Completion conditions in the activity form — complete by watched percentage or validated end-of-video, required watch percentage (default 95) enforced server-side, gradebook with grade-to-pass.",
+    "shot": "completion.png" },
+
+  { "type": "cover", "file": "c04_analytics.png", "headline": "See exactly where attention drops",
+    "alt": "Engagement analytics — the audience-retention heatmap built from validated segments, the learner-progress KPI strip and audit-ready exports.",
+    "shot": "heatmap.png" },
+
+  { "type": "cover", "file": "c05_protection.png", "headline": "Content protection, built in",
+    "alt": "Content protection — dynamic name/email watermark, screen-capture deterrence with a tamper-evident log, and signed user-bound video URLs that expire.",
+    "shot": "protection.png" },
+
+  { "type": "cover", "file": "c06_styles.png", "headline": "Seven player styles, one engine",
+    "alt": "Player-style selector listing seven skins — YouTube, Vimeo, Netflix, Plyr, Apple, Classic and Minimal — with identical tracking and enforcement across every style.",
+    "shot": "styles.png" },
+
+  { "type": "cover", "file": "c07_sources.png", "headline": "Any source, delivered securely",
+    "alt": "Video source picker — upload, external URL, YouTube/Vimeo, or S3-compatible and Azure Blob cloud storage with short-lived signed delivery from your own bucket.",
+    "shot": "sources.png" },
+
+  { "type": "cover", "file": "c99_cta.png", "headline": "Get Modern Video Player",
+    "alt": "Closing call to action — Modern Video Player for Moodle 4.5–5.2, GPLv3, stable, with a 30-day money-back guarantee; upgrade the free Community edition in place.",
+    "shot": "" }
+]

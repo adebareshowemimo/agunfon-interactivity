@@ -1,0 +1,26 @@
+MODERN VIDEO PLAYER — YouTube thumbnail prompts (1280x720, 16:9, < 2 MB)
+Use with any image model / Claude Design. Keep the same template as the series.
+
+================================================================================
+OPTION A — three-pillar (recommended; matches the video)
+================================================================================
+A 1280x720 (16:9) YouTube thumbnail for a Moodle plugin promo, premium modern-SaaS look.
+Background: deep navy #0A1830 with a subtle #0F3D7A -> #4B8BE8 diagonal gradient glow and a faint dot grid.
+Left ~55%: three huge bold words in Inter Black, white, stacked: "TRACK. PROTECT. PROVE." — give each word a short underline in its pillar colour (TRACK #4B8BE8, PROTECT #F97316, PROVE #16B364).
+Right ~45%: a clean Moodle "Engagement heatmap" (viewers-per-moment bar chart) inside a minimal rounded browser frame with a soft drop shadow, tilted slightly in 3D to the left.
+Top-left: a rounded video/camcorder glyph (teal->brand blue) next to a small white "Modern Video Player" wordmark.
+Bottom-right: a small rounded pill "MOODLE VIDEO ANALYTICS".
+High contrast, generous negative space, crisp and legible as a small mobile tile. No stock photos, no faces, no clutter, no gradient on the text.
+Reference screenshot for the heatmap: ../ten-reasons/edited-deck-media/heatmap.png
+
+================================================================================
+OPTION B — visibility hook
+================================================================================
+Same premium navy style and palette.
+Left ~50%: two huge bold lines in Inter Black, white — "WHO ACTUALLY WATCHED?" — accent "WATCHED" in green #16B364.
+Right ~50%: a Moodle video player screen with a faint diagonal learner watermark ("Ada Bello · ada@acme.edu") tiling across it, inside a rounded browser frame, slight 3D tilt.
+Top-left: video glyph + small white "Modern Video Player" wordmark. Small pill "TRACK · PROTECT · PROVE".
+High contrast, lots of negative space, readable small. No stock photos, no faces.
+Reference: ../ten-reasons/edited-deck-media/player-view.png (use a FAKE watermark identity, never real learner data).
+
+Notes: thumbnail text must COMPLEMENT the title, not repeat it. Anonymise any UI.

@@ -72,6 +72,14 @@ Route::get('/plugins/modern-flipbook', function () {
     return view('plugins.modern-flipbook');
 })->name('plugins.modernflipbook');
 
+Route::get('/plugins/modern-commerce', function () {
+    return view('plugins.modern-commerce');
+})->name('plugins.moderncommerce');
+
+// The plugin's own pricing.php / add-ons pages link to /moderncommerce — keep them working.
+Route::redirect('/moderncommerce', '/plugins/modern-commerce');
+Route::redirect('/moderncommerce/addons', '/plugins/modern-commerce#pricing');
+
 Route::get('/book-demo', function () {
     return view('book-demo');
 })->name('book-demo');
@@ -181,7 +189,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
     // Auth Routes (Guest)
     Route::middleware('guest')->group(function () {
         Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-        Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
+        // Coarse per-IP backstop. The real lockout lives in AuthController, which only
+        // counts failures, so a legitimate admin retyping a password is never blocked.
+        Route::post('/login', [AuthController::class, 'login'])
+            ->middleware('throttle:10,1')
+            ->name('login.submit');
     });
 
     // Protected Admin Routes

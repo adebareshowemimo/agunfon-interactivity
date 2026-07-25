@@ -1,0 +1,27 @@
+Half your learners never finish. Modern Course Reminder fixes that — automatically. It's a rule-based Moodle plugin that chases incomplete, inactive, overdue and not-started learners, and escalates to their manager.
+
+▶ WHAT IT DOES
+• Set one rule and it reminds learners automatically — never started, inactive for weeks, past the deadline, or still incomplete
+• Target a single course, a whole category, or a cohort — down to specific activities
+• Sends by email and Moodle notification, on your schedule, in your branding
+• Escalates still-incomplete learners to their line manager (custom profile field, manual mapping table, or Moodle manager role)
+• Draft reminder templates with Moodle's built-in AI, then preview them with sample data
+• Every reminder is queued, de-duplicated, retried and logged — no spam, nothing slips through
+• Scheduled campaigns, manager digests, delivery logs, effectiveness analytics and a Report Builder datasource
+
+✅ WHY IT'S DIFFERENT
+Core Moodle and the free reminder plugin send one basic nudge. Modern Course Reminder is a full rule, escalation and analytics engine — so your courses actually get finished.
+
+🔗 GET IT
+• Details & docs: https://agunfoninteractivity.com/plugins/modern-course-reminder
+• Moodle Plugins Directory: search "Modern Course Reminder" on moodle.org/plugins
+
+💳 PRICING
+One-time licence — includes a full year of support. No subscription.
+
+🧩 COMPATIBILITY
+Moodle 4.5 – 5.2 · GPLv3 · privacy-ready
+
+Premium Moodle plugins by Agunfon Interactivity — we help teams build, support and get more from their LMS. ✉️ info@agunfoninteractivity.com
+
+#Moodle #eLearning #MoodlePlugins

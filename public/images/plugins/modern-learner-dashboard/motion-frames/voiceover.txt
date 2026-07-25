@@ -1,0 +1,11 @@
+Your learners log in to Moodle... then what? Their courses, grades, deadlines, badges, and profile are scattered across five different pages. So they stop looking, and they stop coming back.
+
+Modern Learner Dashboard gives every learner one home. Courses, completion, due dates, grades, badges, and certificates, together in a single block on the Dashboard.
+
+Continue learning surfaces the courses they opened last, with progress bars and a one-click resume. A searchable course library lets them find and self-enrol in what's next. A built-in calendar and a due-soon count keep deadlines from slipping. Badges and certificates sit front and centre, and a learning transcript records every completed course, ready for audit.
+
+Learners even edit their own profile right here, so your team stops fielding profile tickets.
+
+And it runs on core Moodle. No external service, no new tables, no cron. Privacy-clean, fast on big sites, and native in the theme you already run.
+
+Modern Learner Dashboard. Bring every learner home. One-time licence, a full year of support, no subscription. Get it on the Moodle Marketplace. Modern Learner Dashboard: everything your learners are working toward, in one place.

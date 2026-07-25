@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Modern Commerce — motion frames</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&display=swap');
+
+  :root{
+    --navy:#0A1830; --blue1:#0F3D7A; --blue2:#4B8BE8;
+    --green:#16B364; --coral:#F97316; --grey:#64748B; --ghost:#94A3B8;
+    --grad:linear-gradient(140deg,#4B8BE8 0%,#0F3D7A 55%,#0A2B5C 100%);
+    --font:"Inter","Segoe UI Variable Display","Segoe UI",system-ui,-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#333;font-family:var(--font);-webkit-font-smoothing:antialiased;}
+
+  .frame{position:relative;width:1920px;height:1080px;overflow:hidden;color:#fff;
+    display:flex;align-items:center;justify-content:center;}
+  .frame + .frame{margin-top:40px;}
+
+  .s-dark{background:radial-gradient(120% 120% at 30% 20%,#12244a 0%,#0A1830 60%,#060F22 100%);}
+  .s-black{background:#040810;}
+  .s-brand{background:var(--grad);}
+
+  /* shared decorative glows */
+  .glow{position:absolute;border-radius:50%;filter:blur(10px);pointer-events:none;}
+  .glow-tl{top:-260px;left:-160px;width:760px;height:760px;
+    background:radial-gradient(circle at 30% 30%,rgba(75,139,232,.28),transparent 62%);}
+  .m-water{position:absolute;top:48px;right:70px;font-size:150px;font-weight:900;color:rgba(255,255,255,.05);letter-spacing:-6px;}
+
+  /* ===== S1 hook ===== */
+  #s01_hook .courses{display:flex;gap:46px;align-items:center;z-index:2;}
+  .card{width:380px;height:320px;border-radius:24px;background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.10);padding:20px;box-shadow:0 40px 80px rgba(0,0,0,.45);}
+  .card .thumb{height:186px;border-radius:16px;}
+  .t1{background:linear-gradient(135deg,#6aa1ee,#1c4f9c);}
+  .t2{background:linear-gradient(135deg,#4B8BE8,#0F3D7A);}
+  .t3{background:linear-gradient(135deg,#8ab4f0,#2b6bcd);}
+  .card .bar{height:16px;border-radius:9px;background:rgba(255,255,255,.18);margin-top:20px;}
+  .card .bar.short{width:58%;margin-top:14px;}
+  .card .progress{height:12px;border-radius:7px;background:rgba(255,255,255,.14);margin-top:22px;overflow:hidden;}
+  .card .progress i{display:block;height:100%;width:72%;background:var(--green);border-radius:7px;}
+  .card.lift{transform:translateY(-34px) scale(1.05);border-color:rgba(75,139,232,.6);
+    box-shadow:0 55px 100px rgba(6,24,51,.6);}
+  .lower-label{position:absolute;bottom:96px;left:50%;transform:translateX(-50%);
+    font-size:34px;font-weight:600;letter-spacing:2px;color:rgba(255,255,255,.85);text-transform:uppercase;}
+
+  /* ===== S2 why ===== */
+  #s02_why .streaks{position:absolute;inset:0;background:repeating-linear-gradient(90deg,
+    rgba(255,255,255,0) 0 60px,rgba(255,255,255,.04) 60px 62px);mask:linear-gradient(90deg,#000,transparent 55%);}
+  .yank{position:absolute;left:-120px;top:50%;transform:translateY(-50%) rotate(-13deg);display:flex;gap:26px;z-index:2;}
+  .yank .card{width:300px;height:250px;filter:brightness(.85);}
+  .yank .card .thumb{height:140px;}
+  .chain{position:absolute;left:470px;top:50%;width:360px;height:6px;transform:translateY(-50%) rotate(-13deg);
+    background:repeating-linear-gradient(90deg,var(--coral) 0 16px,transparent 16px 26px);opacity:.9;z-index:1;}
+  .dollar-tag{position:absolute;left:735px;top:calc(50% - 150px);width:96px;height:96px;border-radius:20px;
+    background:var(--coral);display:flex;align-items:center;justify-content:center;font-size:56px;font-weight:900;
+    transform:rotate(-8deg);box-shadow:0 20px 40px rgba(249,115,22,.5);z-index:3;}
+  #s02_why .headline{position:absolute;right:120px;top:50%;transform:translateY(-50%);text-align:right;
+    max-width:840px;font-size:96px;font-weight:800;line-height:1.05;letter-spacing:-2px;}
+  #s02_why .headline b{color:var(--blue2);}
+
+  /* ===== S3 tangled diagram ===== */
+  #s03_tangle{justify-content:flex-start;}
+  .kicker{position:absolute;top:74px;left:96px;color:var(--coral);font-weight:800;font-size:30px;
+    letter-spacing:4px;text-transform:uppercase;}
+  .kicker::before{content:"";display:inline-block;width:46px;height:3px;background:var(--coral);
+    vertical-align:middle;margin-right:18px;transform:translateY(-6px);}
+  #s03_tangle svg{position:absolute;inset:0;width:1920px;height:1080px;z-index:1;}
+  .node{position:absolute;transform:translate(-50%,-50%);padding:18px 30px;border-radius:16px;
+    background:rgba(100,116,139,.16);border:1.5px solid rgba(148,163,184,.5);color:var(--ghost);
+    font-weight:600;font-size:28px;white-space:nowrap;box-shadow:0 14px 34px rgba(0,0,0,.35);z-index:2;}
+  .node.moodle{background:rgba(75,139,232,.18);border-color:rgba(75,139,232,.75);color:#dbe8fb;
+    font-size:34px;font-weight:800;padding:26px 40px;}
+  .fee{position:absolute;top:70px;right:90px;color:var(--coral);border:1.5px solid rgba(249,115,22,.6);
+    background:rgba(249,115,22,.1);padding:16px 28px;border-radius:999px;font-weight:800;font-size:32px;z-index:3;}
+
+  /* ===== S4 pain stamps ===== */
+  #s04_pain .diagram-ghost{position:absolute;inset:0;background:
+    radial-gradient(60% 60% at 70% 60%,rgba(249,115,22,.12),transparent 70%);filter:blur(4px);}
+  #s04_pain::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 300px rgba(220,40,20,.35);pointer-events:none;}
+  .stamps{display:flex;flex-direction:column;gap:34px;z-index:2;}
+  .stamp{position:relative;font-size:104px;font-weight:900;letter-spacing:-2px;color:#fff;text-transform:uppercase;
+    align-self:center;}
+  .stamp::after{content:"";position:absolute;left:-14px;right:-14px;top:52%;height:10px;background:var(--coral);
+    transform:rotate(-2.5deg);border-radius:6px;opacity:.95;}
+  .stamp:nth-child(2)::after{transform:rotate(1.5deg);}
+
+  /* ===== S5 smarter ===== */
+  .smarter{font-size:120px;font-weight:800;letter-spacing:-2px;text-align:center;}
+  .smarter .cur{color:var(--blue2);}
+
+  /* ===== S6 logo reveal ===== */
+  #s06_logo{flex-direction:column;gap:44px;}
+  #s06_logo .glow-c{position:absolute;width:1100px;height:1100px;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,255,255,.16),transparent 60%);}
+  .lockup{display:flex;align-items:center;gap:44px;z-index:2;}
+  .badge-icon{width:172px;height:172px;border-radius:44px;background:var(--navy);
+    display:flex;align-items:center;justify-content:center;box-shadow:0 30px 60px rgba(6,24,51,.5);}
+  .badge-icon svg{width:104px;height:104px;color:#fff;}
+  .wordmark{font-size:112px;font-weight:800;letter-spacing:-3px;text-shadow:0 10px 30px rgba(6,24,51,.4);}
+  .subtag{font-size:40px;font-weight:500;color:rgba(255,255,255,.9);letter-spacing:1px;z-index:2;}
+
+  /* ===== S14 no-list ===== */
+  .no-list{display:flex;flex-direction:column;gap:40px;z-index:2;align-items:flex-start;}
+  .no-line{position:relative;font-size:112px;font-weight:900;letter-spacing:-2px;line-height:1;}
+  .no-line .no{color:var(--coral);}
+  .no-line::after{content:"";position:absolute;left:-10px;right:-10px;top:54%;height:9px;
+    background:rgba(255,255,255,.9);transform:rotate(-1.6deg);border-radius:5px;}
+  .no-artefact{position:absolute;right:150px;top:50%;transform:translateY(-50%);
+    font-size:280px;font-weight:900;color:rgba(148,163,184,.08);letter-spacing:-10px;}
+
+  /* ===== S15 you keep 100 ===== */
+  #s15_keep{flex-direction:column;gap:10px;}
+  .keep-eyebrow{font-size:52px;font-weight:600;color:rgba(255,255,255,.9);letter-spacing:1px;z-index:2;}
+  .hundred{font-size:420px;font-weight:900;line-height:.9;letter-spacing:-14px;z-index:2;
+    color:var(--green);text-shadow:0 30px 90px rgba(22,179,100,.45);}
+  .keep-sub{font-size:44px;font-weight:500;color:rgba(255,255,255,.92);z-index:2;margin-top:8px;}
+  .keep-sub b{color:#fff;font-weight:800;}
+  .coin{position:absolute;width:96px;height:96px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:46px;font-weight:900;color:#0A1830;background:linear-gradient(135deg,#fff,#cfe0f7);
+    box-shadow:0 18px 40px rgba(0,0,0,.35);z-index:1;}
+  .coin.g{background:linear-gradient(135deg,#3fe38f,#16B364);color:#04220f;}
+
+  /* ===== S16 price card ===== */
+  #s16_price .pcard{background:#fff;color:var(--navy);border-radius:40px;padding:74px 96px;text-align:center;
+    box-shadow:0 60px 120px rgba(6,24,51,.45);z-index:2;}
+  .peyebrow{font-size:40px;font-weight:700;letter-spacing:1px;color:var(--blue1);text-transform:uppercase;}
+  .price{font-size:300px;font-weight:900;line-height:.95;letter-spacing:-10px;margin:6px 0;}
+  .price .cur{font-size:150px;font-weight:800;vertical-align:top;position:relative;top:26px;color:var(--blue1);}
+  .per{font-size:46px;font-weight:600;color:var(--grey);letter-spacing:1px;}
+  .support{margin-top:34px;display:inline-flex;align-items:center;gap:16px;background:rgba(22,179,100,.12);
+    color:#0f7a45;border:2px solid rgba(22,179,100,.4);border-radius:999px;padding:20px 38px;font-size:38px;font-weight:700;}
+  .support b{color:var(--green);}
+  .support .tick{width:44px;height:44px;border-radius:50%;background:var(--green);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:26px;}
+  .ghost-monthly{position:absolute;right:150px;top:50%;transform:translateY(-50%) rotate(4deg);
+    text-align:left;color:rgba(255,255,255,.55);font-size:52px;font-weight:700;line-height:1.4;z-index:1;}
+  .ghost-monthly s{text-decoration-thickness:4px;}
+  .ghost-monthly small{display:block;font-size:30px;font-weight:500;color:rgba(255,255,255,.45);}
+
+  /* ===== S17 end / CTA ===== */
+  #s17_cta{flex-direction:column;gap:38px;}
+  #s17_cta .glow-c{position:absolute;width:1200px;height:1200px;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,255,255,.14),transparent 62%);}
+  .lockup.small .badge-icon{width:120px;height:120px;border-radius:32px;}
+  .lockup.small .badge-icon svg{width:74px;height:74px;}
+  .lockup.small .wordmark{font-size:82px;}
+  .tagline{font-size:52px;font-weight:600;color:#fff;letter-spacing:.5px;z-index:2;}
+  .cta{background:#fff;color:var(--blue1);font-size:44px;font-weight:800;padding:30px 62px;border-radius:18px;
+    box-shadow:0 26px 54px rgba(6,24,51,.4);z-index:2;letter-spacing:.5px;}
+  .url{font-size:38px;font-weight:600;color:rgba(255,255,255,.85);letter-spacing:2px;z-index:2;}
+</style>
+</head>
+<body>
+
+  <!-- ===================== S1 · HOOK ===================== -->
+  <section class="frame s-dark" id="s01_hook">
+    <div class="glow glow-tl"></div>
+    <div class="m-water">M</div>
+    <div class="courses">
+      <div class="card"><div class="thumb t1"></div><div class="bar"></div><div class="bar short"></div></div>
+      <div class="card lift"><div class="thumb t2"></div><div class="bar"></div><div class="progress"><i></i></div></div>
+      <div class="card"><div class="thumb t3"></div><div class="bar"></div><div class="bar short"></div></div>
+    </div>
+    <div class="lower-label">Great courses.</div>
+  </section>
+
+  <!-- ===================== S2 · WHY LEAVE ===================== -->
+  <section class="frame s-dark" id="s02_why">
+    <div class="streaks"></div>
+    <div class="yank">
+      <div class="card"><div class="thumb t1"></div><div class="bar"></div><div class="bar short"></div></div>
+      <div class="card"><div class="thumb t3"></div><div class="bar"></div><div class="bar short"></div></div>
+    </div>
+    <div class="chain"></div>
+    <div class="dollar-tag">$</div>
+    <h1 class="headline">So why leave <b>Moodle</b> to sell&nbsp;them?</h1>
+  </section>
+
+  <!-- ===================== S3 · TANGLED ALTERNATIVES ===================== -->
+  <section class="frame s-dark" id="s03_tangle">
+    <div class="kicker">The old way</div>
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ah" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="#F97316"/>
+        </marker>
+      </defs>
+      <g fill="none" stroke="#F97316" stroke-width="4" opacity="0.8" marker-end="url(#ah)">
+        <path d="M430,540 C720,300 950,300 1120,320"/>
+        <path d="M430,560 C760,560 1180,420 1440,450"/>
+        <path d="M440,580 C700,760 1000,620 1210,600"/>
+        <path d="M430,600 C820,900 1300,780 1500,720"/>
+        <path d="M440,570 C700,820 900,860 1080,820"/>
+        <path d="M1180,340 C1360,380 1360,410 1450,445" opacity="0.55"/>
+        <path d="M1210,620 C1160,720 1130,780 1120,810" opacity="0.55"/>
+      </g>
+    </svg>
+    <div class="node moodle" style="left:330px;top:540px;">Moodle</div>
+    <div class="node" style="left:1180px;top:310px;">WordPress</div>
+    <div class="node" style="left:1500px;top:450px;">WooCommerce</div>
+    <div class="node" style="left:1240px;top:600px;">LearnDash</div>
+    <div class="node" style="left:1560px;top:720px;">Edwiser Bridge</div>
+    <div class="node" style="left:1120px;top:830px;">LearnWorlds</div>
+    <div class="fee">Monthly fees&nbsp;&#8593;&nbsp;$149</div>
+  </section>
+
+  <!-- ===================== S4 · PAIN STAMPS ===================== -->
+  <section class="frame s-dark" id="s04_pain">
+    <div class="diagram-ghost"></div>
+    <div class="stamps">
+      <div class="stamp">Two platforms</div>
+      <div class="stamp">Monthly fees</div>
+      <div class="stamp">Endless syncing</div>
+    </div>
+  </section>
+
+  <!-- ===================== S5 · SMARTER WAY ===================== -->
+  <section class="frame s-black" id="s05_smarter">
+    <h1 class="smarter">There&rsquo;s a <span class="cur">smarter</span> way.</h1>
+  </section>
+
+  <!-- ===================== S6 · LOGO REVEAL ===================== -->
+  <section class="frame s-brand" id="s06_logo">
+    <div class="glow-c"></div>
+    <div class="lockup">
+      <div class="badge-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 8.5h12l-.86 10.4A2.2 2.2 0 0 1 14.95 21H9.05a2.2 2.2 0 0 1-2.19-2.1L6 8.5Z"/>
+          <path d="M9 9V7a3 3 0 0 1 6 0v2"/>
+        </svg>
+      </div>
+      <div class="wordmark">Modern Commerce</div>
+    </div>
+    <div class="subtag">Commerce, built into Moodle.</div>
+  </section>
+
+  <!-- ===================== S14 · NO BRIDGE / NO SAAS ===================== -->
+  <section class="frame s-dark" id="s14_no">
+    <div class="no-artefact">&#8644;</div>
+    <div class="no-list">
+      <div class="no-line"><span class="no">No</span> bridge.</div>
+      <div class="no-line"><span class="no">No</span> second website.</div>
+      <div class="no-line"><span class="no">No</span> monthly SaaS.</div>
+    </div>
+  </section>
+
+  <!-- ===================== S15 · YOU KEEP 100% ===================== -->
+  <section class="frame s-dark" id="s15_keep">
+    <div class="coin"   style="left:250px;top:300px;">&#8358;</div>
+    <div class="coin g" style="left:360px;top:640px;">$</div>
+    <div class="coin"   style="left:520px;top:210px;">&#8364;</div>
+    <div class="coin"   style="left:1560px;top:280px;">&#163;</div>
+    <div class="coin g" style="left:1500px;top:680px;">$</div>
+    <div class="coin"   style="left:1380px;top:200px;">R</div>
+    <div class="keep-eyebrow">You keep</div>
+    <div class="hundred">100%</div>
+    <div class="keep-sub">Every sale stays yours — <b>no revenue share, ever.</b></div>
+  </section>
+
+  <!-- ===================== S16 · PRICE CARD ===================== -->
+  <section class="frame s-brand" id="s16_price">
+    <div class="ghost-monthly">
+      <s>$49/mo</s><br><s>$99/mo</s>
+      <small>&hellip;every single year</small>
+    </div>
+    <div class="pcard">
+      <div class="peyebrow">One plugin. One-time.</div>
+      <div class="price"><span class="cur">$</span>300</div>
+      <div class="per">per site &middot; one-time</div>
+      <div class="support"><span class="tick">&#10003;</span>1 year of support included &mdash; <b>free</b></div>
+    </div>
+  </section>
+
+  <!-- ===================== S17 · END CARD / CTA ===================== -->
+  <section class="frame s-brand" id="s17_cta">
+    <div class="glow-c"></div>
+    <div class="lockup small">
+      <div class="badge-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 8.5h12l-.86 10.4A2.2 2.2 0 0 1 14.95 21H9.05a2.2 2.2 0 0 1-2.19-2.1L6 8.5Z"/>
+          <path d="M9 9V7a3 3 0 0 1 6 0v2"/>
+        </svg>
+      </div>
+      <div class="wordmark">Modern Commerce</div>
+    </div>
+    <div class="tagline">Sell from the Moodle you already own.</div>
+    <div class="cta">Get Modern Commerce</div>
+    <div class="url">agunfoninteractivity.com</div>
+  </section>
+
+</body>
+</html>
