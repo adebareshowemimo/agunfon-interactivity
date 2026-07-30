@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Educational Sector Solution - Agunfon')
+@section('description', 'Adaptive learning for schools, colleges, and training providers — engage learners and prove outcomes with Agunfon.')
 
 @push('styles')
 <style>

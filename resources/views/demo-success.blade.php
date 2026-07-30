@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Demo Booked - Agunfon')
+@section('description', 'Your Agunfon demo is booked. We\'ll be in touch shortly to confirm the details and tailor the session to your team.')
 
 @section('content')
 <section class="min-h-screen bg-gradient-to-b from-brand-50 to-white flex items-center justify-center py-20">

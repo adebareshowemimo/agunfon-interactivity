@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Personal Development - Agunfon')
+@section('description', 'Support continuous personal development with Agunfon — flexible learning paths, skills growth, and progress tracking for every employee.')
 
 @push('styles')
 <style>

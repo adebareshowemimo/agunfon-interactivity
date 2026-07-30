@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Employee Onboarding - Agunfon')
+@section('description', 'Onboard new employees faster with Agunfon — structured, adaptive onboarding journeys that get people productive and compliant sooner.')
 
 @push('styles')
 <style>

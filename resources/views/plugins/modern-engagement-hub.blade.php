@@ -1,6 +1,76 @@
 @extends('layouts.app')
 
 @section('title', 'Modern Engagement Hub for Moodle - Agunfon')
+@section('description', 'Modern Engagement Hub for Moodle helps you boost learner engagement and motivation across your courses. Supported on Moodle 4.5–5.2.')
+
+@push('meta')
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Modern Engagement Hub",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Moodle 4.5–5.2",
+    "description": "Modern Engagement Hub for Moodle helps you boost learner engagement and motivation across your courses. Supported on Moodle 4.5–5.2.",
+    "offers": {
+        "@type": "Offer",
+        "category": "Premium"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Agunfon"
+    }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Which Moodle versions are supported?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Moodle 4.5 and later."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What does “early access” mean?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The plugin is in active development. Founding customers get the full feature set, guided onboarding, a direct line to the team, and locked-in pricing — and their feedback shapes the roadmap."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How is this different from a reminder plugin?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Reminders send a single message. Engagement Hub orchestrates multi-step journeys, applies condition-based interventions, escalates when there's no response, and reports on outcomes — across whole campaigns."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How is learner data handled (GDPR)?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A bundled privacy provider declares everything stored and supports consent controls plus user export and deletion at the system context."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will it slow my site down?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Messages are queued and delivered by Moodle cron, so engagement activity stays off the page-load path."
+            }
+        }
+    ]
+}
+</script>
+@endpush
 
 @section('content')
 <!-- ============ HERO ============ -->

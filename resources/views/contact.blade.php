@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Contact Us - Agunfon LMS')
+@section('description', 'Get in touch with Agunfon about adaptive LMS platforms, premium Moodle plugins, and enterprise learning content for your organization.')
 
 @push('styles')
 <style>

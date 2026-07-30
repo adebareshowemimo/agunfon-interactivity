@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Non-Profit Sector Solution - Agunfon')
+@section('description', 'Affordable, adaptive training for non-profits — onboard volunteers, deliver compliance, and grow capability with Agunfon.')
 
 @push('styles')
 <style>

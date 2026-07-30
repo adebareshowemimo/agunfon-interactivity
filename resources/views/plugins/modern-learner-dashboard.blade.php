@@ -1,6 +1,84 @@
 @extends('layouts.app')
 
 @section('title', 'Modern Learner Dashboard for Moodle - Agunfon')
+@section('description', 'Modern Learner Dashboard gives Moodle learners a clear view of progress, due-soon work, grades, badges, and what to do next. Moodle 4.5–5.2.')
+
+@push('meta')
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Modern Learner Dashboard",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Moodle 4.5–5.2",
+    "description": "Modern Learner Dashboard gives Moodle learners a clear view of progress, due-soon work, grades, badges, and what to do next. Moodle 4.5–5.2.",
+    "offers": {
+        "@type": "Offer",
+        "category": "Premium"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Agunfon"
+    }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Which Moodle versions are supported?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Moodle 4.5 through 5.2, CI-tested on 4.5, 5.1, and 5.2."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Which themes does it work with?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It is tested and styled for Boost, Boost Union, Classic, Moove, Adaptable, Academi, and Degrade, and reads the active theme so you can scope your own tweaks."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Does each learner need to set it up?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. The block reads core Moodle data and personalizes itself for whoever is viewing it — no learner configuration."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Where do the badges and certificates come from?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Badges use Moodle's core badge issue records; certificates come from Course Certificate (mod_coursecertificate) activities when present."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How is learner data handled (GDPR)?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A bundled privacy provider declares what the block surfaces and supports export and deletion at the system context."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is it really GPL? Can we modify it?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes — GNU GPL v3 or later. You're free to modify it for your own installation."
+            }
+        }
+    ]
+}
+</script>
+@endpush
 
 @section('content')
 <!-- ============ HERO ============ -->

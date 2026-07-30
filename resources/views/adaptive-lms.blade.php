@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Adaptive LMS - Agunfon Enterprise Learning Platform')
+@section('description', 'Agunfon\'s Adaptive LMS personalizes every learning path, scales to enterprise teams, and turns training activity into measurable outcomes.')
 
 @push('styles')
 <style>

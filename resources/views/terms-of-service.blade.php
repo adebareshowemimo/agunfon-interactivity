@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Terms of Service - Agunfon')
+@section('description', 'The terms governing your use of Agunfon\'s website, platforms, and services.')
 
 @push('styles')
 <style>

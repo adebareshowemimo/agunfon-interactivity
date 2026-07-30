@@ -1,6 +1,84 @@
 @extends('layouts.app')
 
 @section('title', 'Modern Video Player Premium for Moodle - Agunfon')
+@section('description', 'Modern Video Player for Moodle records server-validated watch time, segments, and integrity flags with per-learner audit export. Moodle 4.5–5.2.')
+
+@push('meta')
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Modern Video Player",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Moodle 4.5–5.2",
+    "description": "Modern Video Player for Moodle records server-validated watch time, segments, and integrity flags with per-learner audit export. Moodle 4.5–5.2.",
+    "offers": {
+        "@type": "Offer",
+        "category": "Premium"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Agunfon"
+    }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Which Moodle versions are supported?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Moodle 4.5 through 5.2."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I upgrade from the free Community edition?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Premium shares the same component (mod_modernvideoplayer) and carries a higher version, so you upgrade in place — existing activities, files, progress, completion, gradebook entries, captions, bookmarks, reports, and backup/restore data are all preserved."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How does protected delivery work?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Uploaded and cloud videos are served through user-bound, time-limited signed URLs, with dynamic learner watermarking for supported sources — so credentials are never exposed and copies are traceable."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is the screen-capture deterrence DRM?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. It is best-effort browser heuristics (PrintScreen, hidden tab, focus loss, context menu) recorded in a tamper-evident, hash-chained audit log. It is deterrence and evidence, not DRM."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Does it send data to our LRS?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Premium emits xAPI / cmi5-style statements to an external LRS for initialized, completed, and flagged activity events."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is it really GPL? Can we modify it?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes — GNU GPL v3 or later. You're free to modify it for your own installation."
+            }
+        }
+    ]
+}
+</script>
+@endpush
 
 @section('content')
 <!-- ============ HERO ============ -->

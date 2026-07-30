@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Compliance Training - Agunfon')
+@section('description', 'Deliver compliance training that stands up to audit. Agunfon turns Moodle completion into a defensible evidence chain from enrolment to export.')
 
 @push('styles')
 <style>

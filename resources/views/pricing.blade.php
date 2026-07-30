@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', 'Pricing - Agunfon Enterprise LMS & Moodle Plugins')
+@section('description', 'Simple, transparent pricing for Agunfon\'s adaptive LMS, learning content, and premium Moodle plugins. Find the plan that fits your team.')
+
 @section('content')
     <!-- Hero Section -->
     <section class="pt-16 pb-20 px-6">

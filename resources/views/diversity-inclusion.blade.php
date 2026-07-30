@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Diversity & Inclusion Solution - Agunfon')
+@section('description', 'Build inclusive workplaces with Agunfon — engaging diversity and inclusion training with progress tracking and reporting.')
 
 @push('styles')
 <style>

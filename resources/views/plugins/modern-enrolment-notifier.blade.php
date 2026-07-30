@@ -1,6 +1,84 @@
 @extends('layouts.app')
 
 @section('title', 'Modern Enrolment Notifier for Moodle - Agunfon')
+@section('description', 'Modern Enrolment Notifier sends rule-based enrolment, expiry, and completion notifications across email, Slack, Teams, and more. Moodle 4.5–5.2.')
+
+@push('meta')
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Modern Enrolment Notifier",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Moodle 4.5–5.2",
+    "description": "Modern Enrolment Notifier sends rule-based enrolment, expiry, and completion notifications across email, Slack, Teams, and more. Moodle 4.5–5.2.",
+    "offers": {
+        "@type": "Offer",
+        "category": "Premium"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Agunfon"
+    }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Which Moodle versions are supported?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Moodle 4.5 through 5.2."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do Slack and Teams notifications work?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Add a webhook URL for each channel in the settings. A built-in channel-test page lets you confirm each endpoint works before you rely on it."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can course teachers manage their own notifications?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. With permission, course managers can enable course notifications, pick a template, write a custom message, preview it, and create course-specific rules — within limits you set as administrator."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How is learner data handled (GDPR)?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A bundled privacy provider declares everything stored and supports full user export and deletion at the system context."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will it slow my site down?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Enrolment events are captured instantly, but messages are queued and delivered by Moodle cron — so enrolment stays fast even if email or external services are slow."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is it really GPL? Can we modify it?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes — GNU GPL v3 or later. You're free to modify it for your own installation."
+            }
+        }
+    ]
+}
+</script>
+@endpush
 
 @section('content')
 <!-- ============ HERO ============ -->

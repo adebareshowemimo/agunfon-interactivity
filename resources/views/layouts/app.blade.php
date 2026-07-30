@@ -8,14 +8,64 @@
     <title>@yield('title', 'Agunfon - Enterprise Learning Solutions')</title>
     <meta name="description" content="@yield('description', 'Agunfon delivers adaptive LMS platforms, learning content and specialist consulting for enterprise teams across Africa.')">
     <link rel="canonical" href="{{ url()->current() }}">
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Agunfon">
+    <meta property="og:locale" content="en_US">
     <meta property="og:title" content="@yield('title', 'Agunfon - Enterprise Learning Solutions')">
     <meta property="og:description" content="@yield('description', 'Agunfon delivers adaptive LMS platforms, learning content and specialist consulting for enterprise teams across Africa.')">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="@yield('og_type', 'website')">
     <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="{{ url()->to(trim($__env->yieldContent('og_image', '/images/agunfon-og.png'))) }}">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('title', 'Agunfon - Enterprise Learning Solutions')">
+    <meta name="twitter:description" content="@yield('description', 'Agunfon delivers adaptive LMS platforms, learning content and specialist consulting for enterprise teams across Africa.')">
+    <meta name="twitter:image" content="{{ url()->to(trim($__env->yieldContent('og_image', '/images/agunfon-og.png'))) }}">
+
+    <!-- Per-page meta / structured data hook -->
+    @stack('meta')
+
+    <!-- Organization + WebSite structured data (site-wide) -->
+    <script type="application/ld+json">
+    {
+        "@@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Agunfon",
+        "url": "{{ url('/') }}",
+        "logo": "{{ url('/images/Agunfon_Icon.png') }}",
+        "email": "info@agunfoninteractivity.com",
+        "telephone": "+1-478-306-2250",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "8735 Dunwoody Place #11785",
+            "addressLocality": "Atlanta",
+            "addressRegion": "GA",
+            "postalCode": "30350",
+            "addressCountry": "US"
+        },
+        "sameAs": [
+            "https://www.linkedin.com/company/agunfon",
+            "https://instagram.com/agunfon",
+            "https://twitter.com/agunfon"
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Agunfon",
+        "url": "{{ url('/') }}"
+    }
+    </script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/images/Agunfon_Icon.png">
+    <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/images/Agunfon_Icon.png">
+    <meta name="theme-color" content="#0F3D7A">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

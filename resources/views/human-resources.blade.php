@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Human Resources Solution - Agunfon')
+@section('description', 'Equip HR teams to deliver onboarding, compliance, and development at scale with Agunfon\'s adaptive LMS and reporting.')
 
 @push('styles')
 <style>

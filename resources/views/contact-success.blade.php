@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Message Sent - Agunfon')
+@section('description', 'Thanks for reaching out to Agunfon. Your message has been sent and our team will get back to you shortly.')
 
 @section('content')
 <section class="min-h-screen bg-gradient-to-b from-brand-50 to-white flex items-center justify-center py-20">

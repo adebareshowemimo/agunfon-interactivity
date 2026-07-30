@@ -176,7 +176,7 @@
                         <div class="space-y-5">
                             <h4 class="font-bold text-lg text-white">Resources</h4>
                             <ul class="space-y-3 text-sm text-gray-300 border-l-2 border-brand-500/50 pl-4">
-                                <li><a href="/contact" class="hover:text-white transition-colors">Blog</a></li>
+                                <li><a href="/blog" class="hover:text-white transition-colors">Blog</a></li>
                                 <li><a href="/contact" class="hover:text-white transition-colors">Guides</a></li>
                                 <li><a href="/contact" class="hover:text-white transition-colors">Webinars</a></li>
                                 <li><a href="/contact" class="hover:text-white transition-colors">Case studies</a></li>

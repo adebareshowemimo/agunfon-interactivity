@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Privacy Policy - Agunfon')
+@section('description', 'How Agunfon collects, uses, and protects personal data across our website, LMS platforms, and services.')
 
 @push('styles')
 <style>

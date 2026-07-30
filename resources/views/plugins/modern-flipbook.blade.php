@@ -1,6 +1,84 @@
 @extends('layouts.app')
 
 @section('title', 'Modern Flipbook for Moodle - Agunfon')
+@section('description', 'Modern Flipbook turns Moodle PDFs into tracked activities — page-level reading, active time, and acknowledgement with completion rules. Moodle 4.5–5.2.')
+
+@push('meta')
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Modern Flipbook",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Moodle 4.5–5.2",
+    "description": "Modern Flipbook turns Moodle PDFs into tracked activities — page-level reading, active time, and acknowledgement with completion rules. Moodle 4.5–5.2.",
+    "offers": {
+        "@type": "Offer",
+        "category": "Premium"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Agunfon"
+    }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Which Moodle versions are supported?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Moodle 4.5 through 5.2."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Does it need an external service to convert PDFs?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Rendering uses bundled PDF.js and StPageFlip with no CDN dependency — you upload a PDF and it just works."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How can a course be completed?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "By percentage of pages viewed, time spent reading, a set of required pages, reaching the final page, or an explicit acknowledgement — whichever you configure."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I stop documents being copied?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can apply optional learner watermarking and control print and download with Moodle capabilities. This is accountability and deterrence, not DRM."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How is learner data handled (GDPR)?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A bundled privacy provider declares everything stored and supports user export and deletion at the system context."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is it really GPL? Can we modify it?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes — GNU GPL v3 or later. You're free to modify it for your own installation."
+            }
+        }
+    ]
+}
+</script>
+@endpush
 
 @section('content')
 <!-- ============ HERO ============ -->

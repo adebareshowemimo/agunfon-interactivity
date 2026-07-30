@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Terms of Sale - Agunfon')
+@section('description', 'The terms of sale for Agunfon products and Moodle plugins, including licensing, refunds, and acceptable use.')
 
 @push('styles')
 <style>

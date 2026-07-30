@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Health & Wellness Solution - Agunfon')
+@section('description', 'Deliver health and wellness training that engages and sticks — adaptive learning and progress tracking from Agunfon.')
 
 @push('styles')
 <style>

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Retail Industry Solution - Agunfon')
+@section('description', 'Train retail teams at scale — fast onboarding, product knowledge, and compliance with auditable completion, powered by Agunfon.')
 
 @push('styles')
 <style>

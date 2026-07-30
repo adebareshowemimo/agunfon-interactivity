@@ -310,7 +310,7 @@
                             <div class="p-10 bg-white">
                                 <div class="grid grid-cols-2 gap-x-12 gap-y-8">
                                     <!-- Blog -->
-                                    <a href="/contact" class="group/res">
+                                    <a href="/blog" class="group/res">
                                         <div class="flex gap-4">
                                             <div class="w-10 h-10 rounded-full bg-brand-50 flex items-center justify-center text-brand-500 shrink-0">
                                                 <iconify-icon icon="lucide:file-text" class="text-lg"></iconify-icon>
@@ -318,7 +318,7 @@
                                             <div>
                                                 <h4 class="text-base font-bold text-brand-700 mb-1">Blog</h4>
                                                 <p class="text-xs text-gray-500 leading-relaxed mb-2">Practical insights, proven strategies, and emerging trends.</p>
-                                                <div class="text-xs font-bold text-brand-500 flex items-center gap-1">Coming soon <iconify-icon icon="lucide:chevron-right"></iconify-icon></div>
+                                                <div class="text-xs font-bold text-brand-500 flex items-center gap-1">Read the blog <iconify-icon icon="lucide:chevron-right"></iconify-icon></div>
                                             </div>
                                         </div>
                                     </a>
@@ -452,7 +452,7 @@
                     <iconify-icon icon="lucide:chevron-down" class="text-sm text-gray-400 transition-transform duration-200"></iconify-icon>
                 </button>
                 <div class="mobile-accordion-content hidden pb-3 pl-4 space-y-2">
-                    <a href="/contact" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Blog (Coming soon)</a>
+                    <a href="/blog" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Blog</a>
                     <a href="/contact" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Guides (Coming soon)</a>
                     <a href="/contact" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Webinars (Coming soon)</a>
                     <a href="/contact" class="block text-sm text-gray-600 py-1.5 hover:text-brand-700">Case Studies (Coming soon)</a>

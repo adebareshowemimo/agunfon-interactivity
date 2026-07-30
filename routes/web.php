@@ -80,6 +80,67 @@ Route::get('/plugins/modern-commerce', function () {
 Route::redirect('/moderncommerce', '/plugins/modern-commerce');
 Route::redirect('/moderncommerce/addons', '/plugins/modern-commerce#pricing');
 
+// ============================================
+// BLOG (file-based — posts registry in config/blog.php)
+// ============================================
+Route::get('/blog', function () {
+    $allPosts = collect(config('blog', []))
+        ->map(fn (array $post, string $slug) => array_merge($post, ['slug' => $slug]))
+        ->sortByDesc('date')
+        ->values();
+
+    $featured = $allPosts->first();
+    $categories = $allPosts->pluck('category')->filter()->unique()->sort()->values();
+    $query = trim((string) request('q', ''));
+    $category = trim((string) request('category', ''));
+
+    $filtered = $allPosts
+        ->when($query !== '', function ($posts) use ($query) {
+            return $posts->filter(function ($post) use ($query) {
+                $haystack = implode(' ', [
+                    $post['title'] ?? '',
+                    $post['excerpt'] ?? '',
+                    $post['category'] ?? '',
+                    $post['author'] ?? '',
+                ]);
+
+                return str_contains(mb_strtolower($haystack), mb_strtolower($query));
+            });
+        })
+        ->when($category !== '', fn ($posts) => $posts->where('category', $category))
+        ->when($query === '' && $category === '', fn ($posts) => $posts->skip(1))
+        ->values();
+
+    $perPage = 12;
+    $page = max(1, (int) request('page', 1));
+    $posts = new \Illuminate\Pagination\LengthAwarePaginator(
+        $filtered->forPage($page, $perPage)->values(),
+        $filtered->count(),
+        $perPage,
+        $page,
+        [
+            'path' => route('blog.index'),
+            'query' => request()->except('page'),
+        ]
+    );
+
+    return view('blog.index', [
+        'posts' => $posts,
+        'featured' => $featured,
+        'categories' => $categories,
+        'totalCount' => $allPosts->count(),
+        'query' => $query,
+        'activeCategory' => $category,
+    ]);
+})->name('blog.index');
+
+Route::get('/blog/{slug}', function (string $slug) {
+    $post = config('blog.' . $slug);
+    abort_unless($post, 404);
+
+    return view('blog.show', ['slug' => $slug, 'post' => $post]);
+})->name('blog.show');
+
 Route::get('/book-demo', function () {
     return view('book-demo');
 })->name('book-demo');
@@ -177,6 +238,46 @@ Route::get('/features', function () {
 Route::get('/resources', function () {
     return view('services');
 })->name('resources');
+
+// ============================================
+// SITEMAP (XML) — enumerates public URLs for crawlers
+// ============================================
+Route::get('/sitemap.xml', function () {
+    $paths = [
+        '/', '/about', '/services', '/pricing', '/contact', '/book-demo',
+        '/learning-suite', '/adaptive-lms',
+        // Moodle plugin landing pages
+        '/plugins/modern-course-reminder', '/plugins/modern-enrolment-notifier',
+        '/plugins/modern-engagement-hub', '/plugins/modern-learner-dashboard',
+        '/plugins/modern-video-player', '/plugins/modern-flipbook',
+        '/plugins/modern-commerce',
+        // Solutions — by use case
+        '/employee-onboarding', '/compliance-training', '/leadership-development',
+        '/personal-development', '/customer-service', '/health-wellness',
+        '/sales-marketing', '/diversity-inclusion',
+        // Solutions — by industry
+        '/finance', '/education', '/retail', '/nonprofit', '/healthcare',
+        '/information-technology', '/human-resources',
+        // Blog
+        '/blog',
+        // Legal
+        '/privacy-policy', '/terms-of-service', '/terms-of-sale', '/cookies-policy',
+    ];
+
+    // Append every published blog post.
+    foreach (array_keys(config('blog', [])) as $slug) {
+        $paths[] = '/blog/' . $slug;
+    }
+
+    $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+    $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+    foreach ($paths as $path) {
+        $xml .= '  <url><loc>' . e(url($path)) . '</loc></url>' . "\n";
+    }
+    $xml .= '</urlset>' . "\n";
+
+    return response($xml, 200)->header('Content-Type', 'application/xml');
+})->name('sitemap');
 
 // Default "login" route: Laravel's auth middleware redirects unauthenticated
 // users to route('login'). Admin auth lives under admin.login, so alias it here.

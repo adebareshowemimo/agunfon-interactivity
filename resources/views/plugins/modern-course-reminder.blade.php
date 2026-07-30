@@ -1,6 +1,76 @@
 @extends('layouts.app')
 
 @section('title', 'Modern Course Reminder for Moodle - Agunfon')
+@section('description', 'Modern Course Reminder for Moodle automatically re-engages stalled learners with rule-based reminders, digests, and manager escalation. Moodle 4.5–5.2.')
+
+@push('meta')
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Modern Course Reminder",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Moodle 4.5–5.2",
+    "description": "Modern Course Reminder for Moodle automatically re-engages stalled learners with rule-based reminders, digests, and manager escalation. Moodle 4.5–5.2.",
+    "offers": {
+        "@type": "Offer",
+        "category": "Premium"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Agunfon"
+    }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Which Moodle versions are supported?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Moodle 4.5 through 5.2."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Does it work with our theme and the mobile app?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. It uses Moodle's standard email and notification channels and admin pages, so it works with any theme and respects mobile notification preferences."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How is learner data handled (GDPR)?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A bundled privacy provider declares everything stored and supports full user export and deletion at the system context."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will it slow my site down?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. All processing runs in scheduled cron tasks, not during page loads."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is it really GPL? Can we modify it?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes — GNU GPL v3 or later. You're free to modify it for your own installation."
+            }
+        }
+    ]
+}
+</script>
+@endpush
 
 @section('content')
 <!-- ============ HERO ============ -->

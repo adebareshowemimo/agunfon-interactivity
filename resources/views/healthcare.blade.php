@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Healthcare Industry Solution - Agunfon')
+@section('description', 'Deliver clinical, compliance, and safety training with auditable completion — adaptive learning for healthcare teams from Agunfon.')
 
 @push('styles')
 <style>

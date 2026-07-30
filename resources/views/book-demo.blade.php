@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Book a Demo - Agunfon Enterprise LMS')
+@section('description', 'Book a personalized Agunfon demo. See our adaptive LMS and Moodle plugins in action, mapped to your real training and compliance needs.')
 
 @push('styles')
 <style>

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Cookies Policy - Agunfon')
+@section('description', 'How Agunfon uses cookies and similar technologies across agunfoninteractivity.com, and how you can manage your preferences.')
 
 @push('styles')
 <style>
