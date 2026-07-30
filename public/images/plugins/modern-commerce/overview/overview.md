@@ -6,7 +6,7 @@ traceable to the plugin's own `version.php`, `db/`, `settings.php`, lang strings
 `classes/` — nothing invented.
 
 - **Frankenstyle:** `local_moderncommerce` (local plugin)
-- **Release:** 2.1.4 · **Maturity:** Stable · **Moodle support:** 5.2 (`supported = [502, 502]`) · **PHP:** 8.3+
+- **Release:** 2.1.6 · **Maturity:** Stable · **Moodle support:** 5.2 (`supported = [502, 502]`) · **PHP:** 8.3+
 - **Pricing model:** Premium / paid (one-time Core licence). Be transparent on the listing that it is a paid plugin.
 
 ---
@@ -61,17 +61,12 @@ Optional extras if you want more than 6: **Subscriptions plans** (`admin/subscri
 ## Documentation URL (required)
 **Target (LaRecipe hub):** `https://agunfoninteractivity.com/docs/1.0/modern-commerce`
 
-⚠️ **This page does not exist yet.** The docs hub is at version `1.0` and already carries
-`modern-course-reminder`, `modern-enrolment-notifier`, `modern-learner-dashboard`,
-`modern-video-player`. To make the URL resolve you must add, under
-`C:\xampp\htdocs\agunfon\resources\docs\1.0\`:
-- a `modern-commerce/` folder (overview, installation, quick-start, payments, storefront,
-  subscriptions, admin-settings, faq), **and**
-- a sibling `modern-commerce.md` landing page (LaRecipe maps a URL segment to a `.md`
-  file, not a folder — without the sibling the clean URL 404s), **and**
-- a `- ## Modern Commerce` block in `resources/docs/1.0/index.md`.
-
-**Stopgap:** point the field at the GitHub README until the docs page ships.
+✅ **Live.** The full LaRecipe doc set now exists under `resources/docs/1.0/modern-commerce/`
+(overview, requirements, installation, quick-start, products-and-pricing, storefront, payments,
+subscriptions, coupons-and-keys, orders-invoices-refunds, notifications, reports-and-analytics,
+admin-settings, faq) plus the sibling `modern-commerce.md` landing page, and it is registered in
+`resources/docs/1.0/index.md`. Both `/docs/1.0/modern-commerce` and `/docs/1.0/modern-commerce/overview`
+resolve (verified HTTP 200). Deploy the docs files + `index.md`, then run `php artisan cache:clear`.
 
 ---
 

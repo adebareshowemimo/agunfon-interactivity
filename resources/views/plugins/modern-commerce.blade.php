@@ -1,6 +1,124 @@
 @extends('layouts.app')
 
 @section('title', 'Modern Commerce for Moodle - Sell Courses, Bundles & Subscriptions - Agunfon')
+@section('description', 'Modern Commerce for Moodle lets you sell courses, bundles, and subscriptions with checkout, payments, and order management built in. Moodle 5.2.')
+
+@push('meta')
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Modern Commerce",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Moodle 5.2",
+    "description": "Modern Commerce for Moodle lets you sell courses, bundles, and subscriptions with checkout, payments, and order management built in. Moodle 5.2.",
+    "offers": {
+        "@type": "Offer",
+        "category": "Premium"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Agunfon"
+    }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Do I need WordPress?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Modern Commerce is a Moodle plugin that runs entirely inside your Moodle installation. There is no WordPress, no WooCommerce, no membership plugin and no bridge or connector to keep in sync."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will it work with the courses I already have?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Modern Commerce prices and sells your existing Moodle courses as they are — no migration, no rebuilding and no duplicate course records. You set a price, publish it to the storefront, and successful payment enrols the buyer into that same course."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I sell seats to a company?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Subscription plans can carry a seat limit, and enrolment-key pools track how many seats have been used and how many remain. When a pool runs low the buyer is emailed automatically so they can reorder before their team loses access."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Which Moodle and PHP versions are supported?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Modern Commerce 2.1.6 supports Moodle 5.2 and requires PHP 8.3 or later."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do you take a percentage of my sales?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Payments go straight to your own Stripe, Paystack, PayPal or Flutterwave merchant account. The licence is a one-time purchase and there is no revenue share, ever."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do I need a payment gateway account?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Modern Commerce connects to gateways you own — you supply your own API keys and secrets, and card capture happens on the gateway, not inside Moodle. HTTPS is required for live gateways and webhooks."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is there anything to install beyond the plugin?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The plugin bundles PHP libraries via Composer, so run composer install --no-dev --optimize-autoloader in the plugin directory after copying it in, and make sure Moodle cron is running — the recovery, reminder, reporting and subscription automations all run on cron."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I sell subscriptions and memberships?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Subscription plans, free trials, recurring charges, plan changes, grace periods, expiry and automatic course-access sync are all part of the commerce core."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How does it handle personal data and GDPR?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It stores buyer names and emails, orders, invoices, optional billing details, contact messages, newsletter subscribers and subscription records — and implements a full Moodle privacy provider, so metadata, export, deletion and user-list subject requests work through the standard Moodle privacy tools."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is this GPL like most Moodle plugins?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Modern Commerce is proprietary commercial software licensed per site under the Modern Commerce Commercial License. Bundled third-party libraries keep their own licences."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What happens after the first year of support?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Your licence and your installed version keep working. Contact us about extending support when your first year is up."
+            }
+        }
+    ]
+}
+</script>
+@endpush
 
 @section('content')
 <!-- ============ HERO ============ -->
@@ -33,36 +151,18 @@
             </div>
         </div>
 
-        <!-- Product mockup: sales dashboard -->
+        <!-- Product screenshot: the real branded storefront catalogue -->
         <div class="relative">
-            <div class="bg-white rounded-[32px] shadow-2xl border border-gray-100 p-5 hero-dashboard">
-                <div class="flex items-center gap-1.5 px-2 pb-4">
+            <div class="bg-white rounded-[32px] shadow-2xl border border-gray-100 p-3 overflow-hidden">
+                <div class="flex items-center gap-1.5 px-2 py-2">
                     <span class="w-3 h-3 rounded-full bg-red-400"></span>
                     <span class="w-3 h-3 rounded-full bg-amber-400"></span>
                     <span class="w-3 h-3 rounded-full bg-green-400"></span>
-                    <span class="ml-3 text-xs text-gray-400">moodle.yourschool.edu › commerce › dashboard</span>
+                    <span class="ml-3 text-xs text-gray-400">moodle.yourschool.edu › store › catalogue</span>
                 </div>
-                <div class="grid grid-cols-3 gap-3 mb-3">
-                    <div class="rounded-2xl border border-gray-100 bg-brand-50 p-3"><div class="text-[10px] font-bold uppercase tracking-wide text-gray-500">Revenue</div><div class="text-xl font-extrabold text-brand-700">£18,420</div></div>
-                    <div class="rounded-2xl border border-gray-100 bg-white p-3"><div class="text-[10px] font-bold uppercase tracking-wide text-gray-500">Orders</div><div class="text-xl font-extrabold text-brand-700">312</div></div>
-                    <div class="rounded-2xl border border-gray-100 bg-white p-3"><div class="text-[10px] font-bold uppercase tracking-wide text-gray-500">Subscribers</div><div class="text-xl font-extrabold text-green-500">96</div></div>
-                </div>
-                <div class="rounded-2xl border border-gray-100 p-3 mb-3">
-                    <div class="text-[10px] font-bold uppercase tracking-wide text-gray-500 mb-2">Daily sales</div>
-                    <div class="flex items-end gap-1 h-16">
-                        @foreach ([32,45,38,60,52,71,64,58,80,74,88,69,95,82,100] as $h)
-                        <div class="flex-1 rounded-t-sm bg-brand-500" style="height: {{ $h }}%"></div>
-                        @endforeach
-                    </div>
-                </div>
-                <div class="space-y-2">
-                    @foreach ([['Advanced Safeguarding', 'Paid', 'text-green-600 bg-green-50'], ['Leadership Bundle (3 courses)', 'Paid', 'text-green-600 bg-green-50'], ['Pro Membership · monthly', 'Renewed', 'text-brand-600 bg-brand-50']] as [$item, $status, $cls])
-                    <div class="flex items-center justify-between rounded-xl border border-gray-100 px-3 py-2">
-                        <span class="text-xs font-semibold text-brand-700 truncate">{{ $item }}</span>
-                        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full {{ $cls }}">{{ $status }}</span>
-                    </div>
-                    @endforeach
-                </div>
+                <a href="/images/plugins/modern-commerce/coverpage/screenshots/catalog.png" target="_blank" rel="noopener" class="block rounded-2xl overflow-hidden border border-gray-100">
+                    <img src="/images/plugins/modern-commerce/coverpage/screenshots/catalog.png" alt="Modern Commerce storefront catalogue with courses, bundles and programs, secure checkout and add-to-cart" loading="eager" class="w-full h-auto block" />
+                </a>
             </div>
             <div class="hidden md:flex items-center gap-2 absolute -top-4 -left-4 bg-white rounded-2xl shadow-float border border-gray-100 px-4 py-2.5 text-sm font-bold text-brand-700"><iconify-icon icon="lucide:shopping-bag" class="text-brand-500"></iconify-icon> Storefront ready</div>
             <div class="hidden md:flex items-center gap-2 absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-float border border-gray-100 px-4 py-2.5 text-sm font-bold text-brand-700"><iconify-icon icon="lucide:repeat" class="text-brand-500"></iconify-icon> Recurring billing</div>
@@ -171,6 +271,49 @@
                 @endforeach
             </div>
             <p class="text-blue-100/70 text-sm mt-10">Also included: customer records, contact forms and newsletter capture, branding and email-template editors, inclusive or exclusive tax modes, 21 selectable store currencies, sales reports and analytics, an audit log, and a full Moodle privacy provider for GDPR subject requests.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============ SEE IT IN ACTION (real screenshots) ============ -->
+<section class="py-12 md:py-20 bg-brand-50/40 border-y border-blue-50">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+        <div class="text-center mb-12">
+            <span class="inline-block px-4 py-1.5 rounded-full border border-blue-100 text-[11px] font-bold text-blue-600 bg-blue-50 tracking-widest uppercase mb-5">See it in action</span>
+            <h2 class="text-4xl md:text-5xl font-bold text-brand-700">The real product, <span class="font-serif italic text-brand-500">not a mockup</span></h2>
+            <p class="text-gray-500 mt-4 max-w-2xl mx-auto">Every screen below is Modern Commerce running inside Moodle. Click any image to view it full size.</p>
+        </div>
+        @php
+        $shots = [
+            ['catalog', 'Branded storefront', 'A widget-built catalogue of courses, bundles and programs with secure checkout and add-to-cart.'],
+            ['gateways', 'Four payment gateways', 'Stripe, PayPal, Paystack and Flutterwave — enabled, test/live and webhook status at a glance.'],
+            ['subscriptions', 'Plans &amp; recurring revenue', 'Subscription plans with billing cycles, subscribers and live MRR.'],
+            ['learner', 'A real learner account', 'Learning summary, progress and certificates, plus one-click access to the storefront and My courses.'],
+            ['coupons', 'Coupons &amp; discounts', 'Percentage or fixed codes with constraints, usage caps and redemption tracking.'],
+            ['notifications', 'Notifications anywhere', 'A queued delivery subsystem with email plus optional Slack and Microsoft Teams alerts.'],
+            ['dashboard', 'Sales dashboard &amp; analytics', 'Revenue trend, orders-and-conversion charts, top products and recent orders.'],
+        ];
+        $shotBase = '/images/plugins/modern-commerce/coverpage/screenshots';
+        @endphp
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            @foreach ($shots as [$file, $title, $desc])
+            <div class="bg-white rounded-[24px] border border-gray-100 shadow-soft hover:shadow-float transition-shadow overflow-hidden flex flex-col">
+                <a href="{{ $shotBase }}/{{ $file }}.png" target="_blank" rel="noopener" class="block">
+                    <div class="flex items-center gap-1.5 px-4 py-3 border-b border-gray-50">
+                        <span class="w-2.5 h-2.5 rounded-full bg-red-300"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-amber-300"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-green-300"></span>
+                    </div>
+                    <div class="aspect-[4/3] overflow-hidden bg-gray-50">
+                        <img src="{{ $shotBase }}/{{ $file }}.png" alt="{{ strip_tags($title) }} — Modern Commerce for Moodle" loading="lazy" class="w-full h-full object-cover object-top" />
+                    </div>
+                </a>
+                <div class="p-6">
+                    <h3 class="font-bold text-brand-700 mb-1">{!! $title !!}</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">{!! $desc !!}</p>
+                </div>
+            </div>
+            @endforeach
         </div>
     </div>
 </section>
