@@ -72,13 +72,12 @@ Route::get('/plugins/modern-flipbook', function () {
     return view('plugins.modern-flipbook');
 })->name('plugins.modernflipbook');
 
-Route::get('/plugins/modern-commerce', function () {
-    return view('plugins.modern-commerce');
-})->name('plugins.moderncommerce');
+Route::redirect('/plugins/modern-commerce', 'https://moderncommerce.dev', 301)
+    ->name('plugins.moderncommerce');
 
 // The plugin's own pricing.php / add-ons pages link to /moderncommerce — keep them working.
-Route::redirect('/moderncommerce', '/plugins/modern-commerce');
-Route::redirect('/moderncommerce/addons', '/plugins/modern-commerce#pricing');
+Route::redirect('/moderncommerce', 'https://moderncommerce.dev', 301);
+Route::redirect('/moderncommerce/addons', 'https://moderncommerce.dev/product#extensions', 301);
 
 // ============================================
 // BLOG (file-based — posts registry in config/blog.php)
@@ -250,7 +249,6 @@ Route::get('/sitemap.xml', function () {
         '/plugins/modern-course-reminder', '/plugins/modern-enrolment-notifier',
         '/plugins/modern-engagement-hub', '/plugins/modern-learner-dashboard',
         '/plugins/modern-video-player', '/plugins/modern-flipbook',
-        '/plugins/modern-commerce',
         // Solutions — by use case
         '/employee-onboarding', '/compliance-training', '/leadership-development',
         '/personal-development', '/customer-service', '/health-wellness',
