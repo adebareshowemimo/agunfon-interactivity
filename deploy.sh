@@ -83,6 +83,25 @@ command -v composer >/dev/null || die "composer is not installed."
 info "Directory : $APP_DIR"
 info "Branch    : $BRANCH"
 info "PHP       : $($PHP_BIN -r 'echo PHP_VERSION;')"
+info "Running as: $(id -un)"
+
+# The checkout is normally owned by the web user, so an unprivileged run fails
+# partway through — on git reset, composer, or artisan — rather than up front.
+# Catch it here with an actionable message instead.
+OWNER="$(stat -c '%U' "$APP_DIR" 2>/dev/null || echo '?')"
+if [[ ! -w "$APP_DIR/.git" || ! -w "$APP_DIR" ]]; then
+    die "No write access to $APP_DIR (owned by '$OWNER', running as '$(id -un)').
+    Re-run with:  sudo ./deploy.sh"
+fi
+
+# git refuses to operate on a repository owned by another user unless told the
+# path is trusted. Add it rather than failing later with "dubious ownership".
+if ! git status --porcelain >/dev/null 2>&1; then
+    warn "git reports dubious ownership of $APP_DIR — marking it safe."
+    git config --global --add safe.directory "$APP_DIR" || true
+    git status --porcelain >/dev/null 2>&1 \
+        || die "Still cannot read the git repository at $APP_DIR."
+fi
 
 # A dirty working tree means someone edited files directly on the server. A
 # hard reset would silently destroy that work, so stop and make it a decision.
@@ -150,9 +169,16 @@ bring_back_up() {
     if [[ "$MAINTENANCE" -eq 1 ]]; then
         echo
         [[ $exit_code -ne 0 ]] && warn "Deploy failed — restoring the site before exiting."
-        $SUDO -u "$WEB_USER" "$PHP_BIN" artisan up >/dev/null 2>&1 \
-            || "$PHP_BIN" artisan up >/dev/null 2>&1 \
-            || warn "Could not disable maintenance mode. Run: php artisan up"
+        # Try as the current user first, then escalate. Written as an explicit
+        # branch because "$SUDO -u www-data ..." expands to a bare "-u" when the
+        # script is already running as root, which is not a valid command.
+        if "$PHP_BIN" artisan up >/dev/null 2>&1; then
+            :
+        elif [[ -n "$SUDO" ]] && $SUDO "$PHP_BIN" artisan up >/dev/null 2>&1; then
+            :
+        else
+            warn "Could not disable maintenance mode. Run: php artisan up"
+        fi
     fi
     exit $exit_code
 }
