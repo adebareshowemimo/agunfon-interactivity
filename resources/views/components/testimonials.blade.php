@@ -1,6 +1,15 @@
 <!-- Testimonials Section -->
 @php
+    // 'name' is optional. Cards that have one are attributed to the client by
+    // name; cards without one fall back to "Verified Client", which is how the
+    // rest of this list is published.
     $testimonials = [
+        [
+            'quote' => 'A great partner in helping us build and launch our Moodle-based entrepreneurship platform. Responsive, knowledgeable, and worked closely with our team to implement custom features and address feedback throughout the project.',
+            'name' => 'Brian Hamilton',
+            'project' => 'Moodle Entrepreneurship Platform',
+            'rating' => '5.0',
+        ],
         [
             'quote' => 'Exceptional to work with. The team took real ownership of the project — fast turnaround without ever sacrificing precision, and clear, reliable communication throughout. I would absolutely recommend them.',
             'project' => 'PowerPoint Add-In (VBA / RibbonX)',
@@ -91,8 +100,13 @@
                         <iconify-icon icon="lucide:badge-check" class="text-lg"></iconify-icon>
                     </div>
                     <div>
+                        @if (! empty($t['name']))
+                        <h4 class="font-bold text-gray-900 text-sm leading-tight">{{ $t['name'] }}</h4>
+                        <p class="text-[10px] text-gray-500">{{ $t['project'] }} · ★ {{ $t['rating'] }}</p>
+                        @else
                         <h4 class="font-bold text-gray-900 text-sm leading-tight">{{ $t['project'] }}</h4>
                         <p class="text-[10px] text-gray-500">Verified Client · ★ {{ $t['rating'] }}</p>
+                        @endif
                     </div>
                 </div>
             </div>
