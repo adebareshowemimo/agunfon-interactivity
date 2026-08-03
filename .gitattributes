@@ -1,5 +1,9 @@
 * text=auto eol=lf
 
+# Shell scripts must stay LF. A CRLF deploy.sh checked out on the Linux server
+# fails with "bad interpreter: /usr/bin/env bash^M", which is easy to misdiagnose.
+*.sh text eol=lf
+
 *.blade.php diff=html
 *.css diff=css
 *.html diff=html
