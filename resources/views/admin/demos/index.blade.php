@@ -9,19 +9,19 @@
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div class="bg-white rounded-xl p-4 border border-gray-100">
             <p class="text-sm text-gray-500">Total Demos</p>
-            <p class="text-2xl font-bold text-brand-900">{{ $demos->total() }}</p>
+            <p class="text-2xl font-bold text-brand-900">{{ $stats['total'] }}</p>
         </div>
         <div class="bg-white rounded-xl p-4 border border-gray-100">
             <p class="text-sm text-gray-500">Pending</p>
-            <p class="text-2xl font-bold text-yellow-600">{{ $demos->where('status', 'pending')->count() }}</p>
+            <p class="text-2xl font-bold text-yellow-600">{{ $stats['pending'] }}</p>
         </div>
         <div class="bg-white rounded-xl p-4 border border-gray-100">
             <p class="text-sm text-gray-500">Confirmed</p>
-            <p class="text-2xl font-bold text-green-600">{{ $demos->where('status', 'confirmed')->count() }}</p>
+            <p class="text-2xl font-bold text-green-600">{{ $stats['confirmed'] }}</p>
         </div>
         <div class="bg-white rounded-xl p-4 border border-gray-100">
             <p class="text-sm text-gray-500">This Week</p>
-            <p class="text-2xl font-bold text-brand-600">{{ $demos->where('preferred_date', '>=', now())->where('preferred_date', '<=', now()->addWeek())->count() }}</p>
+            <p class="text-2xl font-bold text-brand-600">{{ $stats['upcoming'] }}</p>
         </div>
     </div>
 

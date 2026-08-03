@@ -32,12 +32,26 @@ class DemoRequestController extends Controller
             });
         }
 
-        $demoRequests = $query->latest()->paginate(15);
+        // The view refers to this as $demos. withQueryString() keeps the active
+        // status/industry/search filters attached to the pagination links.
+        $demos = (clone $query)->latest()->paginate(15)->withQueryString();
+
+        // Counted from the query, not from $demos. A paginator only holds the
+        // current 15 rows, so counting off it silently under-reports the moment
+        // there is more than one page of results.
+        $stats = [
+            'total' => (clone $query)->count(),
+            'pending' => (clone $query)->where('status', 'pending')->count(),
+            'confirmed' => (clone $query)->where('status', 'confirmed')->count(),
+            'upcoming' => (clone $query)
+                ->whereBetween('preferred_date', [now(), now()->addWeek()])
+                ->count(),
+        ];
 
         // Get unique industries for filter dropdown
         $industries = DemoRequest::distinct()->pluck('industry');
 
-        return view('admin.demos.index', compact('demoRequests', 'industries'));
+        return view('admin.demos.index', compact('demos', 'stats', 'industries'));
     }
 
     public function show(DemoRequest $demoRequest)
