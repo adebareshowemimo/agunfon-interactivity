@@ -103,16 +103,28 @@ if ! git status --porcelain >/dev/null 2>&1; then
         || die "Still cannot read the git repository at $APP_DIR."
 fi
 
-# A dirty working tree means someone edited files directly on the server. A
-# hard reset would silently destroy that work, so stop and make it a decision.
-if [[ -n "$(git status --porcelain)" ]]; then
+# Untracked files are reported but never block: 'git reset --hard' does not
+# remove them, so server-only content (uploads, one-off pages) is not at risk.
+UNTRACKED="$(git ls-files --others --exclude-standard)"
+if [[ -n "$UNTRACKED" ]]; then
+    UNTRACKED_COUNT="$(printf '%s\n' "$UNTRACKED" | wc -l | tr -d ' ')"
+    info "Untracked, not in git ($UNTRACKED_COUNT) — left untouched by this deploy:"
+    printf '%s\n' "$UNTRACKED" | head -10 | sed 's/^/      /'
+    [[ "$UNTRACKED_COUNT" -gt 10 ]] && info "      ... and $((UNTRACKED_COUNT - 10)) more"
+    warn "These exist only on this server. Nothing backs them up — consider committing them."
+fi
+
+# Modified or deleted TRACKED files are a different matter: a hard reset silently
+# destroys them, so stop and make it a decision.
+DIRTY_TRACKED="$(git status --porcelain --untracked-files=no)"
+if [[ -n "$DIRTY_TRACKED" ]]; then
     if [[ "$FORCE" -eq 1 ]]; then
-        warn "Working tree is dirty — discarding local changes (--force):"
-        git status --short | sed 's/^/      /'
+        warn "Tracked files modified on the server — these WILL be discarded (--force):"
+        printf '%s\n' "$DIRTY_TRACKED" | sed 's/^/      /'
     else
         echo
-        git status --short | sed 's/^/      /'
-        die "Uncommitted changes on the server. Commit them, or re-run with --force to discard."
+        printf '%s\n' "$DIRTY_TRACKED" | sed 's/^/      /'
+        die "Tracked files were edited on the server. Commit them, or re-run with --force to discard."
     fi
 fi
 ok "Preflight passed"
