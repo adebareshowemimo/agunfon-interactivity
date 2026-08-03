@@ -37,10 +37,12 @@ Agunfon Brand.pdf
 # plugins-directory.html, and the LaRecipe docs under resources/docs/.
 *.pptx
 ~$*.pptx
-# Images extracted out of source decks (PPTX media). Working byproducts, not
-# referenced by any page — the edited/exported versions are what get committed.
-public/images/plugins/*/coverpage/deck-media/
-public/images/plugins/*/ten-reasons/deck-media/
+# Raw images extracted out of source PPTX decks. Working byproducts — nothing
+# on the site or in any storyboard references them.
+# NOTE: this deliberately does NOT match 'edited-deck-media/', which holds the
+# retouched exports that motion-frames/scenes.html, the storyboards and the
+# YouTube thumbnails actually load. Those stay tracked.
+public/images/plugins/*/*/deck-media/
 public/images/plugins/*/ten-reasons/panels.json
 public/images/plugins/*/ten-reasons/targets.json
 public/images/plugins/*/ten-reasons/plugin-icon.html
