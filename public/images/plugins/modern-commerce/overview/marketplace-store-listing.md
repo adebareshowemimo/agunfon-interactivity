@@ -59,7 +59,7 @@ Core Moodle can put a price on a single course. Modern Commerce runs an entire c
 - **Licence:** proprietary **Modern Commerce Commercial License**, purchased per site (not GPL). Includes **one year of updates and priority support**.
 
 ### Documentation & support
-- **Documentation:** https://agunfoninteractivity.com/docs/1.0/modern-commerce/overview
+- **Documentation:** https://moderncommerce.dev/docs/1.x/overview
 - **Support:** support@agunfoninteractivity.com
 - **Terms of Sale:** https://agunfoninteractivity.com/terms-of-sale
 
@@ -86,10 +86,10 @@ All tiers include the complete commerce core, 1 year of updates and support, and
 ---
 
 ## Required store URLs (paste into the marketplace form fields)
-- **Documentation URL:** https://agunfoninteractivity.com/docs/1.0/modern-commerce/overview
+- **Documentation URL:** https://moderncommerce.dev/docs/1.x/overview
 - **Terms of Sale URL:** https://agunfoninteractivity.com/terms-of-sale
 - **Support URL / email:** support@agunfoninteractivity.com
-- **Homepage:** https://agunfoninteractivity.com/plugins/modern-commerce
+- **Homepage:** https://moderncommerce.dev
 
 ## Upload checklist
 - [ ] Name: **Modern Commerce**

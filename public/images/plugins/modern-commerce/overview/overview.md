@@ -59,14 +59,17 @@ Optional extras if you want more than 6: **Subscriptions plans** (`admin/subscri
 ---
 
 ## Documentation URL (required)
-**Target (LaRecipe hub):** `https://agunfoninteractivity.com/docs/1.0/modern-commerce`
+**Documentation:** `https://moderncommerce.dev/docs/1.x/overview`
 
-✅ **Live.** The full LaRecipe doc set now exists under `resources/docs/1.0/modern-commerce/`
-(overview, requirements, installation, quick-start, products-and-pricing, storefront, payments,
-subscriptions, coupons-and-keys, orders-invoices-refunds, notifications, reports-and-analytics,
-admin-settings, faq) plus the sibling `modern-commerce.md` landing page, and it is registered in
-`resources/docs/1.0/index.md`. Both `/docs/1.0/modern-commerce` and `/docs/1.0/modern-commerce/overview`
-resolve (verified HTTP 200). Deploy the docs files + `index.md`, then run `php artisan cache:clear`.
+The legacy Agunfon documentation routes redirect to the current ModernCommerce documentation site.
+
+## Plugins Directory links
+
+- **Issue / bug tracker:** `https://github.com/adebareshowemimo/moodle-local_moderncommerce/issues`
+- **Documentation:** `https://moderncommerce.dev/docs/1.x/overview`
+- **Website:** `https://moderncommerce.dev`
+- **Discussion:** `https://github.com/adebareshowemimo/moodle-local_moderncommerce/discussions`
+- **Privacy information:** `https://moderncommerce.dev/docs/1.x/reports-and-analytics#privacy`
 
 ---
 
