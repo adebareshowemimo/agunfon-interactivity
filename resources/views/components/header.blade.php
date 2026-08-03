@@ -322,16 +322,16 @@
                                             </div>
                                         </div>
                                     </a>
-                                    <!-- Guides -->
-                                    <a href="/contact" class="group/res">
+                                    <!-- Documentation -->
+                                    <a href="/docs" class="group/res">
                                         <div class="flex gap-4">
                                             <div class="w-10 h-10 rounded-full bg-brand-50 flex items-center justify-center text-brand-500 shrink-0">
                                                 <iconify-icon icon="lucide:book-open" class="text-lg"></iconify-icon>
                                             </div>
                                             <div>
-                                                <h4 class="text-base font-bold text-brand-700 mb-1">Guides</h4>
-                                                <p class="text-xs text-gray-500 leading-relaxed mb-2">Step-by-step playbooks, best practices, and downloadable resources.</p>
-                                                <div class="text-xs font-bold text-brand-500 flex items-center gap-1">Coming soon <iconify-icon icon="lucide:chevron-right"></iconify-icon></div>
+                                                <h4 class="text-base font-bold text-brand-700 mb-1">Documentation</h4>
+                                                <p class="text-xs text-gray-500 leading-relaxed mb-2">Installation, configuration, and admin guides for every Agunfon Moodle plugin.</p>
+                                                <div class="text-xs font-bold text-brand-500 flex items-center gap-1">Read the docs <iconify-icon icon="lucide:chevron-right"></iconify-icon></div>
                                             </div>
                                         </div>
                                     </a>

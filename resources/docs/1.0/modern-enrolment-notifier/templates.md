@@ -10,30 +10,30 @@ Welcome (Professional / Simple / Minimalist), Compliance Training, Onboarding, M
 
 | Group | Examples |
 |---|---|
-| Learner | `{{user.firstname}}`, `{{user.fullname}}`, `{{user.email}}`, `{{user.department}}` |
-| Recipient | `{{recipient.firstname}}`, `{{recipient.fullname}}`, `{{recipient.email}}` |
-| Course | `{{course.fullname}}`, `{{course.url}}`, `{{course.startdate}}`, `{{teacher.fullname}}` |
-| Enrolment | `{{enrolment.method}}`, `{{enrolment.startdate}}`, `{{enrolment.enddate}}`, `{{enrolment.status}}` |
-| Completion | `{{completion.progress}}` |
-| Site & brand | `{{site.name}}`, `{{site.url}}`, `{{site.supportemail}}`, `{{logo}}` |
-| Brand colors | `{{brand.primary}}`, `{{brand.accent}}`, `{{brand.gray}}` |
-| Custom profile fields | `{{profile.<shortname>}}` |
+| Learner | `@{{user.firstname}}`, `@{{user.fullname}}`, `@{{user.email}}`, `@{{user.department}}` |
+| Recipient | `@{{recipient.firstname}}`, `@{{recipient.fullname}}`, `@{{recipient.email}}` |
+| Course | `@{{course.fullname}}`, `@{{course.url}}`, `@{{course.startdate}}`, `@{{teacher.fullname}}` |
+| Enrolment | `@{{enrolment.method}}`, `@{{enrolment.startdate}}`, `@{{enrolment.enddate}}`, `@{{enrolment.status}}` |
+| Completion | `@{{completion.progress}}` |
+| Site & brand | `@{{site.name}}`, `@{{site.url}}`, `@{{site.supportemail}}`, `@{{logo}}` |
+| Brand colors | `@{{brand.primary}}`, `@{{brand.accent}}`, `@{{brand.gray}}` |
+| Custom profile fields | `@{{profile.<shortname>}}` |
 
 Legacy single-brace placeholders (`{firstname}`, `{coursename}`, `{logo}`, …) continue to work for existing templates.
 
 ## Conditional blocks
 
 ```text
-{{#has_expiry}}This appears when an expiry date exists.{{/has_expiry}}
-{{^not_started}}This appears when the course has already started.{{/not_started}}
-{{#has_teacher}}Your teacher is {{teacher.fullname}}.{{/has_teacher}}
+@{{#has_expiry}}This appears when an expiry date exists.@{{/has_expiry}}
+@{{^not_started}}This appears when the course has already started.@{{/not_started}}
+@{{#has_teacher}}Your teacher is @{{teacher.fullname}}.@{{/has_teacher}}
 ```
 
 Available flags: `has_expiry`, `not_started`, `has_teacher`, `has_enroldate`.
 
 ## Branding
 
-The **Branding** page controls the logo used by `{{logo}}`:
+The **Branding** page controls the logo used by `@{{logo}}`:
 
 - Moodle **site logo**
 - Moodle **compact** site logo

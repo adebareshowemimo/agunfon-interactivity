@@ -52,4 +52,28 @@ return [
         'data_residency' => env('SENDGRID_DATA_RESIDENCY'),
     ],
 
+    /*
+    | Search & analytics. All optional — each block is skipped entirely when its
+    | value is empty, so local and staging stay clean without extra config.
+    */
+    'analytics' => [
+        // GA4 Measurement ID, format G-XXXXXXXXXX.
+        // Analytics → Admin → Data streams → your web stream (top right).
+        'ga4_id' => env('GA4_MEASUREMENT_ID'),
+
+        // Tracking is skipped in local by default so dev traffic never pollutes
+        // the property. Set ANALYTICS_ENABLED=true to override.
+        'enabled' => env('ANALYTICS_ENABLED', env('APP_ENV', 'production') !== 'local'),
+    ],
+
+    'search_console' => [
+        // Content of the google-site-verification meta tag — the token ONLY, not
+        // the whole tag. Search Console → Add property → HTML tag method.
+        'verification' => env('GOOGLE_SITE_VERIFICATION'),
+
+        // Bing Webmaster Tools verification token (optional). Bing's index also
+        // feeds Microsoft Copilot and ChatGPT search.
+        'bing_verification' => env('BING_SITE_VERIFICATION'),
+    ],
+
 ];

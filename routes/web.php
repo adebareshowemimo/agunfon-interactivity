@@ -229,53 +229,102 @@ Route::get('/cookies-policy', function () {
     return view('cookies-policy');
 });
 
-// Named routes for features and resources (referenced in success pages)
-Route::get('/features', function () {
-    return view('learning-suite');
-})->name('features');
-
-Route::get('/resources', function () {
-    return view('services');
-})->name('resources');
+// /features and /resources used to render the learning-suite and services views
+// directly. That produced two URLs serving identical content, each with its own
+// self-referencing canonical — a textbook duplicate-content split. They are now
+// permanent redirects so all authority consolidates on the real URL.
+Route::redirect('/features', '/learning-suite', 301)->name('features');
+Route::redirect('/resources', '/services', 301)->name('resources');
 
 // ============================================
 // SITEMAP (XML) — enumerates public URLs for crawlers
 // ============================================
 Route::get('/sitemap.xml', function () {
-    $paths = [
-        '/', '/about', '/services', '/pricing', '/contact', '/book-demo',
-        '/learning-suite', '/adaptive-lms',
-        // Moodle plugin landing pages
-        '/plugins/modern-course-reminder', '/plugins/modern-enrolment-notifier',
-        '/plugins/modern-engagement-hub', '/plugins/modern-learner-dashboard',
-        '/plugins/modern-video-player', '/plugins/modern-flipbook',
+    // priority is a hint about relative importance within THIS site only.
+    $entries = [
+        ['/', '1.0', 'weekly'],
+        ['/adaptive-lms', '0.9', 'monthly'],
+        ['/learning-suite', '0.9', 'monthly'],
+        ['/services', '0.8', 'monthly'],
+        ['/pricing', '0.8', 'monthly'],
+        ['/about', '0.6', 'yearly'],
+        ['/contact', '0.6', 'yearly'],
+        ['/book-demo', '0.7', 'yearly'],
+        // Moodle plugin landing pages — highest-intent commercial pages.
+        ['/plugins/modern-course-reminder', '0.9', 'monthly'],
+        ['/plugins/modern-enrolment-notifier', '0.9', 'monthly'],
+        ['/plugins/modern-engagement-hub', '0.9', 'monthly'],
+        ['/plugins/modern-learner-dashboard', '0.9', 'monthly'],
+        ['/plugins/modern-video-player', '0.9', 'monthly'],
+        ['/plugins/modern-flipbook', '0.9', 'monthly'],
         // Solutions — by use case
-        '/employee-onboarding', '/compliance-training', '/leadership-development',
-        '/personal-development', '/customer-service', '/health-wellness',
-        '/sales-marketing', '/diversity-inclusion',
+        ['/employee-onboarding', '0.7', 'monthly'],
+        ['/compliance-training', '0.7', 'monthly'],
+        ['/leadership-development', '0.7', 'monthly'],
+        ['/personal-development', '0.7', 'monthly'],
+        ['/customer-service', '0.7', 'monthly'],
+        ['/health-wellness', '0.7', 'monthly'],
+        ['/sales-marketing', '0.7', 'monthly'],
+        ['/diversity-inclusion', '0.7', 'monthly'],
         // Solutions — by industry
-        '/finance', '/education', '/retail', '/nonprofit', '/healthcare',
-        '/information-technology', '/human-resources',
+        ['/finance', '0.7', 'monthly'],
+        ['/education', '0.7', 'monthly'],
+        ['/retail', '0.7', 'monthly'],
+        ['/nonprofit', '0.7', 'monthly'],
+        ['/healthcare', '0.7', 'monthly'],
+        ['/information-technology', '0.7', 'monthly'],
+        ['/human-resources', '0.7', 'monthly'],
         // Blog
-        '/blog',
+        ['/blog', '0.8', 'weekly'],
         // Legal
-        '/privacy-policy', '/terms-of-service', '/terms-of-sale', '/cookies-policy',
+        ['/privacy-policy', '0.2', 'yearly'],
+        ['/terms-of-service', '0.2', 'yearly'],
+        ['/terms-of-sale', '0.2', 'yearly'],
+        ['/cookies-policy', '0.2', 'yearly'],
     ];
 
-    // Append every published blog post.
-    foreach (array_keys(config('blog', [])) as $slug) {
-        $paths[] = '/blog/' . $slug;
+    // Blog posts carry a real publication date, so emit a real <lastmod>.
+    foreach (config('blog', []) as $slug => $post) {
+        $entries[] = ['/blog/' . $slug, '0.7', 'yearly', $post['date'] ?? null];
+    }
+
+    // Product documentation (LaRecipe, resources/docs/<version>/**.md).
+    // 50+ deep, keyword-rich pages that were previously absent from the sitemap
+    // and unreachable from any navigation link.
+    foreach (app(App\Support\DocsIndex::class)->urls() as $docPath) {
+        $entries[] = [$docPath, '0.6', 'monthly'];
     }
 
     $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
     $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
-    foreach ($paths as $path) {
-        $xml .= '  <url><loc>' . e(url($path)) . '</loc></url>' . "\n";
+    foreach ($entries as $entry) {
+        [$path, $priority, $changefreq] = $entry;
+        $lastmod = $entry[3] ?? null;
+
+        $xml .= '  <url>';
+        $xml .= '<loc>' . e(url($path)) . '</loc>';
+        if ($lastmod) {
+            $xml .= '<lastmod>' . e(date('Y-m-d', strtotime($lastmod))) . '</lastmod>';
+        }
+        $xml .= '<changefreq>' . $changefreq . '</changefreq>';
+        $xml .= '<priority>' . $priority . '</priority>';
+        $xml .= '</url>' . "\n";
     }
     $xml .= '</urlset>' . "\n";
 
     return response($xml, 200)->header('Content-Type', 'application/xml');
 })->name('sitemap');
+
+// ============================================
+// llms.txt — the emerging convention for answer engines (ChatGPT, Claude,
+// Perplexity, Gemini). A single curated, plain-text map of the site so a model
+// grounding an answer reads our own framing instead of guessing from chrome.
+// Spec: https://llmstxt.org
+// ============================================
+Route::get('/llms.txt', function () {
+    return response(view('seo.llms')->render(), 200)
+        ->header('Content-Type', 'text/plain; charset=utf-8');
+})->name('llms');
 
 // Default "login" route: Laravel's auth middleware redirects unauthenticated
 // users to route('login'). Admin auth lives under admin.login, so alias it here.

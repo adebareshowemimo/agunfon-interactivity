@@ -4,6 +4,8 @@
 @section('description', $post['metadesc'])
 @section('og_type', 'article')
 @section('og_image', $post['image'])
+{{-- This view emits its own BreadcrumbList below; suppress the layout's automatic one. --}}
+@section('skip_auto_breadcrumb', true)
 
 @push('meta')
 <meta property="article:published_time" content="{{ $post['date'] }}">

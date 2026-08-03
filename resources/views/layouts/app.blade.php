@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    {{-- Verification + GA4. Renders nothing until configured in .env. --}}
+    @include('components.analytics')
+
     <title>@yield('title', 'Agunfon - Enterprise Learning Solutions')</title>
     <meta name="description" content="@yield('description', 'Agunfon delivers adaptive LMS platforms, learning content and specialist consulting for enterprise teams across Africa.')">
     <link rel="canonical" href="{{ url()->current() }}">
@@ -16,13 +19,13 @@
     <meta property="og:description" content="@yield('description', 'Agunfon delivers adaptive LMS platforms, learning content and specialist consulting for enterprise teams across Africa.')">
     <meta property="og:type" content="@yield('og_type', 'website')">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:image" content="{{ url()->to(trim($__env->yieldContent('og_image', '/images/agunfon-og.png'))) }}">
+    <meta property="og:image" content="{{ url()->to(trim($__env->yieldContent('og_image', '/images/agunfon-og.jpg'))) }}">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="@yield('title', 'Agunfon - Enterprise Learning Solutions')">
     <meta name="twitter:description" content="@yield('description', 'Agunfon delivers adaptive LMS platforms, learning content and specialist consulting for enterprise teams across Africa.')">
-    <meta name="twitter:image" content="{{ url()->to(trim($__env->yieldContent('og_image', '/images/agunfon-og.png'))) }}">
+    <meta name="twitter:image" content="{{ url()->to(trim($__env->yieldContent('og_image', '/images/agunfon-og.jpg'))) }}">
 
     <!-- Per-page meta / structured data hook -->
     @stack('meta')
@@ -32,9 +35,16 @@
     {
         "@@context": "https://schema.org",
         "@type": "Organization",
+        "@id": "{{ url('/') }}/#organization",
         "name": "Agunfon",
+        "alternateName": "Agunfon Interactivity",
         "url": "{{ url('/') }}",
-        "logo": "{{ url('/images/Agunfon_Icon.png') }}",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "{{ url('/images/Agunfon_Icon.png') }}"
+        },
+        "image": "{{ url('/images/agunfon-og.jpg') }}",
+        "description": "Agunfon Interactivity builds enterprise learning systems — an adaptive LMS platform, custom learning content and consulting, and premium Moodle plugins for Moodle 4.5 to 5.2.",
         "email": "info@agunfoninteractivity.com",
         "telephone": "+1-478-306-2250",
         "address": {
@@ -45,6 +55,24 @@
             "postalCode": "30350",
             "addressCountry": "US"
         },
+        "contactPoint": [{
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "email": "info@agunfoninteractivity.com",
+            "telephone": "+1-478-306-2250",
+            "availableLanguage": ["English"],
+            "url": "{{ url('/contact') }}"
+        }],
+        "knowsAbout": [
+            "Moodle",
+            "Moodle plugin development",
+            "Learning management systems",
+            "Compliance training",
+            "Corporate e-learning",
+            "Instructional design",
+            "SCORM",
+            "Learner engagement analytics"
+        ],
         "sameAs": [
             "https://www.linkedin.com/company/agunfon",
             "https://instagram.com/agunfon",
@@ -56,10 +84,71 @@
     {
         "@@context": "https://schema.org",
         "@type": "WebSite",
+        "@id": "{{ url('/') }}/#website",
         "name": "Agunfon",
-        "url": "{{ url('/') }}"
+        "url": "{{ url('/') }}",
+        "inLanguage": "en",
+        "publisher": { "@id": "{{ url('/') }}/#organization" },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "{{ url('/blog') }}?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        }
     }
     </script>
+    @php
+        // Site-wide BreadcrumbList derived from the URL path. Pages that publish a
+        // richer, hand-written breadcrumb (e.g. blog posts) opt out by setting the
+        // skip_auto_breadcrumb section, so we never emit two.
+        $segments = array_values(array_filter(explode('/', trim(request()->path(), '/'))));
+
+        $autoCrumbs = [];
+        foreach ($segments as $i => $segment) {
+            $path = implode('/', array_slice($segments, 0, $i + 1));
+            $isLast = $i === count($segments) - 1;
+
+            // Intermediate crumbs must point at a real URL. Grouping segments that
+            // are not themselves routable (e.g. /plugins) are dropped rather than
+            // linked to a 404.
+            if (! $isLast) {
+                try {
+                    app('router')->getRoutes()->match(Illuminate\Http\Request::create('/' . $path, 'GET'));
+                } catch (Throwable $e) {
+                    continue;
+                }
+            }
+
+            $autoCrumbs[] = [
+                'name' => Str::headline(str_replace('-', ' ', $segment)),
+                'url' => url($path),
+            ];
+        }
+    @endphp
+    @if (! trim($__env->yieldContent('skip_auto_breadcrumb')) && count($autoCrumbs))
+    <script type="application/ld+json">
+    {
+        "@@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "{{ url('/') }}"
+            }@foreach ($autoCrumbs as $i => $crumb),
+            {
+                "@type": "ListItem",
+                "position": {{ $i + 2 }},
+                "name": "{{ $crumb['name'] }}",
+                "item": "{{ $crumb['url'] }}"
+            }@endforeach
+        ]
+    }
+    </script>
+    @endif
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/images/Agunfon_Icon.png">

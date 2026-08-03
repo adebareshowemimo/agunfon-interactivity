@@ -1,5 +1,74 @@
+# ==========================================================================
+# Agunfon Interactivity — robots.txt
+# Policy: open to search AND answer engines. We WANT to be cited by
+# Google AI Overviews, Gemini, ChatGPT, Claude, Perplexity and Copilot.
+# ==========================================================================
+
 User-agent: *
+Allow: /
 Disallow: /admin
 Disallow: /login
+# Production/marketing source assets — not pages, huge, waste crawl budget.
+Disallow: /images/*/motion-frames/
+Disallow: /images/*/coverpage/
+Disallow: /*.pptx$
+Disallow: /*.mp4$
+Disallow: /*.mp3$
+# Faceted blog URLs — the canonical listing is /blog.
+Disallow: /blog?*
+
+# --- Answer / AI engines: explicitly welcome ---------------------------
+# OpenAI (ChatGPT search, training, live browsing)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google Gemini / Vertex grounding (separate from Googlebot indexing)
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Microsoft Copilot
+User-agent: Bingbot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI
+User-agent: meta-externalagent
+Allow: /
+
+# Common Crawl — the corpus most open models are trained on
+User-agent: CCBot
+Allow: /
 
 Sitemap: https://agunfoninteractivity.com/sitemap.xml
